@@ -37,8 +37,9 @@ const Navbar = () => {
             id='navbar'
             className={`bg-[#f8f8f8] p-4 flex justify-between shadow-sm shadow-gray-100`}>
 
-            <div id='nav-logo'>
-                Joy Bear Logo
+            <div id='nav-logo' className='flex justify-center items-center gap-2'>
+                <img src="/bear-paw.svg" alt="Joy Bear Logo" className="w-6 h-6 inline" />
+                <span>Joy Bear</span>
             </div>
 
             <div
