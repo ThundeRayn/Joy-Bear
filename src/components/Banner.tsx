@@ -9,8 +9,7 @@ const Banner = () => {
             font-normal text-[#2c362d] font-sm
             hover:pointer hover:text-[#617963]
             transition-colors duration-300 ease-in-out
-            opacity-0 animate-[fadeIn_1s_ease-in_forwards]"
-            >
+            opacity-0 animate-[fadeIn_1s_ease-in_forwards]">
             10% discount for new customer →
         </a>
     </div>
