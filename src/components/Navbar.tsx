@@ -60,9 +60,15 @@ const Navbar = () => {
           className={`w-full overflow-hidden transition-all duration-500 ease-in-out bg-[#f8f8f8] flex items-center justify-center text-black text-normal font-normal ${open ? 'max-h-64 py-5 opacity-100' : 'max-h-0 py-0 opacity-0'}`}
         >
             <ul className='w-full flex flex-col'>
-                <li className="menu-item">Home</li>
-                <li className="menu-item">Products</li>
-                <li className="menu-item">Activities</li>
+                <li>
+                  <a href='/' className="menu-item">Home</a>
+                </li>
+                <li>
+                  <a href='#' className="menu-item">Products</a>
+                </li>
+                <li>
+                  <a href='#' className="menu-item">Activities</a>
+                </li>
             </ul>
         </div>
 
