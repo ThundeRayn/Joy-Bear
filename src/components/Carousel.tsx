@@ -61,7 +61,8 @@ const Carousel = () => {
     };
 
     return (
-      <div className="w-full h-[50vh] md:h-[70vh] lg:h-[85vh] overflow-hidden relative">
+      //none: mobile md:ipad 
+      <div className="w-full aspect-[13/9] md:aspect-[13/7] lg:aspect-[17/7] overflow-hidden relative">
         <div
           ref={slidesRef}
           className="flex h-full"
@@ -82,12 +83,12 @@ const Carousel = () => {
         </div>
 
         <button
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white bg-opacity-50 rounded-full cursor-pointer disabled:opacity-50 disabled:cursor-pointer"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer disabled:opacity-80 disabled:cursor-pointer"
           onClick={prevSlide}
           disabled={isSliding}
         ><RiArrowLeftWideFill /></button>
         <button
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white bg-opacity-50 rounded-full cursor-pointer disabled:opacity-50 disabled:cursor-pointer"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer disabled:opacity-80 disabled:cursor-pointer"
           onClick={nextSlide}
           disabled={isSliding}
         ><RiArrowRightWideFill /></button>
