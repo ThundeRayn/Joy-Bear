@@ -25,26 +25,30 @@ const Carousel = () => {
     ];
 
 
+
     // Prevent rapid clicks by disabling navigation during transition
     const [isSliding, setIsSliding] = useState(false);
+    const [clickedButton, setClickedButton] = useState<null | 'left' | 'right'>(null);
 
-    const goTo = (idx: number) => {
+    const goTo = (idx: number, btn: 'left' | 'right') => {
       if (isSliding) return;
       setTransition(true);
       setCurrent(idx);
       setIsSliding(true);
+      setClickedButton(btn);
     };
 
     const prevSlide = () => {
-      goTo(current - 1);
+      goTo(current - 1, 'left');
     };
     const nextSlide = () => {
-      goTo(current + 1);
+      goTo(current + 1, 'right');
     };
 
     // Handle transition end for seamless looping
     const handleTransitionEnd = () => {
       setIsSliding(false);
+      setClickedButton(null);
       if (current === 0) {
         setTransition(false);
         setCurrent(Activities.length);
@@ -83,12 +87,12 @@ const Carousel = () => {
         </div>
 
         <button
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer disabled:opacity-80 disabled:cursor-pointer"
+          className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer ${isSliding && clickedButton === 'left' ? 'opacity-80' : ''}`}
           onClick={prevSlide}
           disabled={isSliding}
         ><RiArrowLeftWideFill /></button>
         <button
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer disabled:opacity-80 disabled:cursor-pointer"
+          className={`absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer ${isSliding && clickedButton === 'right' ? 'opacity-80' : ''}`}
           onClick={nextSlide}
           disabled={isSliding}
         ><RiArrowRightWideFill /></button>
