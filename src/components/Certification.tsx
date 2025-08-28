@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { RiArrowLeftWideFill } from "react-icons/ri";
+import { RiArrowRightWideFill } from "react-icons/ri";
 
 const Certification = () => {
         // Carousel data
@@ -45,20 +47,21 @@ const Certification = () => {
             </p>
             {/* Carousel Section */}
             <div className="w-full max-w-6xl relative mx-auto">
+                {/*buttons*/}
                 <button
-                    className="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-200 z-10 disabled:opacity-50"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer transition"
                     onClick={handlePrev}
                     disabled={visible === 0}
-                >
-                    ←
-                </button>
+                    style={{ opacity: visible === 0 ? 0.1 : 1 }}
+                ><RiArrowLeftWideFill /></button>
+
                 <button
-                    className="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-200 z-10 disabled:opacity-50"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer transition"
                     onClick={handleNext}
                     disabled={visible === maxIndex}
-                >
-                    →
-                </button>
+                    style={{ opacity: visible === maxIndex ? 0.1 : 1 }}
+                ><RiArrowRightWideFill /></button>
+
                 <div className="overflow-hidden">
                     <ul
                         className="flex gap-4 py-4 px-2 min-w-full transition-transform duration-500"
@@ -93,7 +96,7 @@ const Certification = () => {
                                     onClick={e => e.stopPropagation()}
                                 >
                                     <button
-                                        className="absolute top-2 right-2 text-white text-2xl bg-black bg-opacity-50 rounded-full px-2 py-1 hover:bg-opacity-80 z-10"
+                                        className="absolute top-2 right-2 text-white text-2xl bg-black bg-opacity-50 rounded-full px-2 pb-1 hover:bg-opacity-80 z-10 cursor-pointer"
                                         onClick={() => setModalImg(null)}
                                         aria-label="Close"
                                     >
