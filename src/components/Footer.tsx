@@ -15,7 +15,7 @@ const Footer = () => {
                 {/* Logo & Brand Story */}
                 <div className="mb-8 lg:mb-0 lg:w-1/4">
                     <img src={BlackBear} alt="JoyBear Logo" className="w-full h-6 m-2" />
-                    <p className="text-black text-sm w-full lg:pl-6">ToyC. has been creating innovative and safe toys for children worldwide. Our mission is to bring joy and learning together in every product.</p>
+                    <p className="text-black text-sm w-full lg:pl-6">JoyBear has been creating innovative and safe toys for children worldwide. Our mission is to bring joy and learning together in every product.</p>
                 </div>
 
                 {/* Navigation Links */}
@@ -28,6 +28,7 @@ const Footer = () => {
                             <li><a href="#" className={linkClass}>Company Capability</a></li>
                             <li><a href="#" className={linkClass}>Quality Standards</a></li>
                             <li><a href="#" className={linkClass}>Certifications</a></li>
+                            <li><a href="#" className={linkClass}>Trusted Clients</a></li>
                         </ul>
                     </div>
 
@@ -38,7 +39,6 @@ const Footer = () => {
                             <li><a href="#" className={linkClass}>Products</a></li>
                             <li><a href="#" className={linkClass}>OEM Custom Made</a></li>
                             <li><a href="#" className={linkClass}>Successful Examples</a></li>
-                            <li><a href="#" className={linkClass}>Trusted Clients</a></li>
                             <li><a href="#" className={linkClass}>Cooperators</a></li>
                         </ul>
                     </div>
@@ -58,7 +58,7 @@ const Footer = () => {
 
             {/* Bottom Section: Copyright & Social */}
             <div className="border-t border-black pt-6 flex flex-col md:flex-row justify-between items-center">
-                <p className="text-black text-sm">&copy; 2025 ToyCo. All rights reserved.</p>
+                <p className="text-black text-sm">&copy; 2025 JoyBear. All rights reserved.</p>
                 <div className="flex space-x-4 mt-4 md:mt-0">
                     <a href="#" className={iconLinkClass} aria-label="LinkedIn">
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

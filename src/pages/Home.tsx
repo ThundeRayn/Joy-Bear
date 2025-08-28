@@ -2,7 +2,9 @@
 import Banner from '../components/Banner'
 import Navbar from '../components/Navbar'
 import Carousel from '../components/Carousel'
+import BrandIntro from '../components/BrandIntro'
 import Footer from '../components/Footer'
+import Certification from '../components/Certification'
 
 const Home = () => {
   return (
@@ -10,24 +12,8 @@ const Home = () => {
         <Banner />
         <Navbar />
         <Carousel/>
-        <h1 className="text-2xl font-bold text-center mt-10">
-            Welcome to Joy Bear!
-        </h1>
-        <h1 className="text-2xl font-bold text-center mt-10">
-            Welcome to Joy Bear!
-        </h1>
-        <h1 className="text-2xl font-bold text-center mt-10">
-            Welcome to Joy Bear!
-        </h1>
-        <h1 className="text-2xl font-bold text-center mt-10">
-            Welcome to Joy Bear!
-        </h1>
-        <h1 className="text-2xl font-bold text-center mt-10">
-            Welcome to Joy Bear!
-        </h1>
-        <h1 className="text-2xl font-bold text-center mt-10">
-            Welcome to Joy Bear!
-        </h1>
+        <BrandIntro />
+        <Certification />
         <Footer />
     </div>
   )
