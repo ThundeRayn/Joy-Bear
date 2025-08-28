@@ -4,6 +4,7 @@ interface SlantedSectionProps {
   leftContent?: React.ReactNode;
   rightContent?: React.ReactNode;
   className?: string;
+  gapPercent?: number; // percent gap between sections (default 10)
 }
 
 const Service: React.FC<SlantedSectionProps> = ({ 
@@ -23,28 +24,32 @@ const Service: React.FC<SlantedSectionProps> = ({
       </div>
     </div>
   ),
-  className = ""
+  className = "",
+  gapPercent = 10 // default gap between sections
 }) => {
+  // Calculate the polygon points based on gapPercent
+  // left section ends at (100-gap)% bottom, right section starts at gap% top
+  const leftBottom = 100 - gapPercent;
+  const rightTop = gapPercent;
   return (
-    <div className={`w-full h-100 md:h-150 lg:h-150 relative overflow-hidden ${className}`}>
+    <div className={`w-full h-100 md:h-150 lg:h-150 relative overflow-visible ${className}`}>
       {/* Left Section */}
-      <div className="absolute inset-0 w-1/2">
+      <div className="absolute inset-0 w-1/2 z-10">
         <div 
           className="w-full h-full"
           style={{
-            clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0 100%)',
+            clipPath: `polygon(0 0, 100% 0, ${leftBottom}% 100%, 0 100%)`,
           }}
         >
           {leftContent}
         </div>
       </div>
-      
       {/* Right Section */}
-      <div className="absolute inset-0 left-1/2 w-1/2">
+      <div className="absolute inset-0 left-1/2 w-1/2 z-20">
         <div 
           className="w-full h-full"
           style={{
-            clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 0 100%)',
+            clipPath: `polygon(${rightTop}% 0, 100% 0, 100% 100%, 0 100%)`,
           }}
         >
           {rightContent}

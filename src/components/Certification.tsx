@@ -12,6 +12,7 @@ const Certification = () => {
             { src: "https://picsum.photos/id/1055/600/400", label: "Kubernetes Admin", hidden: false },
             { src: "https://picsum.photos/id/1055/600/400", label: "Hidden img", hidden: true },
         ];
+        const visibleItems = items.filter(item => !item.hidden);
 
         // Modal state
         const [modalImg, setModalImg] = useState<null | { src: string; label: string }>(null);
@@ -35,7 +36,7 @@ const Certification = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const maxIndex = Math.max(0, items.length - visibleCount);
+    const maxIndex = Math.max(0, visibleItems.length - visibleCount);
 
     const handlePrev = () => setVisible((v) => Math.max(0, v - 1));
     const handleNext = () => setVisible((v) => Math.min(maxIndex, v + 1));
@@ -72,14 +73,13 @@ const Certification = () => {
                         className="flex gap-4 pt-4 px-4 min-w-full transition-transform duration-500"
                         style={{ transform: `translateX(-${visible * (100 / visibleCount)}%)` }}
                     >
-                        {items.map((item, idx) => (
+                        {visibleItems.map((item, idx) => (
                             <li
                                 key={idx}
                                 className="flex-shrink-0 w-1/2 md:w-1/4 p-4"
                                 style={{ minWidth: visibleCount === 2 ? '50%' : '25%' }}
                             >
-                                {/*a hidden option is provided from item info */}
-                                <div className={`flex flex-col items-center ${item.hidden ? 'hidden' : ''}`}>
+                                <div className="flex flex-col items-center">
                                     <img
                                         src={item.src}
                                         alt={item.label}
