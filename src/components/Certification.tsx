@@ -41,13 +41,16 @@ const Certification = () => {
     const handleNext = () => setVisible((v) => Math.min(maxIndex, v + 1));
 
     return (
-        <div className="w-full py-16 px-10 lg:px-20">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Certifications</h2>
-            <p className="text-gray-600 mb-6">
-                At <span className="font-semibold">Joybear</span>, we take pride in our commitment to quality and safety. Our products meet and exceed international standards, ensuring a safe play environment for children everywhere.
-            </p>
+        <div className="w-full py-16 px-5 lg:px-20 md:px-10">
+            {/* Text Section */}
+            <div className="px-5 text-center">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Certifications</h2>
+                <p className="text-gray-600 mb-6">
+                    At <span className="font-semibold">Joybear</span>, we take pride in our commitment to quality and safety. 
+                </p>
+            </div>
             {/* Carousel Section */}
-            <div className="w-full max-w-6xl relative mx-auto">
+            <div className="w-full max-w-6xl relative mx-auto large:px-5">
                 {/*buttons*/}
                 <button
                     className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer transition"
