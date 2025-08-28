@@ -5,11 +5,12 @@ import { RiArrowRightWideFill } from "react-icons/ri";
 const Certification = () => {
         // Carousel data
         const items = [
-            { src: "https://picsum.photos/id/1015/600/400", label: "AWS Certified" },
-            { src: "https://picsum.photos/id/1025/600/400", label: "Google Cloud" },
-            { src: "https://picsum.photos/id/1035/600/400", label: "Azure Certified" },
-            { src: "https://picsum.photos/id/1045/600/400", label: "React Developer" },
-            { src: "https://picsum.photos/id/1055/600/400", label: "Kubernetes Admin" },
+            { src: "https://picsum.photos/id/1015/600/400", label: "AWS Certified", hidden: false },
+            { src: "https://picsum.photos/id/1025/600/400", label: "Google Cloud", hidden: false },
+            { src: "https://picsum.photos/id/1035/600/400", label: "Azure Certified", hidden: false },
+            { src: "https://picsum.photos/id/1045/600/400", label: "React Developer", hidden: false },
+            { src: "https://picsum.photos/id/1055/600/400", label: "Kubernetes Admin", hidden: false },
+            { src: "https://picsum.photos/id/1055/600/400", label: "Hidden img", hidden: true },
         ];
 
         // Modal state
@@ -62,9 +63,10 @@ const Certification = () => {
                     style={{ opacity: visible === maxIndex ? 0.1 : 1 }}
                 ><RiArrowRightWideFill /></button>
 
+                {/*certification carousel*/}
                 <div className="overflow-hidden">
                     <ul
-                        className="flex gap-4 py-4 px-2 min-w-full transition-transform duration-500"
+                        className="flex gap-4 pt-4 px-4 min-w-full transition-transform duration-500"
                         style={{ transform: `translateX(-${visible * (100 / visibleCount)}%)` }}
                     >
                         {items.map((item, idx) => (
@@ -73,15 +75,16 @@ const Certification = () => {
                                 className="flex-shrink-0 w-1/2 md:w-1/4 p-4"
                                 style={{ minWidth: visibleCount === 2 ? '50%' : '25%' }}
                             >
-                                                <div className="flex flex-col items-center">
-                                                    <img
-                                                        src={item.src}
-                                                        alt={item.label}
-                                                        className="w-40 h-40 object-cover rounded-xl shadow-md cursor-pointer hover:scale-105 transition-transform"
-                                                        onClick={() => setModalImg(item)}
-                                                    />
-                                                    <p className="mt-2 text-center text-sm font-medium">{item.label}</p>
-                                                </div>
+                                {/*a hidden option is provided from item info */}
+                                <div className={`flex flex-col items-center ${item.hidden ? 'hidden' : ''}`}>
+                                    <img
+                                        src={item.src}
+                                        alt={item.label}
+                                        className="w-40 h-40 object-cover rounded-xl shadow-md cursor-pointer hover:scale-105 transition-transform"
+                                        onClick={() => setModalImg(item)}
+                                    />
+                                    <p className="mt-2 text-center text-sm font-medium">{item.label}</p>
+                                </div>
                             </li>
                         ))}
                     </ul>
