@@ -69,7 +69,10 @@ const Service: React.FC<SlantedSectionProps> = (props) => {
   return (
     <div className={`w-full h-100 md:h-150 lg:h-150 relative overflow-visible ${className}`}>
       {/* Left Section */}
-      <div className="absolute inset-0 w-1/2 z-10 cursor-pointer">
+      <a 
+        className="absolute inset-0 w-1/2 z-10 cursor-pointer"
+        href="/products"
+      >
         <div
           className="w-full h-full"
           style={{
@@ -78,9 +81,12 @@ const Service: React.FC<SlantedSectionProps> = (props) => {
         >
           {leftContent || defaultContent}
         </div>
-      </div>
+      </a>
       {/* Right Section */}
-      <div className="absolute inset-0 left-1/2 w-1/2 z-20 cursor-pointer">
+      <a 
+        className="absolute inset-0 left-1/2 w-1/2 z-20 cursor-pointer"
+        href="/customize"
+      >
         <div
           className="w-full h-full"
           style={{
@@ -89,7 +95,7 @@ const Service: React.FC<SlantedSectionProps> = (props) => {
         >
           {rightContent || defaultContent}
         </div>
-      </div>
+      </a>
     </div>
   );
 };
