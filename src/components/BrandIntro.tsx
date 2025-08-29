@@ -2,7 +2,7 @@
 
 const BrandIntro = () => {
   return (
-    <section className="w-full py-16 px-10 lg:px-20 border-2 border-[#86A788]">
+    <section className="w-full py-16 px-10 lg:px-20">
         <div className="flex flex-col items-center">
 
             {/* Right: Brand Intro Text */}

@@ -12,6 +12,7 @@ const Certification = () => {
             { src: "https://picsum.photos/id/1055/600/400", label: "Kubernetes Admin", hidden: false },
             { src: "https://picsum.photos/id/1055/600/400", label: "Hidden img", hidden: true },
         ];
+        const visibleItems = items.filter(item => !item.hidden);
 
         // Modal state
         const [modalImg, setModalImg] = useState<null | { src: string; label: string }>(null);
@@ -35,19 +36,22 @@ const Certification = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const maxIndex = Math.max(0, items.length - visibleCount);
+    const maxIndex = Math.max(0, visibleItems.length - visibleCount);
 
     const handlePrev = () => setVisible((v) => Math.max(0, v - 1));
     const handleNext = () => setVisible((v) => Math.min(maxIndex, v + 1));
 
     return (
-        <div className="w-full py-16 px-10 lg:px-20">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Certifications</h2>
-            <p className="text-gray-600 mb-6">
-                At <span className="font-semibold">Joybear</span>, we take pride in our commitment to quality and safety. Our products meet and exceed international standards, ensuring a safe play environment for children everywhere.
-            </p>
+        <div className="w-full py-16 px-5 lg:px-20 md:px-10">
+            {/* Text Section */}
+            <div className="px-5 text-center">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Certifications</h2>
+                <p className="text-gray-600 mb-6">
+                    At <span className="font-semibold">Joybear</span>, we take pride in our commitment to quality and safety. 
+                </p>
+            </div>
             {/* Carousel Section */}
-            <div className="w-full max-w-6xl relative mx-auto">
+            <div className="w-full max-w-6xl relative mx-auto large:px-5">
                 {/*buttons*/}
                 <button
                     className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer transition"
@@ -69,14 +73,13 @@ const Certification = () => {
                         className="flex gap-4 pt-4 px-4 min-w-full transition-transform duration-500"
                         style={{ transform: `translateX(-${visible * (100 / visibleCount)}%)` }}
                     >
-                        {items.map((item, idx) => (
+                        {visibleItems.map((item, idx) => (
                             <li
                                 key={idx}
                                 className="flex-shrink-0 w-1/2 md:w-1/4 p-4"
                                 style={{ minWidth: visibleCount === 2 ? '50%' : '25%' }}
                             >
-                                {/*a hidden option is provided from item info */}
-                                <div className={`flex flex-col items-center ${item.hidden ? 'hidden' : ''}`}>
+                                <div className="flex flex-col items-center">
                                     <img
                                         src={item.src}
                                         alt={item.label}

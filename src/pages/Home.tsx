@@ -5,6 +5,7 @@ import Carousel from '../components/Carousel'
 import BrandIntro from '../components/BrandIntro'
 import Footer from '../components/Footer'
 import Certification from '../components/Certification'
+import Service from '../components/Service'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
         <Navbar />
         <Carousel/>
         <BrandIntro />
+        <Service />
         <Certification />
         <Footer />
     </div>
