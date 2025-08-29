@@ -14,10 +14,7 @@ const Home = () => {
         <Navbar />
         <Carousel/>
         <BrandIntro />
-        <Service 
-          topImageUrl="https://picsum.photos/600/800?toy1"
-          bottomImageUrl="https://picsum.photos/600/800?toy2"
-        />
+        <Service />
         <Certification />
         <Footer />
     </div>
