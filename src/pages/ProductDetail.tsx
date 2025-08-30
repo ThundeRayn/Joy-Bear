@@ -3,17 +3,27 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import client from '../Client'
 
+type Product = {
+  _id: string;
+  slug: string;
+  title: string;
+  price: number;
+  description: string;
+  category: { title: string };
+  images?: { asset: { url: string } }[];
+}
 
 const ProductDetail = () => {
   const [singleProduct,setSingleProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const {productId} = useParams<{productId: string}>();
+  const {slug} = useParams<{slug: string}>();
 
   useEffect(() => {
     client
       .fetch(
-        `*[slug.current == "${productId}"]{
+        `*[slug.current == "${slug}"]{
           _id,
+          slug,
           price,
           title,
           description,
@@ -22,12 +32,12 @@ const ProductDetail = () => {
         }`
       )
       .then((data) => {
-        console.log(data); // <-- print
-        console.log(productId);
+        console.log(`singlePage data: `+data); // <-- print
+        console.log(`singlePage slug: `+slug); // <-- print
         setSingleProduct(data[0]) // set the first product
       })
       .catch((err) => console.error(err));
-  }, [productId]);
+  }, [slug]);
 
   return (
     <div>

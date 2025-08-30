@@ -4,6 +4,10 @@ import ProductCard from "../components/ProductCard";
 
 interface Product {
   _id: string;
+  slug: {
+    _type: "slug";
+    current: string;
+  };
   title: string;
   price: number;
   description: string;
@@ -19,6 +23,7 @@ const Product = () => {
       .fetch(
         `*[_type == "product"]{
           _id,
+          slug,
           price,
           title,
           description,

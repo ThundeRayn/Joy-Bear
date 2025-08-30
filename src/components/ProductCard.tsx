@@ -2,6 +2,10 @@ import React from 'react'
 
 interface Product {
   _id: string;
+  slug: {
+    _type: "slug";
+    current: string;
+  };
   title: string;
   price: number;
   description: string;
@@ -18,7 +22,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <div>
       {product ? (
         <div key={product._id}>
-            <a href={`/products/${product.title}`}>
+            <a href={`/products/${product.slug.current}`}>
               {/* {product.title}, 
               {product.price}, 
               {product.description},
