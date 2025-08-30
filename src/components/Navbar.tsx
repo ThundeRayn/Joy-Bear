@@ -64,7 +64,10 @@ const Navbar = () => {
                   <a href='/' className="menu-item">Home</a>
                 </li>
                 <li>
-                  <a href='#' className="menu-item">Products</a>
+                  <a href='/about' className="menu-item">About</a>
+                </li>
+                <li>
+                  <a href='/products' className="menu-item">Products</a>
                 </li>
                 <li>
                   <a href='#' className="menu-item">Activities</a>
