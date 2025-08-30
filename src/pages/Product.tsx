@@ -34,7 +34,7 @@ const Product = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-10 md:py-4 px-5">
+    <div className="flex flex-col items-center justify-center min-h-screen py-10 md:py-4 lg:py-6 px-5">
         <div className="p-10">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our products</h2>
             <p>You are viewing {products.length} products</p>

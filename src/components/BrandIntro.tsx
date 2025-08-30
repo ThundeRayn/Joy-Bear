@@ -26,7 +26,7 @@ const BrandIntro = () => {
                 </li>
             </ul>
             <div className="mt-8">
-                <a href="#about" className="inline-block bg-[#86A788] text-white px-6 py-3 rounded-xl shadow hover:bg-[#6a886c] transition">
+                <a href="/about" className="inline-block bg-[#86A788] text-white px-6 py-3 rounded-xl shadow hover:bg-[#6a886c] transition">
                 Learn More About Us
                 </a>
             </div>
