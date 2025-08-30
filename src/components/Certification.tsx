@@ -77,7 +77,10 @@ const Certification = () => {
                             <li
                                 key={idx}
                                 className="flex-shrink-0 w-1/2 md:w-1/4 p-4"
-                                style={{ minWidth: visibleCount === 2 ? '50%' : '25%' }}
+                                style={{
+                                    minWidth: visibleCount === 2 ? '50%' : '25%',
+                                    display: idx === visibleItems.length - 1 ? 'none' : undefined
+                                }}
                             >
                                 <div className="flex flex-col items-center">
                                     <img
