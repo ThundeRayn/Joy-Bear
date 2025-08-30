@@ -37,9 +37,7 @@ const Product = () => {
     <div>
       <h1>Products</h1>
       <p>You are viewing {products.length} products</p>
-      <ul>
-        <li>List products:</li>
-        {products.map(product => (
+        {/* {products.map(product => (
           <li key={product._id}>
             <a href={`/products/${product.title}`}>
               {product.title}, 
@@ -49,19 +47,15 @@ const Product = () => {
               {product.category ? product.category.title : 'No Category'}
             </a>
           </li>
-        ))}
-      </ul>
-      {/* <div>
+        ))} */}
+      <div>
         {products.map(product => (
           <ProductCard 
             key={product._id}  
-            title={product.title}
-            price={product.price}
-            images={product.images}
-            category={product.category}
+            product={product}
           />
         ))}
-      </div> */}
+      </div>
     </div>
   )
 }
