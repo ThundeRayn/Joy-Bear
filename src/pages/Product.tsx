@@ -34,9 +34,11 @@ const Product = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Products</h1>
-      <p>You are viewing {products.length} products</p>
+    <div className="flex flex-col items-center justify-center min-h-screen py-10 md:py-4 px-5">
+        <div className="p-10">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our products</h2>
+            <p>You are viewing {products.length} products</p>
+        </div>
         {/* {products.map(product => (
           <li key={product._id}>
             <a href={`/products/${product.title}`}>
@@ -48,14 +50,21 @@ const Product = () => {
             </a>
           </li>
         ))} */}
-      <div>
-        {products.map(product => (
-          <ProductCard 
-            key={product._id}  
-            product={product}
-          />
-        ))}
-      </div>
+
+
+        <div
+          id="product-card"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-7xl px-2"
+        >
+          {products.map(product => (
+            <div key={product._id} className="rounded-lg bg-white shadow flex justify-center">
+              <ProductCard 
+                key={product._id}  
+                product={product}
+              />
+            </div>
+          ))}
+        </div>
     </div>
   )
 }
