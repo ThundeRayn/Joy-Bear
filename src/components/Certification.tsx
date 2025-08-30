@@ -10,7 +10,7 @@ const Certification = () => {
             { src: "https://picsum.photos/id/1035/600/400", label: "Azure Certified", hidden: false },
             { src: "https://picsum.photos/id/1045/600/400", label: "React Developer", hidden: false },
             { src: "https://picsum.photos/id/1055/600/400", label: "Kubernetes Admin", hidden: false },
-            { src: "https://picsum.photos/id/1055/600/400", label: "Hidden img", hidden: true },
+            { src: "https://picsum.photos/id/1055/600/400", label: "Hidden img", hidden: false},
         ];
         const visibleItems = items.filter(item => !item.hidden);
 
@@ -77,7 +77,10 @@ const Certification = () => {
                             <li
                                 key={idx}
                                 className="flex-shrink-0 w-1/2 md:w-1/4 p-4"
-                                style={{ minWidth: visibleCount === 2 ? '50%' : '25%' }}
+                                style={{
+                                    minWidth: visibleCount === 2 ? '50%' : '25%',
+                                    display: idx === visibleItems.length - 1 ? 'none' : undefined
+                                }}
                             >
                                 <div className="flex flex-col items-center">
                                     <img
