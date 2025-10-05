@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import client from '../Client'
@@ -10,7 +10,7 @@ type Product = {
   price: number;
   description: string;
   category: { title: string };
-  images?: { asset: { url: string } }[];
+  images?: string[];
 }
 
 const ProductDetail = () => {
@@ -33,7 +33,7 @@ const ProductDetail = () => {
       )
       .then((data) => {
         console.log(data); // <-- print
-        console.log(`singlePage slug: `+slug); // <-- print
+        console.log(`singlePage slug: `+ slug); // <-- print
         setSingleProduct(data[0]) // set the first product
         setIsLoading(false);
       })
@@ -42,6 +42,19 @@ const ProductDetail = () => {
         setIsLoading(false);
       });
   }, [slug]);
+
+  if (isLoading) {
+    return (
+      <div className="max-w-4xl mx-auto p-6">
+        <div className="flex items-center justify-center h-96">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p className="text-gray-600">Loading product details...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -94,7 +107,7 @@ const ProductDetail = () => {
       </>
       ) : (
         <div>
-          <p className="text-center my-10 text-gray-500">Product Detail coming soon</p>
+          <p className="text-center my-10 text-gray-500">Product not found</p>
         </div>
       )}
     </div>
