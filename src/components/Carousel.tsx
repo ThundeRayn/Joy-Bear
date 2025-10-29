@@ -2,9 +2,13 @@ import { useState, useRef } from 'react'
 import { RiArrowLeftWideFill } from "react-icons/ri";
 import { RiArrowRightWideFill } from "react-icons/ri";
 
-import Bear1 from '../assets/imgs/bear1_11zon.webp'
-import Bear2 from '../assets/imgs/bear2_11zon.webp'
-import Bear3 from '../assets/imgs/bear3_11zon.webp'
+import Bear1Img from '../assets/imgs/Bear1_11zon.webp'
+import Bear2Img from '../assets/imgs/Bear2_11zon.webp'
+import Bear3Img from '../assets/imgs/Bear3_11zon.webp'
+
+const Bear1 = Bear1Img;
+const Bear2 = Bear2Img;
+const Bear3 = Bear3Img;
 
 const Activities = [
   { id: 1, image: Bear2, title: 'Item 1' },
