@@ -53,9 +53,9 @@ const Quality = () => {
               <div className="w-4 h-4 rounded-full bg-[#86A788] ring-4 ring-white shadow-lg" />
             </div>
 
-            <div className="flex flex-col md:flex-row md:items-start gap-4">
+            <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
               {/* Image - larger on mobile and full width above content */}
-              <div className="w-full md:w-40 h-48 md:h-28 rounded-lg overflow-hidden flex-shrink-0">
+              <div className="w-full md:w-56 h-48 md:h-28 rounded-lg overflow-hidden flex-shrink-0">
                 <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
               </div>
 
