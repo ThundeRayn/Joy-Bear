@@ -24,9 +24,8 @@ const Footer = () => {
                     <div className={columnClass}>
                         <h3 className={headingClass}>About</h3>
                         <ul className={listClass}>
-                            <li><a href="#" className={linkClass}>Brand Story</a></li>
-                            <li><a href="#" className={linkClass}>Company Capability</a></li>
-                            <li><a href="#" className={linkClass}>Quality Standards</a></li>
+                            <li><a href="/about" className={linkClass}>Brand Story</a></li>
+                            <li><a href="/quality" className={linkClass}>Quality Standards</a></li>
                             <li><a href="#" className={linkClass}>Certifications</a></li>
                             <li><a href="#" className={linkClass}>Trusted Clients</a></li>
                         </ul>
@@ -34,12 +33,11 @@ const Footer = () => {
 
                     {/* Column 2: Products & Services */}
                     <div className={columnClass}>
-                        <h3 className={headingClass}>Products & Services</h3>
+                        <h3 className={headingClass}>Services</h3>
                         <ul className={listClass}>
-                            <li><a href="#" className={linkClass}>Products</a></li>
-                            <li><a href="#" className={linkClass}>OEM Custom Made</a></li>
+                            <li><a href="/products" className={linkClass}>Products</a></li>
+                            <li><a href="/customize" className={linkClass}>OEM Custom Made</a></li>
                             <li><a href="#" className={linkClass}>Successful Examples</a></li>
-                            <li><a href="#" className={linkClass}>Cooperators</a></li>
                         </ul>
                     </div>
 
@@ -48,8 +46,6 @@ const Footer = () => {
                         <h3 className={headingClass}>Connect</h3>
                         <ul className={listClass}>
                             <li><a href="#" className={linkClass}>Contact Us</a></li>
-                            <li><a href="#" className={linkClass}>Join Us</a></li>
-                            <li><a href="#" className={linkClass}>Activities</a></li>
                             <li><a href="#" className={linkClass}>News</a></li>
                         </ul>
                     </div>

@@ -56,7 +56,7 @@ const Service: React.FC<SlantedSectionProps> = (props) => {
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-400 group-hover:scale-105"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80')" // Bear toy image
+          backgroundImage: "url('https://images.unsplash.com/photo-1617007770248-d8e154d4508d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1074')" // Bear toy image
         }}
       ></div>
       <div className="text-center bg-[#86A788] bg-opacity-40 p-4 rounded relative z-10">
