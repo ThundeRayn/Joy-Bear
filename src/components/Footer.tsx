@@ -24,8 +24,9 @@ const Footer = () => {
                     <div className={columnClass}>
                         <h3 className={headingClass}>About</h3>
                         <ul className={listClass}>
-                            <li><a href="/about" className={linkClass}>Brand Story</a></li>
-                            <li><a href="/quality" className={linkClass}>Quality Standards</a></li>
+                            <li><a href="/about" className={linkClass}>About Us</a></li>
+                            {/* <li><a href="/quality" className={linkClass}>Quality Standards</a></li> */}
+                            <li><a href="/story" className={linkClass}>Brand Story</a></li>
                             <li><a href="#" className={linkClass}>Certifications</a></li>
                             <li><a href="#" className={linkClass}>Trusted Clients</a></li>
                         </ul>

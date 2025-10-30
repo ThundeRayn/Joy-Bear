@@ -6,7 +6,8 @@ import Product from './pages/Product'
 import ProductDetail from './pages/ProductDetail';
 import Error from './pages/Error';
 import About from './pages/About';
-import Quality from './pages/Quality';
+import Story from './pages/Story';
+import Cutomize from './pages/Cutomize';
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="products" element={<Product />} />
           <Route path="products/:slug" element={<ProductDetail />} />
-          <Route path="/quality" element={<Quality/>} />
+          <Route path="story" element={<Story />} />
+          <Route path="customize" element={<Cutomize />} />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>
