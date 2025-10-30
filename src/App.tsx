@@ -6,6 +6,7 @@ import Product from './pages/Product'
 import ProductDetail from './pages/ProductDetail';
 import Error from './pages/Error';
 import About from './pages/About';
+import Quality from './pages/Quality';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="products" element={<Product />} />
           <Route path="products/:slug" element={<ProductDetail />} />
+          <Route path="/quality" element={<Quality/>} />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>
