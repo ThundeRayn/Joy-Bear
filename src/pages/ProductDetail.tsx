@@ -7,9 +7,10 @@ type Product = {
   _id: string;
   slug: string;
   title: string;
-  price: number;
+  minOrderQuantity?: number;
   description: string;
-  category: { title: string };
+  category?: {title: string}[];
+  tags?: {name: string}[];
   images?: string[];
 }
 
@@ -24,10 +25,11 @@ const ProductDetail = () => {
         `*[slug.current == "${slug}"]{
           _id,
           slug,
-          price,
           title,
+          minOrderQuantity,
           description,
-          category->{title},
+          "category": category[]->{title},
+          "tags": tags[]->{name},
           "images": images[].asset->url
         }`
       )
@@ -58,6 +60,14 @@ const ProductDetail = () => {
 
   return (
     <div>
+      <section className="bg-white py-4 pt-4 md:pt-10">
+        <div className="max-w-4xl mx-auto px-6">
+          <a href="/products" className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900">
+            ← Back to menu
+          </a>
+        </div>
+      </section>
+
       {singleProduct ? (
       <>
           {/* <div key={singleProduct._id}>
@@ -89,15 +99,25 @@ const ProductDetail = () => {
           {/* Product Info */}
           <div className="mt-6 w-full md:ml-10 md:mt-4">
             <h1 className="text-3xl font-bold text-gray-800">{singleProduct.title}</h1>
-            <p className="text-lg text-blue-600 font-semibold mt-2">
-              ${singleProduct.price}
-            </p>
-
-            {singleProduct.category && (
-              <span className="inline-block mt-3 px-3 py-1 text-sm bg-blue-100 text-blue-600 rounded-full">
-                {singleProduct.category.title}
-              </span>
+            {singleProduct.minOrderQuantity && (
+              <p className="text-lg text-blue-600 font-semibold mt-2">
+                Minimum Order Quantity: {singleProduct.minOrderQuantity}
+              </p>
             )}
+
+            {singleProduct.category && 
+            singleProduct.category.map((cat, index) => (
+              <span key={index} className="inline-block mt-3 mr-2 px-3 py-1 text-sm bg-blue-100 text-blue-600 rounded-full">
+                {cat.title}
+              </span>
+            ))}
+
+            {singleProduct.tags && 
+            singleProduct.tags.map((tag, index) => (
+              <span key={index} className="inline-block mt-3 mr-2 px-3 py-1 text-sm bg-blue-100 text-blue-600 rounded-full">
+                {tag.name}
+              </span>
+            ))}
 
             <p className="mt-6 text-gray-700 leading-relaxed">
               {singleProduct.description}
