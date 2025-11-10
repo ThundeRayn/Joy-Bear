@@ -57,7 +57,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Dropdown - suitable for desktop*/}
+        {/* Dropdown - only works for mobile*/}
         <div
           className={`w-full overflow-hidden transition-all duration-500 ease-in-out bg-[#f8f8f8] flex items-center justify-center text-black text-normal font-normal ${open ? 'max-h-64 py-5 opacity-100' : 'max-h-0 py-0 opacity-0'}`}
         >
@@ -69,10 +69,10 @@ const Navbar = () => {
                   <a href='/about' className="menu-item">About</a>
                 </li>
                 <li>
-                  <a href='/products' className="menu-item">Products</a>
+                  <a href='/products' className="menu-item">Toys</a>
                 </li>
                 <li>
-                  <a href='#' className="menu-item">Activities</a>
+                  <a href='/customize' className="menu-item">Customize</a>
                 </li>
             </ul>
         </div>
