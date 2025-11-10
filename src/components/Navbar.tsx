@@ -46,20 +46,36 @@ const Navbar = () => {
 
           <div
               id='nav-menu'
-              className='flex items-center'>
+              className='flex items-center gap-6'>
+              {/* Horizontal menu for desktop/iPad */}
+              <ul className='hidden md:flex items-center gap-6'>
+                <li>
+                  <a href='/' className="text-[#2c362d] hover:text-[#617963] transition-colors duration-300 ease-in-out">Home</a>
+                </li>
+                <li>
+                  <a href='/about' className="text-[#2c362d] hover:text-[#617963] transition-colors duration-300 ease-in-out">About</a>
+                </li>
+                <li>
+                  <a href='/products' className="text-[#2c362d] hover:text-[#617963] transition-colors duration-300 ease-in-out">Toys</a>
+                </li>
+                <li>
+                  <a href='/customize' className="text-[#2c362d] hover:text-[#617963] transition-colors duration-300 ease-in-out">Customize</a>
+                </li>
+              </ul>
+
+              {/* Mobile menu toggle */}
               <a
                   href="#"
                   onClick={() => setOpen(!open)}
-                  className='text-[#2c362d] font-sm hover:text-[#617963] transition-colors duration-300 ease-in-out'>
+                  className='md:hidden text-[#2c362d] font-sm hover:text-[#617963] transition-colors duration-300 ease-in-out'>
                   {open? <RiArrowDownWideFill size={24} />: <FiMenu size={24} />}
-
               </a>
           </div>
         </div>
 
-        {/* Dropdown - only works for mobile*/}
+        {/* Dropdown - only visible on mobile */}
         <div
-          className={`w-full overflow-hidden transition-all duration-500 ease-in-out bg-[#f8f8f8] flex items-center justify-center text-black text-normal font-normal ${open ? 'max-h-64 py-5 opacity-100' : 'max-h-0 py-0 opacity-0'}`}
+          className={`w-full md:hidden overflow-hidden transition-all duration-500 ease-in-out bg-[#f8f8f8] flex items-center justify-center text-black text-normal font-normal ${open ? 'max-h-64 py-5 opacity-100' : 'max-h-0 py-0 opacity-0'}`}
         >
             <ul className='w-full flex flex-col'>
                 <li>
