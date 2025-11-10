@@ -35,41 +35,56 @@ const Navbar = () => {
         {/* Navbar */}
         <div
             id='navbar'
-            className={`bg-[#f8f8f8] p-4 flex justify-between shadow-sm shadow-gray-100`}>
+            className={`bg-[#f8f8f8] shadow-sm shadow-gray-100`}>
 
-          <a href='/'>
-            <div id='nav-logo' className='flex justify-center items-center gap-2'>
-                <img src="/bear-paw.svg" alt="Joy Bear Logo" className="w-6 h-6 inline" />
-                <span>Joy Bear Toys</span>
+          {/* Desktop: Logo centered */}
+          <div className='hidden md:flex justify-center items-center p-4'>
+            <a href='/'>
+              <div id='nav-logo' className='flex justify-center items-center gap-2'>
+                  <img src="/bear-paw.svg" alt="Joy Bear Logo" className="w-6 h-6 inline" />
+                  <span>Joy Bear Toys</span>
+              </div>
+            </a>
+          </div>
+
+          {/* Desktop: Menu centered */}
+          <div className='hidden md:flex justify-center items-center pb-4'>
+            <ul className='flex items-center gap-6'>
+              <li>
+                <a href='/' className="text-[#2c362d] hover:text-[#617963] transition-colors duration-300 ease-in-out">Home</a>
+              </li>
+              <li>
+                <a href='/about' className="text-[#2c362d] hover:text-[#617963] transition-colors duration-300 ease-in-out">About</a>
+              </li>
+              <li>
+                <a href='/products' className="text-[#2c362d] hover:text-[#617963] transition-colors duration-300 ease-in-out">Toys</a>
+              </li>
+              <li>
+                <a href='/customize' className="text-[#2c362d] hover:text-[#617963] transition-colors duration-300 ease-in-out">Customize</a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Mobile: Logo and Menu toggle side by side */}
+          <div className='md:hidden p-4 flex justify-between'>
+            <a href='/'>
+              <div id='nav-logo' className='flex justify-center items-center gap-2'>
+                  <img src="/bear-paw.svg" alt="Joy Bear Logo" className="w-6 h-6 inline" />
+                  <span>Joy Bear Toys</span>
+              </div>
+            </a>
+
+            <div
+                id='nav-menu'
+                className='flex items-center gap-6'>
+                {/* Mobile menu toggle */}
+                <a
+                    href="#"
+                    onClick={() => setOpen(!open)}
+                    className='text-[#2c362d] font-sm hover:text-[#617963] transition-colors duration-300 ease-in-out'>
+                    {open? <RiArrowDownWideFill size={24} />: <FiMenu size={24} />}
+                </a>
             </div>
-          </a>
-
-          <div
-              id='nav-menu'
-              className='flex items-center gap-6'>
-              {/* Horizontal menu for desktop/iPad */}
-              <ul className='hidden md:flex items-center gap-6'>
-                <li>
-                  <a href='/' className="text-[#2c362d] hover:text-[#617963] transition-colors duration-300 ease-in-out">Home</a>
-                </li>
-                <li>
-                  <a href='/about' className="text-[#2c362d] hover:text-[#617963] transition-colors duration-300 ease-in-out">About</a>
-                </li>
-                <li>
-                  <a href='/products' className="text-[#2c362d] hover:text-[#617963] transition-colors duration-300 ease-in-out">Toys</a>
-                </li>
-                <li>
-                  <a href='/customize' className="text-[#2c362d] hover:text-[#617963] transition-colors duration-300 ease-in-out">Customize</a>
-                </li>
-              </ul>
-
-              {/* Mobile menu toggle */}
-              <a
-                  href="#"
-                  onClick={() => setOpen(!open)}
-                  className='md:hidden text-[#2c362d] font-sm hover:text-[#617963] transition-colors duration-300 ease-in-out'>
-                  {open? <RiArrowDownWideFill size={24} />: <FiMenu size={24} />}
-              </a>
           </div>
         </div>
 
