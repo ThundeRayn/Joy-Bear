@@ -37,22 +37,24 @@ const Navbar = () => {
             id='navbar'
             className={`bg-[#f8f8f8] p-4 flex justify-between shadow-sm shadow-gray-100`}>
 
+          <a href='/'>
             <div id='nav-logo' className='flex justify-center items-center gap-2'>
                 <img src="/bear-paw.svg" alt="Joy Bear Logo" className="w-6 h-6 inline" />
-                <span>Joy Bear</span>
+                <span>Joy Bear Toys</span>
             </div>
+          </a>
 
-            <div
-                id='nav-menu'
-                className='flex items-center'>
-                <a
-                    href="#"
-                    onClick={() => setOpen(!open)}
-                    className='text-[#2c362d] font-sm hover:text-[#617963] transition-colors duration-300 ease-in-out'>
-                    {open? <RiArrowDownWideFill size={24} />: <FiMenu size={24} />}
+          <div
+              id='nav-menu'
+              className='flex items-center'>
+              <a
+                  href="#"
+                  onClick={() => setOpen(!open)}
+                  className='text-[#2c362d] font-sm hover:text-[#617963] transition-colors duration-300 ease-in-out'>
+                  {open? <RiArrowDownWideFill size={24} />: <FiMenu size={24} />}
 
-                </a>
-            </div>
+              </a>
+          </div>
         </div>
 
         {/* Dropdown - suitable for desktop*/}
