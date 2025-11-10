@@ -1,7 +1,9 @@
 import React from 'react'
+import Join from '../components/Join';
 
 const About: React.FC = () => {
   return (
+    <>
     <div className="min-h-screen bg-gradient-to-b from-white to-white flex flex-col items-center px-6 py-12">
       {/* Hero Section */}
       <div className="text-center max-w-2xl">
@@ -48,7 +50,7 @@ const About: React.FC = () => {
       </div>
 
       {/* Closing */}
-      <div className="mt-16 text-center max-w-2xl">
+      <div className="mt-16 mb-5 text-center max-w-2xl">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">
           Join Our Journey
         </h2>
@@ -59,6 +61,10 @@ const About: React.FC = () => {
         </p>
       </div>
     </div>
+
+    {/* Email Subscription Section */}
+    <Join />
+    </>
   );
 };
 

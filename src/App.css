@@ -1,7 +1,24 @@
 
-#root {
+:root {
+  --color-primary: #86A788;
+  --color-secondary: #f9c8c8;
+  --color-tertiary: #f8f8f8;
+
+  /*text color*/
+  --color-text-primary: #333333;
+  --color-text-secondary: #666666;
+  --color-text-tertiary: #999999;
+
+  /*color palette*/
+  --color-green: #86A788;
+  --color-pink: #f9c8c8;
+  --color-blue: #add8e6;
+  --color-yellow: #fffacd;
+  
+  --color-grey: #f8f8f8;
 
 }
+
 
 @keyframes fadeIn {
   from { opacity: 0; }

@@ -6,6 +6,7 @@ import BrandIntro from '../components/BrandIntro'
 //import Footer from '../components/Footer'
 import Certification from '../components/Certification'
 import Service from '../components/Service'
+import Join from '../components/Join'
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
         <BrandIntro />
         <Service />
         <Certification />
+        <Join />
         {/* <Footer /> */}
     </div>
   )
