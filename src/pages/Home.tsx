@@ -1,12 +1,10 @@
 
-//import Banner from '../components/Banner'
-//import Navbar from '../components/Navbar'
 import Carousel from '../components/Carousel'
-import BrandIntro from '../components/BrandIntro'
-//import Footer from '../components/Footer'
+//import BrandIntro from '../components/BrandIntro'
 import Certification from '../components/Certification'
 import Service from '../components/Service'
 import Join from '../components/Join'
+import NewToys from '../components/NewToys'
 
 const Home = () => {
   return (
@@ -14,7 +12,7 @@ const Home = () => {
         {/* <Banner /> */}
         {/* <Navbar /> */}
         <Carousel/>
-        <BrandIntro />
+        <NewToys />
         <Service />
         <Certification />
         <Join />
