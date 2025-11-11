@@ -6,7 +6,7 @@ interface SearchProps {
   placeholder?: string;
 }
 
-const Search: React.FC<SearchProps> = ({ onSearch, placeholder = 'Search products by id' }) => {
+const Search: React.FC<SearchProps> = ({ onSearch, placeholder = 'Search by #TOYID' }) => {
   const [query, setQuery] = useState<string>('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

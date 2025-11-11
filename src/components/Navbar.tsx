@@ -41,7 +41,8 @@ const Navbar = () => {
           {/* Desktop: Logo centered */}
           <div className='hidden md:flex justify-center items-center p-4'>
             <div className="w-full max-w-6xl mx-auto flex items-center">
-              <div className="flex-1 flex justify-center">
+
+              <div className="flex-1 flex justify-start">
                 <div className="w-full max-w-xs">
                   <Search />
                 </div>
@@ -55,13 +56,12 @@ const Navbar = () => {
                 </a>
               </div>
 
-              <div className="flex-1 flex justify-center">
+              <div className="flex-1 flex justify-end">
                 <a
                   href="/about"
-                  className="flex flex-end px-6 py-2 rounded-sm transition-colors duration-200 hover:text-[#624f33]
-                  border border-Joybrown hover:border-[#8b6f47] text-Joybrown font-medium"
+                  className="inline-block px-6 py-2 rounded-xl border border-Joybrown text-Joybrown font-medium transition-colors duration-200 hover:text-[#8b6f47] hover:border-[#8b6f47] whitespace-nowrap"
                 >
-                  Contact Us Now 
+                  Contact Us Now
                 </a>
               </div>
             </div>
