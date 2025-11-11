@@ -109,7 +109,7 @@ const TagToys: React.FC<TagToysProps> = ({
           {/* Card Carousel */}
           <div className="overflow-hidden">
             <ul
-              className="flex gap-4 pt-4 px-4 min-w-full transition-transform duration-500"
+              className={`flex gap-4 pt-4 px-4 min-w-full transition-transform duration-500 ${products.length < 4 ? 'justify-center' : ''}`}
               style={{ transform: `translateX(-${visible * (100 / visibleCount)}%)` }}
             >
               {products.map((product, idx) => (
