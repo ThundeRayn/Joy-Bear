@@ -28,21 +28,20 @@ const Navbar = () => {
 
   return (
     <nav
-        className={`sticky top-0 left-0 w-full bg-white shadow-sm transition-transform duration-300 z-50 ${show ? "translate-y-0" : "-translate-y-full"
+        className={`sticky top-0 left-0 w-full bg-white transition-transform duration-300 z-50 ${show ? "translate-y-0" : "-translate-y-full"
             }`}
     >
 
         {/* Navbar */}
         <div
             id='navbar'
-            className={`bg-[#f8f8f8] shadow-sm shadow-gray-100`}>
+            className={`bg-[#f8f8f8] shadow-gray-100`}>
 
           {/* Desktop: Logo centered */}
           <div className='hidden md:flex justify-center items-center p-4'>
             <a href='/'>
               <div id='nav-logo' className='flex justify-center items-center gap-2'>
-                  <img src="/bear-paw.svg" alt="Joy Bear Logo" className="w-6 h-6 inline" />
-                  <span>Joy Bear Toys</span>
+                  <img src="/joybear-full.svg" alt="Joy Bear Logo" className="w-14 h-14 inline" />
               </div>
             </a>
           </div>

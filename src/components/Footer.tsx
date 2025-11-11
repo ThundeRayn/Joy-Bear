@@ -28,7 +28,7 @@ const Footer = () => {
                             {/* <li><a href="/quality" className={linkClass}>Quality Standards</a></li> */}
                             <li><a href="/story" className={linkClass}>Brand Story</a></li>
                             <li><a href="#" className={linkClass}>Certifications</a></li>
-                            <li><a href="#" className={linkClass}>Trusted Clients</a></li>
+                            {/* <li><a href="#" className={linkClass}>Trusted Clients</a></li> */}
                         </ul>
                     </div>
 
@@ -47,7 +47,7 @@ const Footer = () => {
                         <h3 className={headingClass}>Connect</h3>
                         <ul className={listClass}>
                             <li><a href="#" className={linkClass}>Contact Us</a></li>
-                            <li><a href="#" className={linkClass}>News</a></li>
+                            <li><a href="#" className={linkClass}>Activities</a></li>
                         </ul>
                     </div>
                 </div>

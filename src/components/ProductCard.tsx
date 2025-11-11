@@ -2,14 +2,16 @@ import React from 'react'
 
 interface Product {
   _id: string;
+  id: string;
   slug: {
     _type: "slug";
     current: string;
   };
   title: string;
-  price: number;
   description: string;
-  category: { title: string };
+  minOrderQuantity?: number;
+  category?: {title: string}[];
+  tags?: {name: string}[];
   images?: { asset: { url: string } }[];
 }
 
@@ -38,11 +40,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                             alt={product.title}
                             className="object-cover w-full h-full"
                         />
-                        {/* Category Tag */}
-                        {product.category?.title && (
-                            <span className="absolute top-2 left-2 bg-[#86A788] text-white text-xs px-2 py-1 rounded">
-                            {product.category.title}
-                            </span>
+                        {/* Category Tags */}
+                        {product.category && product.category.length > 0 && (
+                            <div className="absolute top-2 left-2 flex flex-col gap-1">
+                                {product.category.map((cat, idx) => (
+                                    <span key={idx} className="bg-[#86A788] text-white text-xs px-2 py-1 rounded">
+                                        {cat.title}
+                                    </span>
+                                ))}
+                            </div>
                         )}
                         </div>
                     }
@@ -50,7 +56,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                     {/* Product Info */}
                     <div className="p-4">
                         <h2 className="text-lg font-semibold">{product.title}</h2>
-                        <p className="mt-1 text-gray-700">${product.price}</p>
+                        <p className="mt-1 text-gray-700">#{product.id}</p>
                     </div>
                     
                 </div>

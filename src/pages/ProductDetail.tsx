@@ -24,6 +24,7 @@ const ProductDetail = () => {
       .fetch(
         `*[slug.current == "${slug}"]{
           _id,
+          id,
           slug,
           title,
           minOrderQuantity,
