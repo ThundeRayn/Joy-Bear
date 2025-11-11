@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import client from '../Client'
+import ContactBadge from '../components/ContactBadge';
 
 type Product = {
   _id: string;
@@ -125,6 +126,8 @@ const ProductDetail = () => {
             </p>
           </div>
         </div>
+
+        <ContactBadge />
       </>
       ) : (
         <div>

@@ -3,6 +3,7 @@ import client from '../Client'
 import ProductCard from "../components/ProductCard";
 import Back2 from "../components/Back2";
 import Upbadge from "../components/Upbadge";
+import ContactBadge from "../components/ContactBadge";
 
 interface Product {
   _id: string;
@@ -74,6 +75,7 @@ const Product = () => {
           </div>
       </div>
     </div>
+    
     </>
   )
 }
