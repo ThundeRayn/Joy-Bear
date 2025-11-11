@@ -83,7 +83,7 @@ const Navbar = () => {
                 <a href='/tags/latest' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">LATEST</a>
               </li>
               <li>
-                <a href='/customize' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">CUSTOMIZE</a>
+                <a href='/customize' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">CUSTOMIZE-ODM</a>
               </li>
             </ul>
           </div>

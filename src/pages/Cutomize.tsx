@@ -27,7 +27,7 @@ const Customize = () => {
       
       <div className="max-w-6xl mx-auto">
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="flex flex-col gap-8">
           {/* Left: what we do / offers */}
           <div className="lg:col-span-2">
             <section className="mb-16">
@@ -110,16 +110,19 @@ const Customize = () => {
             </section>
           </div>
 
-          {/* buttom: contact form */}
-          <div className="mt-8">
-            <a href="#contact-form" className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-[#86A788] rounded-md shadow hover:bg-[#6b8e6b] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#86A788]">
-              Contact for customization Now
-            </a>
-          </div>
+          {/* removed inline contact button, replaced with floating button below */}
 
         </div>
       </div>
     </div>
+    {/* Floating contact button */}
+    <a
+      href="#contact-form"
+      className="fixed bottom-8 right-8 z-50 w-16 h-16 flex items-center justify-center rounded-full bg-[#86A788] shadow-lg text-white text-lg font-bold hover:bg-[#6b8e6b] transition"
+      style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.15)" }}
+    >
+      Contact
+    </a>
     </>
   )
 }
