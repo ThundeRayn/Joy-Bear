@@ -47,9 +47,11 @@ const [products, setProducts] = useState<Product[]>([]);
         <div className="flex flex-col items-center">
 
             {/* Right: Brand Intro Text */}
-            <h2 className="text-3xl font-medium text-gray-900 mb-4">New Arrivials</h2>
+            <h2 className="text-3xl font-medium text-gray-900 mb-8">
+                New Arrivals
+            </h2>
             {/* display all new arrivals */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="flex flex-wrap justify-center gap-8">
               {products.map((product) => (
                 <DisplayCard key={product.id} product={product} />
               ))}
