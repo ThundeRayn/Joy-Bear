@@ -4,8 +4,9 @@ import Carousel from '../components/Carousel'
 import Certification from '../components/Certification'
 import Service from '../components/Service'
 import Join from '../components/Join'
-import NewToys from '../components/NewToys'
+//import NewToys from '../components/NewToys'
 import Categories from '../components/Categories'
+import TagToys from '../components/TagToys'
 
 const Home = () => {
   return (
@@ -13,8 +14,9 @@ const Home = () => {
         {/* <Banner /> */}
         {/* <Navbar /> */}
         <Carousel/>
-        <NewToys />
+        <TagToys />
         <Categories />
+        <TagToys title='Hotest' tagName='Hotest'/>
         <Service />
         <Certification />
         <Join />

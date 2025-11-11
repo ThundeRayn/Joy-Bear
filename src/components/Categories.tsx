@@ -21,7 +21,7 @@ const Categories = () => {
   ]
 
   return (
-    <section className="w-full py-6 px-4 sm:px-6 lg:px-8">
+    <section className="w-full pt-6 pb-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex gap-4">
           {categories.map((category) => (
@@ -37,14 +37,24 @@ const Categories = () => {
                   alt={category.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-300" />
 
-                {/* Title */}
+                {/* Gradient overlay (bottom -> top) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent group-hover:from-black/80 transition-colors duration-300" />
+
+                {/* Title as a button-like text (hover shows underline) */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <h3 className="text-2xl font-bold text-white text-center">{category.title}</h3>
+                  <span
+                    id="category-hover-text"
+                    className="text-2xl font-thin text-white text-center inline-block px-4 py-2 rounded-md opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+                  >
+                    Explore more
+                  </span>
                 </div>
+              </div>
+
+              {/* Title below image */}
+              <div className="mt-3 text-center">
+                <h4 className="text-lg font-normal text-gray-800">{category.title}</h4>
               </div>
             </a>
           ))}
