@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import client from "../Client";
 import ProductCard from "../components/ProductCard";
 import Back2 from "../components/Back2";
+import Upbadge from "../components/Upbadge";
 
 interface Product {
   _id: string;
@@ -48,6 +49,11 @@ const CategoryDetail = () => {
   }, [slug]);
 
   return (
+    <>
+    <Upbadge 
+      title="View our storage - discover your target Ip"
+      description="Explore our full collection — from playful plush to personalized keepsakes, crafted with heart and imagination."/>
+    
     <div className="px-5 lg:px-8 pb-6 md:pb-8 lg:pb-15">
       <Back2 text="Back to Menu" />
       <div className="flex flex-col items-center justify-center">
@@ -72,6 +78,7 @@ const CategoryDetail = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -39,7 +39,7 @@ const Footer = () => {
                         <ul className={listClass}>
                             <li><a href="/products" className={linkClass}>Products</a></li>
                             <li><a href="/customize" className={linkClass}>OEM Custom Made</a></li>
-                            <li><a href="#" className={linkClass}>Successful Examples</a></li>
+                            {/* <li><a href="#" className={linkClass}>Successful Examples</a></li> */}
                         </ul>
                     </div>
 

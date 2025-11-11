@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Upbadge from '../components/Upbadge'
 
 const theme = '#86A788'
 
@@ -20,28 +21,11 @@ const Customize = () => {
   }
 
   return (
+    <>
+    <Upbadge />
     <div className="min-h-screen bg-gray-50 py-16 px-4 sm:px-6 lg:px-12">
+      
       <div className="max-w-6xl mx-auto">
-        <header className="mb-10">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">Customize Your Joybear</h1>
-          <p className="mt-3 text-gray-600 max-w-2xl">Bring your ideas to life — choose materials, colors, and add personal details. Our team will help you design a unique toy, whether it's a one-off keepsake or a small run for a special event.</p>
-        </header>
-
-        {/* Hero image with gentle overlay to give breathing room */}
-        <div className="w-full rounded-xl overflow-hidden mb-8 shadow-lg">
-          <div className="relative h-52 md:h-80 lg:h-96 bg-gray-200">
-            <img
-              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1600&q=80"
-              alt="custom toys"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-            <div className="absolute left-6 bottom-6 text-white">
-              <h2 className="text-2xl md:text-3xl font-bold">Make it yours — from fabric to finishing touches</h2>
-              <p className="mt-1 text-sm md:text-base">Personalized designs, careful prototyping, and small-batch quality.</p>
-            </div>
-          </div>
-        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left: what we do / offers */}
@@ -174,6 +158,7 @@ const Customize = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

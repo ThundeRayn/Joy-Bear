@@ -10,6 +10,7 @@ type Activity = {
   description?: string
   slug?: { current: string }
   contents?: string[]
+  coverImage?: string
 }
 
 export default function ActivityPopUp() {
@@ -28,12 +29,14 @@ export default function ActivityPopUp() {
             title,
             description,
             contents,
-            "slug": slug
+            "slug": slug,
+            "coverImage": coverImage.asset->url
           }`
         )
 
         if (cancelled || !data?._id) return
         setActivity(data)
+        console.log("Fetched activity:", data)
 
         // Version key changes if activity or content updates in Sanity
         const versionKey = `hasSeenPopup_${data._id}_${data._updatedAt}`
@@ -57,6 +60,7 @@ export default function ActivityPopUp() {
     }
 
     fetchFeaturedActivity()
+    
     return () => {
       cancelled = true
     }
@@ -78,13 +82,21 @@ export default function ActivityPopUp() {
 
         <div className="flex flex-col md:flex-row gap-8 items-center">
           {/* Left icon / image */}
-          <div className="flex-1 flex justify-center">
-            <img
-              src="/bear-paw.svg"
-              alt="Joybear"
-              className="w-24 h-24 md:w-32 md:h-32 object-contain"
-            />
-          </div>
+            <div className="flex-1 flex justify-center">
+            {activity.coverImage ? (
+                <img
+                src={activity.coverImage}
+                alt="Activity Cover"
+                className="w-24 h-24 md:w-32 md:h-32 object-contain"
+                />
+            ) : (
+                <img
+                src="/joybear-icononly.svg"
+                alt="Joybear"
+                className="w-24 h-24 md:w-32 md:h-32 object-contain"
+                />
+            )}
+            </div>
 
           {/* Right text content */}
           <div className="flex-1 flex flex-col justify-center text-center md:text-left">
@@ -108,7 +120,7 @@ export default function ActivityPopUp() {
 
             {activity.slug?.current && (
               <Link
-                to={`/activities/${activity.slug.current}`}
+                to={`/activity/${activity.slug.current}`}
                 onClick={() => setShowPopup(false)}
                 className="inline-block text-center mt-2 px-8 py-2 bg-Joybrown text-white rounded-sm hover:bg-Joyblue transition font-semibold"
               >

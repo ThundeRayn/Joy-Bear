@@ -16,6 +16,7 @@ import CategoryDetail from './pages/CategoryDetail';
 {/* Tags Pages */}
 import Tags from './pages/Tags';
 import TagsDetail from './pages/TagsDetail';
+import ActivityDetail from './pages/ActivityDetail';
 
 function App() {
 
@@ -26,6 +27,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="story" element={<Story />} />
+          <Route path="customize" element={<Cutomize />} />
+          <Route path="*" element={<Error />} />
 
           {/* Product Pages */}
           <Route path="products" element={<Product />} />
@@ -39,8 +42,9 @@ function App() {
           <Route path="tags" element={<Tags />} />
           <Route path="tags/:slug" element={<TagsDetail />} />
 
-          <Route path="customize" element={<Cutomize />} />
-          <Route path="*" element={<Error />} />
+          {/*Activity Detail Page */}
+          <Route path="activity/:slug" element={<ActivityDetail />} />
+
         </Route>
       </Routes>
     </BrowserRouter>
