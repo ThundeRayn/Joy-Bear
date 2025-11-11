@@ -50,16 +50,16 @@ const Navbar = () => {
           <div className='hidden md:flex justify-center items-center pb-4'>
             <ul className='flex items-center gap-6'>
               <li>
-                <a href='/' className="text-[#2c362d] hover:text-[#617963] transition-colors duration-300 ease-in-out">Home</a>
+                <a href='/products' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">EXPLORE ALL</a>
               </li>
               <li>
-                <a href='/about' className="text-[#2c362d] hover:text-[#617963] transition-colors duration-300 ease-in-out">About</a>
+                <a href='/about' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">About</a>
               </li>
               <li>
-                <a href='/products' className="text-[#2c362d] hover:text-[#617963] transition-colors duration-300 ease-in-out">Toys</a>
+                <a href='/products' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">Toys</a>
               </li>
               <li>
-                <a href='/customize' className="text-[#2c362d] hover:text-[#617963] transition-colors duration-300 ease-in-out">Customize</a>
+                <a href='/customize' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">Customize</a>
               </li>
             </ul>
           </div>

@@ -30,12 +30,12 @@ const Banner: React.FC = () => {
   const { hint, slug } = banner
 
   return (
-    <div className='bg-[#86A788] p-2 flex justify-center'>
+    <div className='bg-secondary p-2 flex justify-center'>
         <a 
           href={`/activity/${slug.current}`} 
           className="
-            font-normal text-[#151a16] font-sm
-            hover:pointer hover:text-[#617963]
+            font-normal text-black font-sm
+            hover:pointer hover:text-txt-secondary
             transition-colors duration-300 ease-in-out
             opacity-0 animate-[fadeIn_1s_ease-in_forwards]">
           {hint ? hint : "Discover our new activity →"}

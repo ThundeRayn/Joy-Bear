@@ -1,21 +1,22 @@
 
 :root {
-  --color-primary: #86A788;
-  --color-secondary: #f9c8c8;
+  --color-primary: #c99058;
+  --color-secondary: #90d2f4;
   --color-tertiary: #f8f8f8;
 
   /*text color*/
-  --color-text-primary: #333333;
-  --color-text-secondary: #666666;
-  --color-text-tertiary: #999999;
+  --color-txt-primary: #1c1c1c;
+  --color-txt-secondary: #542b05;
+  --color-txt-tertiary: #999999;
 
   /*color palette*/
-  --color-green: #86A788;
-  --color-pink: #f9c8c8;
-  --color-blue: #add8e6;
+  --color-Joygreen: #86A788;
+  --color-Joypink: #f9c8c8;
+  --color-Joyblue: #90d2f4;
+  --color-Joybrown: #c99058;
   --color-yellow: #fffacd;
   
-  --color-grey: #f8f8f8;
+  --color-Joygrey: #f8f8f8;
 
 }
 
