@@ -1,5 +1,6 @@
 import React from 'react'
 import Join from '../components/Join';
+import Certification from '../components/Certification';
 
 const About: React.FC = () => {
   return (
@@ -8,7 +9,7 @@ const About: React.FC = () => {
       {/* Hero Section */}
       <div className="text-center max-w-2xl">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-          about <span className="text-[#FFCFCF]">Joybear</span>
+          about <span className="text-Joybrown">Joybear</span>
         </h1>
         <p className="text-gray-600 text-lg">
           Bringing joy, imagination<br />and creativity to kids around the world.
@@ -16,7 +17,7 @@ const About: React.FC = () => {
       </div>
 
       {/* Company Story */}
-      <div className="mt-12 max-w-4xl text-center">
+      {/* <div className="mt-12 max-w-4xl text-center">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">Our Story</h2>
         <p className="text-gray-600 leading-relaxed">
           Founded in 2010, ToyWorld started as a small family business with a big dream: 
@@ -25,7 +26,7 @@ const About: React.FC = () => {
           Our mission is to create toys that spark curiosity, encourage creativity, and 
           bring families closer together.
         </p>
-      </div>
+      </div> */}
 
       {/* Mission & Values */}
       <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl">
@@ -49,17 +50,7 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* Closing */}
-      <div className="mt-16 mb-5 text-center max-w-2xl">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-          Join Our Journey
-        </h2>
-        <p className="text-gray-600">
-          At JoyBear, we believe toys are more than just playthings—they are the building blocks of 
-          imagination and happiness. Thank you for being part of our journey. Together, let’s 
-          keep creating smiles that last a lifetime.
-        </p>
-      </div>
+      <Certification />
     </div>
 
     {/* Email Subscription Section */}
