@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { FiMenu } from "react-icons/fi";
 import { RiArrowDownWideFill } from "react-icons/ri";
+import Search from './Search'
 
 const Navbar = () => {
   const [show, setShow] = useState(true);
@@ -39,11 +40,25 @@ const Navbar = () => {
 
           {/* Desktop: Logo centered */}
           <div className='hidden md:flex justify-center items-center p-4'>
-            <a href='/'>
-              <div id='nav-logo' className='flex justify-center items-center gap-2'>
-                  <img src="/joybear-full.svg" alt="Joy Bear Logo" className="w-14 h-14 inline" />
+            <div className="w-full max-w-6xl mx-auto flex items-center">
+              <div className="flex-1 flex justify-center">
+                <div className="w-full max-w-xs">
+                  <Search />
+                </div>
               </div>
-            </a>
+
+              <div className="flex-1 flex justify-center">
+                <a href='/'>
+                  <div id='nav-logo' className='flex justify-center items-center gap-2'>
+                      <img src="/joybear-full.svg" alt="Joy Bear Logo" className="w-14 h-14 inline" />
+                  </div>
+                </a>
+              </div>
+
+              <div className="flex-1 flex justify-center">
+                {/* empty slot for future content */}
+              </div>
+            </div>
           </div>
 
           {/* Desktop: Menu centered */}
@@ -53,13 +68,19 @@ const Navbar = () => {
                 <a href='/products' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">EXPLORE ALL</a>
               </li>
               <li>
-                <a href='/about' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">About</a>
+                <a href='/categories' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">CATEGORIES</a>
               </li>
               <li>
-                <a href='/products' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">Toys</a>
+                <a href='/popular' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">POPULAR</a>
               </li>
               <li>
-                <a href='/customize' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">Customize</a>
+                <a href='/latest' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">LATEST</a>
+              </li>
+              <li>
+                <a href='/about' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">ABOUT</a>
+              </li>
+              <li>
+                <a href='/customize' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">CUSTOMIZE</a>
               </li>
             </ul>
           </div>

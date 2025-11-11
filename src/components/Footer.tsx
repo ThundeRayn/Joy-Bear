@@ -1,5 +1,3 @@
-import BlackBear from '../assets/svgs/bear-paw-black.svg';
-
 const headingClass = "text-black font-semibold text-xl mb-4";
 const columnClass = "";
 const listClass = "space-y-2 text-black text-sm";
@@ -8,14 +6,17 @@ const iconLinkClass = "text-black hover:text-black";
 
 const Footer = () => {
     return (
-    <footer className="bg-[#86A788] text-black py-12">
+    <footer className="bg-secondary text-black py-12">
         <div className="max-w-7xl mx-auto px-8 md:px-10 lg:px-9">
             {/* Line Above Section: Logo + About */}
             <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-12">
                 {/* Logo & Brand Story */}
                 <div className="mb-8 lg:mb-0 lg:w-1/4">
-                    <img src={BlackBear} alt="JoyBear Logo" className="w-full h-6 m-2" />
-                    <p className="text-black text-sm w-full lg:pl-6">JoyBear has been creating innovative and safe toys for children worldwide. Our mission is to bring joy and learning together in every product.</p>
+                    <img src='/joybear-icononly.svg' alt="JoyBear Logo" className="w-full h-8 m-2" />
+                    <p className="text-black text-sm w-full lg:pl-6">
+                        JoyBear sells licensed IP toys worldwide, 
+                        offering OEM and ODM services that bring 
+                        joy and learning to every product.</p>
                 </div>
 
                 {/* Navigation Links */}
