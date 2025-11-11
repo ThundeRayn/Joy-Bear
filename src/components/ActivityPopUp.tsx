@@ -1,45 +1,124 @@
 import { useEffect, useState } from "react"
+import client from "../Client"
+import { FiX } from "react-icons/fi"
+import { Link } from "react-router-dom"
+
+type Activity = {
+  _id: string
+  _updatedAt: string
+  title?: string
+  description?: string
+  slug?: { current: string }
+  contents?: string[]
+}
 
 export default function ActivityPopUp() {
   const [showPopup, setShowPopup] = useState(false)
+  const [activity, setActivity] = useState<Activity | null>(null)
 
   useEffect(() => {
-    // check if user has already seen popup
-    const hasSeenPopup = localStorage.getItem("hasSeenPopup")
-    if (!hasSeenPopup) {
-      setShowPopup(true)
-      localStorage.setItem("hasSeenPopup", "true") // mark as seen
+    let cancelled = false
+
+    async function fetchFeaturedActivity() {
+      try {
+        const data: Activity | null = await client.fetch(
+          `*[_type == "activity" && isFeatured == true][0]{
+            _id,
+            _updatedAt,
+            title,
+            description,
+            contents,
+            "slug": slug
+          }`
+        )
+
+        if (cancelled || !data?._id) return
+        setActivity(data)
+
+        // Version key changes if activity or content updates in Sanity
+        const versionKey = `hasSeenPopup_${data._id}_${data._updatedAt}`
+
+        const hasSeen = localStorage.getItem(versionKey)
+        if (!hasSeen) {
+          setShowPopup(true)
+          // Mark as seen when the popup opens (or you can move this to the Close handler)
+          localStorage.setItem(versionKey, "true")
+        }
+
+        // Clean up old popup keys for same activity
+        Object.keys(localStorage).forEach((k) => {
+          if (k.startsWith(`hasSeenPopup_${data._id}_`) && k !== versionKey) {
+            localStorage.removeItem(k)
+          }
+        })
+      } catch (err) {
+        console.error("Error fetching activity:", err)
+      }
+    }
+
+    fetchFeaturedActivity()
+    return () => {
+      cancelled = true
     }
   }, [])
 
-  if (!showPopup) return null
+  if (!showPopup || !activity) return null
 
-    return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-[2px]">
-        <div className="bg-white shadow-lg w-full max-w-3xl p-6 animate-fadeIn">
-          <div className="flex flex-row gap-8 items-center">
-            <div className="flex-1 flex justify-center">
-              <img src="/bear-paw.svg" alt="Joybear" className="w-32 h-32 object-contain" />
-            </div>
-            <div className="flex-2 flex flex-col justify-center">
-              <h2 className="text-3xl font-bold mb-4 text-gray-900">🎉 Activity Center</h2>
-              <p className="text-gray-700 mb-6">
-                Welcome to the Joybear Activity Center! Here you can discover new features, join events, and get the latest updates about our custom & IP toys.
-              </p>
-              <ul className="mb-6 text-left mx-auto max-w-xl list-disc list-inside text-gray-700">
-                <li>🎈 Explore new toy collections</li>
-                <li>🗓️ Upcoming events and workshops</li>
-                <li>💡 Tips for customizing your toys</li>
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-[2px]">
+      <div className="bg-white shadow-lg w-full max-w-3xl p-6 animate-fadeIn relative">
+        {/* Close X icon top right */}
+        <button
+          onClick={() => setShowPopup(false)}
+          className="absolute right-4 top-4 text-gray-400 hover:text-gray-700 text-2xl"
+          aria-label="Close"
+        >
+          <FiX />
+        </button>
+
+        <div className="flex flex-col md:flex-row gap-8 items-center">
+          {/* Left icon / image */}
+          <div className="flex-1 flex justify-center">
+            <img
+              src="/bear-paw.svg"
+              alt="Joybear"
+              className="w-24 h-24 md:w-32 md:h-32 object-contain"
+            />
+          </div>
+
+          {/* Right text content */}
+          <div className="flex-1 flex flex-col justify-center text-center md:text-left">
+            {activity.title && (
+              <h2 className="text-2xl md:text-3xl font-normal mb-3 text-gray-900">
+                {activity.title}
+              </h2>
+            )}
+
+            {activity.description && (
+              <p className="text-gray-700 mb-4">{activity.description}</p>
+            )}
+
+            {Array.isArray(activity.contents) && activity.contents.length > 0 && (
+              <ul className="mb-6 text-left mx-auto md:mx-0 max-w-md list-disc list-inside text-gray-700">
+                {activity.contents.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
               </ul>
-              <button
+            )}
+
+            {activity.slug?.current && (
+              <Link
+                to={`/activities/${activity.slug.current}`}
                 onClick={() => setShowPopup(false)}
-                className="px-8 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition font-semibold"
+                className="inline-block text-center mt-2 px-8 py-2 bg-Joybrown text-white rounded-sm hover:bg-Joyblue transition font-semibold"
               >
-                Close
-              </button>
-            </div>
+                Explore Now →
+              </Link>
+            )}
           </div>
         </div>
       </div>
+    </div>
   )
 }
+
