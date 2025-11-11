@@ -56,7 +56,13 @@ const Navbar = () => {
               </div>
 
               <div className="flex-1 flex justify-center">
-                {/* empty slot for future content */}
+                <a
+                  href="/about"
+                  className="flex flex-end px-6 py-2 rounded-sm transition-colors duration-200 hover:text-[#624f33]
+                  border border-Joybrown hover:border-[#8b6f47] text-Joybrown font-medium"
+                >
+                  Contact Us Now 
+                </a>
               </div>
             </div>
           </div>
@@ -75,9 +81,6 @@ const Navbar = () => {
               </li>
               <li>
                 <a href='/latest' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">LATEST</a>
-              </li>
-              <li>
-                <a href='/about' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">ABOUT</a>
               </li>
               <li>
                 <a href='/customize' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">CUSTOMIZE</a>
