@@ -110,51 +110,13 @@ const Customize = () => {
             </section>
           </div>
 
-          {/* Right: contact form */}
-          <aside className="bg-white rounded-lg shadow p-6 lg:sticky lg:top-24">
-            <h2 className="text-xl font-semibold text-gray-900">Request a Custom Toy</h2>
-            <p className="mt-2 text-gray-600">Tell us about your idea and we'll get back with a proposal.</p>
+          {/* buttom: contact form */}
+          <div className="mt-8">
+            <a href="#contact-form" className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-[#86A788] rounded-md shadow hover:bg-[#6b8e6b] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#86A788]">
+              Contact for customization Now
+            </a>
+          </div>
 
-            <form onSubmit={handleSubmit} className="mt-4 space-y-3">
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Name</label>
-                <input name="name" value={form.name} onChange={handleChange} required className="mt-1 block w-full rounded-md border-gray-200 shadow-sm px-3 py-2 focus:outline-none focus:ring-2" style={{ boxShadow: 'none', borderColor: '#e5e7eb' }} />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Email</label>
-                <input name="email" type="email" value={form.email} onChange={handleChange} required className="mt-1 block w-full rounded-md border-gray-200 shadow-sm px-3 py-2 focus:outline-none focus:ring-2" />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Phone</label>
-                <input name="phone" value={form.phone} onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-200 shadow-sm px-3 py-2 focus:outline-none focus:ring-2" />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Customization Details</label>
-                <textarea name="details" value={form.details} onChange={handleChange} rows={4} className="mt-1 block w-full rounded-md border-gray-200 shadow-sm px-3 py-2 focus:outline-none focus:ring-2" placeholder="Describe fabrics, colors, size, or attach a reference URL" />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Budget (optional)</label>
-                <input name="budget" value={form.budget} onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-200 shadow-sm px-3 py-2 focus:outline-none focus:ring-2" placeholder="e.g. $50 - $100" />
-              </div>
-
-              <button type="submit" className="w-full inline-flex justify-center items-center rounded-md py-2 px-4 text-white" style={{ background: theme }}>
-                {submitted ? 'Request Sent' : 'Send Request'}
-              </button>
-            </form>
-
-            <div className="mt-6 border-t pt-4 text-sm text-gray-700">
-              <h3 className="font-semibold text-gray-900">Other ways to contact</h3>
-              <ul className="mt-2 space-y-2">
-                <li>Email: <a href="mailto:hello@joybear.example" className="text-[#86A788] underline">hello@joybear.example</a></li>
-                <li>Phone: <a href="tel:+1234567890" className="text-[#86A788] underline">+1 (234) 567-890</a></li>
-                <li>Instagram: <a href="https://instagram.com/joybear" target="_blank" rel="noreferrer" className="text-[#86A788] underline">@joybear</a></li>
-              </ul>
-            </div>
-          </aside>
         </div>
       </div>
     </div>

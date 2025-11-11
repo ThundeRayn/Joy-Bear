@@ -26,7 +26,7 @@ const DisplayCard: React.FC<ProductCardProps> = ({ product }) => {
         <a href={`/products/${product.slug.current}`} className="block">
           <div className="border border-gray-100 rounded-lg overflow-hidden shadow-sm transition-all cursor-pointer group">
             {/* Product Image */}
-            <div className="w-full h-48 bg-gray-200 overflow-hidden">
+            <div className="w-full h-full bg-gray-200 overflow-hidden">
               {product.images && product.images.length > 0 ? (
                 <img
                   src={typeof product.images[0] === 'string' ? product.images[0] : product.images[0]?.asset?.url}

@@ -118,8 +118,8 @@ const TagToys: React.FC<TagToysProps> = ({
                   {products.map((product, idx) => (
                     <li
                       key={product._id || idx}
-                      className="flex-shrink-0 w-full md:w-1/4 p-4"
-                      style={{ minWidth: isMobile ? "100%" : (visibleCount === 2 ? "50%" : "25%") }}
+                      className="flex-shrink-0 w-full md:w-1/4 lg:w-1/6 p-2 lg:p-3"
+                      style={{ minWidth: isMobile ? "100%" : (window.innerWidth >= 1024 ? "16.6667%" : "25%") }}
                     >
                       <DisplayCard product={product} />
                     </li>
@@ -135,8 +135,8 @@ const TagToys: React.FC<TagToysProps> = ({
                 {products.map((product, idx) => (
                   <li
                     key={product._id || idx}
-                    className="flex-shrink-0 w-full md:w-1/4 p-4"
-                    style={{ minWidth: isMobile ? "100%" : (visibleCount === 2 ? "50%" : "25%") }}
+                    className="flex-shrink-0 w-full md:w-1/4 lg:w-1/6 p-2 lg:p-3"
+                    style={{ minWidth: isMobile ? "100%" : (window.innerWidth >= 1024 ? "16.6667%" : "25%") }}
                   >
                     <DisplayCard product={product} />
                   </li>

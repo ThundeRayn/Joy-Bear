@@ -67,7 +67,7 @@ const Service: React.FC<SlantedSectionProps> = (props) => {
   );
 
   return (
-    <div className={`w-full h-100 md:h-150 lg:h-150 relative overflow-visible ${className}`}>
+    <div className={`w-full h-100 mb-6 md:h-150 lg:h-150 relative overflow-visible ${className}`}>
       {/* Left Section */}
       <a 
         className="absolute inset-0 w-1/2 z-10 cursor-pointer"
