@@ -16,7 +16,7 @@ const Home = () => {
         <Carousel/>
         <TagToys />
         <Categories />
-        <TagToys title='Hotest' tagName='Hotest'/>
+        <TagToys title='Hotest' tagName='Hotest' viewMoreLink='/tags/hotest'/>
         <Service />
         <Certification />
         <Join />
