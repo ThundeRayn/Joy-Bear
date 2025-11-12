@@ -13,6 +13,13 @@ type Product = {
   category?: {title: string}[];
   tags?: {name: string}[];
   images?: string[];
+  features?: {
+    recyclable?: boolean;
+    furry?: boolean;
+    handmade?: boolean;
+    safeForKids?: boolean;
+    limitedEdition?: boolean;
+  };
 }
 
 const ProductDetail = () => {
@@ -32,7 +39,14 @@ const ProductDetail = () => {
           description,
           "category": category[]->{title},
           "tags": tags[]->{name},
-          "images": images[].asset->url
+          "images": images[].asset->url,
+          features {
+            recyclable,
+            furry,
+            handmade,
+            safeForKids,
+            limitedEdition
+          }
         }`
       )
       .then((data) => {
@@ -124,6 +138,48 @@ const ProductDetail = () => {
             <p className="mt-6 text-gray-700 leading-relaxed">
               {singleProduct.description}
             </p>
+
+            {/* Features */}
+            {singleProduct.features && (
+              <div className="mt-6">
+                <h2 className="text-2xl font-semibold mb-4">Features</h2>
+                <div className="flex flex-wrap gap-3">
+                  {Object.entries(singleProduct.features).map(([key, value]) => (
+                    value && (
+                      <div key={key} className="flex flex-col items-center justify-center bg-gray-100 rounded-lg px-4 py-3 shadow text-gray-800 min-w-[90px]">
+                        {/* Example icons for each feature, replace with your own SVGs or images if desired */}
+                        {key === 'recyclable' && (
+                          <span className="mb-1 text-green-600">
+                            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M12 2v2m0 16v2m8-10h2m-18 0H2m15.07-7.07l1.41 1.41M5.51 18.49l-1.41 1.41M18.49 18.49l-1.41 1.41M5.51 5.51L4.1 4.1" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+                          </span>
+                        )}
+                        {key === 'furry' && (
+                          <span className="mb-1 text-yellow-600">
+                            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="2"/><path d="M8 10c0-1.1.9-2 2-2s2 .9 2 2" stroke="currentColor" strokeWidth="2"/></svg>
+                          </span>
+                        )}
+                        {key === 'handmade' && (
+                          <span className="mb-1 text-pink-600">
+                            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M4 12l4 4 8-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+                          </span>
+                        )}
+                        {key === 'safeForKids' && (
+                          <span className="mb-1 text-blue-600">
+                            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/><path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="currentColor" strokeWidth="2"/></svg>
+                          </span>
+                        )}
+                        {key === 'limitedEdition' && (
+                          <span className="mb-1 text-purple-600">
+                            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="3" stroke="currentColor" strokeWidth="2"/><path d="M9 9h6v6H9z" stroke="currentColor" strokeWidth="2"/></svg>
+                          </span>
+                        )}
+                        <span className="text-sm font-medium capitalize mt-1">{key.replace(/([A-Z])/g, ' $1')}</span>
+                      </div>
+                    )
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
