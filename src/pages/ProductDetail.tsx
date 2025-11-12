@@ -1,5 +1,44 @@
 
 import { useState, useEffect } from 'react'
+
+// LargeImageDisplay component
+type LargeImageDisplayProps = {
+  images: string[];
+  title: string;
+};
+
+const LargeImageDisplay: React.FC<LargeImageDisplayProps> = ({ images, title }) => {
+  const [selectedIdx, setSelectedIdx] = useState<number>(0);
+  return (
+    <div className="w-full mb-8">
+      <div className="w-full h-64 md:h-96 overflow-hidden shadow-lg flex items-center justify-center bg-white mb-4">
+        <img
+          src={images[selectedIdx]}
+          alt={title}
+          className="max-h-full max-w-full object-contain"
+        />
+      </div>
+
+      <div className="flex gap-4 overflow-x-auto p-4">
+        {images.map((imgUrl, idx) => (
+          <div
+            key={idx}
+            className={`w-20 h-20 overflow-hidden border border-Joygrey flex-shrink-0 relative group cursor-pointer ${selectedIdx === idx ? 'ring-2 ring-[#86A788]' : ''}`}
+            onClick={() => setSelectedIdx(idx)}
+          >
+            <div className="w-full h-full flex items-center justify-center bg-white">
+              <img
+                src={imgUrl}
+                alt={title}
+                className="max-h-full max-w-full object-contain"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 import { useParams } from 'react-router-dom'
 import client from '../Client'
 import ContactBadge from '../components/ContactBadge';
@@ -95,25 +134,14 @@ const ProductDetail = () => {
           </div> */}
 
         {/* Product Image and Info */}
-        <div className="max-w-4xl mx-auto p-6 flex flex-col md:flex-row">
+        <div className="max-w-4xl mx-auto p-6 flex flex-col">
+          {/* Large image display section */}
+          {singleProduct.images && singleProduct.images.length > 0 && (
+            <LargeImageDisplay images={singleProduct.images} title={singleProduct.title} />
+          )}
 
-          {/* Image */}
-          <div className="w-full md:w-md h-80 rounded-2xl overflow-hidden shadow-lg">
-            {singleProduct.images && singleProduct.images.length > 0 ? (
-              <img
-                src={singleProduct.images[0]}
-                alt={singleProduct.title}
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="flex items-center justify-center w-full h-full bg-gray-200 text-gray-500">
-                No Image
-              </div>
-            )}
-          </div>
-
-          {/* Product Info */}
-          <div className="mt-6 w-full md:ml-10 md:mt-4">
+          {/* Info below image */}
+          <div className="w-full">
             <h1 className="text-3xl font-bold text-gray-800">{singleProduct.title}</h1>
             {singleProduct.minOrderQuantity && (
               <p className="text-lg text-blue-600 font-semibold mt-2">
