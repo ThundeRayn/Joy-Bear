@@ -14,7 +14,7 @@ const ContactBadge = () => {
           </p>
         </div>
         <div className="flex flex-col items-center gap-3">
-          <span className="inline-block rounded-md px-4 py-2 text-base font-medium text-white bg-[#86A788] shadow">
+          <span className="inline-block rounded-md px-4 py-2 text-base font-medium text-white bg-Joybrown shadow">
             <a href="mailto:hello@joybear.com" className="hover:underline">hello@joybear.com</a>
           </span>
         </div>

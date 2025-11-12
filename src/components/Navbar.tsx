@@ -58,7 +58,7 @@ const Navbar = () => {
 
               <div className="flex-1 flex justify-end">
                 <a
-                  href="/about"
+                  href="mailto:hello@joybear.com"
                   className="inline-block px-6 py-2 rounded-xl border border-Joybrown text-Joybrown font-medium transition-colors duration-200 hover:text-[#8b6f47] hover:border-[#8b6f47] whitespace-nowrap"
                 >
                   Contact Us Now

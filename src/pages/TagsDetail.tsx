@@ -58,7 +58,7 @@ const TagsDetail = () => {
       <div className="flex flex-col items-center justify-center">
 
         <div className="p-10">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">{slug}</h2>
+          <h2 className="text-center text-3xl font-bold text-gray-900 mb-4">{slug}</h2>
           <p>You are viewing {products.length} products</p>
         </div>
 
