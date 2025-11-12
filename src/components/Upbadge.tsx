@@ -17,7 +17,7 @@ const Upbadge = ({ title, img, description }: UpbadgeProps) => {
   return (
     <div>
       {/* Hero image with gentle overlay to give breathing room */}
-      <div className="w-full overflow-hidden mb-8 shadow-lg">
+      <div className="w-full overflow-hidden mb-8 lg:shadow-lg">
         <div className="relative h-52 md:h-80 lg:h-96 bg-gray-200">
           <img
             src={imageSrc}

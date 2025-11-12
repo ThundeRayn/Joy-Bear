@@ -23,7 +23,7 @@ const Categories = () => {
   return (
     <section className="w-full pt-6 pb-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="flex gap-4">
+  <div className="flex flex-col sm:flex-row gap-6 sm:gap-4">
           {categories.map((category) => (
             <a
               key={category.id}
@@ -45,15 +45,18 @@ const Categories = () => {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span
                     id="category-hover-text"
-                    className="text-2xl font-thin text-white text-center inline-block px-4 py-2 rounded-md opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+                    className="text-2xl font-thin text-white text-center inline-block px-4 py-2 rounded-md
+                      sm:opacity-0 sm:translate-y-2 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 sm:transition-all sm:duration-300
+                      opacity-100 translate-y-0"
                   >
-                    Explore more
+                    <span className="sm:inline hidden">Explore more</span>
+                    <span className="inline sm:hidden">{category.title}</span>
                   </span>
                 </div>
               </div>
 
-              {/* Title below image */}
-              <div className="mt-3 text-center">
+              {/* Title below image (hidden on mobile) */}
+              <div className="mt-3 text-center sm:block hidden">
                 <h4 className="text-lg font-normal text-gray-800">{category.title}</h4>
               </div>
             </a>
