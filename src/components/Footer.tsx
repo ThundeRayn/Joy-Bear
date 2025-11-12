@@ -17,7 +17,7 @@ type FooterData = {
 const Footer = () => {
     const [footerData, setFooterData] = useState<FooterData | null>(null)
     const{ slug } = footerData || { slug: { current: '' } };
-    
+
     useEffect(() => {
     client
       .fetch(
@@ -47,23 +47,26 @@ const Footer = () => {
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 lg:w-3/4 lg:pl-16">
                     {/* Column 1: About & Products */} 
                     <div className={columnClass}>
-                        <h3 className={headingClass}>About</h3>
+                        <h3 className={headingClass}>Products</h3>
                         <ul className={listClass}>
-                            <li><a href="/about" className={linkClass}>About Us</a></li>
+                            <li><a href="/products" className={linkClass}>Explore All</a></li>
+                            <li><a href="/categories" className={linkClass}>IP Collection</a></li>
+                            <li><a href="/customize" className={linkClass}>OEM Custom Made</a></li>
                             {/* <li><a href="/quality" className={linkClass}>Quality Standards</a></li> */}
-                            <li><a href="/story" className={linkClass}>Brand Story</a></li>
-                            <li><a href="#" className={linkClass}>Certifications</a></li>
+                            {/* <li><a href="/story" className={linkClass}>Brand Story</a></li> */}
+                            {/* <li><a href="#" className={linkClass}>Certifications</a></li> */}
                             {/* <li><a href="#" className={linkClass}>Trusted Clients</a></li> */}
                         </ul>
                     </div>
 
                     {/* Column 2: Products & Services */}
                     <div className={columnClass}>
-                        <h3 className={headingClass}>Services</h3>
+                        <h3 className={headingClass}><br></br></h3>
                         <ul className={listClass}>
-                            <li><a href="/products" className={linkClass}>Products</a></li>
-                            <li><a href="/customize" className={linkClass}>OEM Custom Made</a></li>
-                            {/* <li><a href="#" className={linkClass}>Successful Examples</a></li> */}
+                            
+                            <li><a href="/tags/hottest" className={linkClass}>Hottest</a></li>
+                            <li><a href="/tags/latest" className={linkClass}>Latest</a></li>
+                            <li><a href="/tags/popular" className={linkClass}>Popular</a></li>
                         </ul>
                     </div>
 
@@ -72,6 +75,7 @@ const Footer = () => {
                         <h3 className={headingClass}>Connect</h3>
                         <ul className={listClass}>
                             <li><a href="mailto:hello@joybear.com" className={linkClass}>Contact Us</a></li>
+                            <li><a href="/about" className={linkClass}>About Us</a></li>
                             <li><a href={`/activity/${slug.current}`}  className={linkClass}>Activities</a></li>
                         </ul>
                     </div>
