@@ -146,7 +146,7 @@ const TagToys: React.FC<TagToysProps> = ({
           )}
         </div>
         <div className="mt-8">
-          <a href={viewMoreLink} className="inline-block bg-Joyblue text-white px-6 py-2 rounded-xl shadow hover:bg-[#6a886c] transition">
+          <a href={viewMoreLink} className="inline-block bg-Joyblue text-white px-6 py-2 rounded-xl shadow hover:bg-Joybrown transition">
             {viewMoreLabel}
           </a>
         </div>

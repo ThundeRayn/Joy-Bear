@@ -1,10 +1,34 @@
+import { useEffect, useState } from "react";
+import client from '../Client'
+
 const headingClass = "text-black font-semibold text-xl mb-4";
 const columnClass = "";
 const listClass = "space-y-2 text-black text-sm";
 const linkClass = "hover:text-black hover:underline";
 const iconLinkClass = "text-black hover:text-black";
+type FooterData = {
+  hint: string
+  slug: {
+    _type: "slug";
+    current: string;
+  };
+}
 
 const Footer = () => {
+    const [footerData, setFooterData] = useState<FooterData | null>(null)
+    const{ slug } = footerData || { slug: { current: '' } };
+    
+    useEffect(() => {
+    client
+      .fetch(
+        `*[_type == "activity" && isFeatured == true][0]{
+          slug
+        }`
+      )
+      .then(setFooterData)
+      .catch(console.error)
+  }, [])
+  
     return (
     <footer className="bg-secondary text-black py-12">
         <div className="max-w-7xl mx-auto px-8 md:px-10 lg:px-9">
@@ -43,12 +67,12 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Column 3: Contact & Careers */}
+                    {/* Column 3: Contact */}
                     <div className={columnClass}>
                         <h3 className={headingClass}>Connect</h3>
                         <ul className={listClass}>
-                            <li><a href="#" className={linkClass}>Contact Us</a></li>
-                            <li><a href="#" className={linkClass}>Activities</a></li>
+                            <li><a href="mailto:hello@joybear.com" className={linkClass}>Contact Us</a></li>
+                            <li><a href={`/activity/${slug.current}`}  className={linkClass}>Activities</a></li>
                         </ul>
                     </div>
                 </div>
