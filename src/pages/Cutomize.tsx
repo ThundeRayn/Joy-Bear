@@ -7,7 +7,7 @@ const Customize = () => {
 
   return (
     <>
-    <Upbadge />
+    <Upbadge img='https://plus.unsplash.com/premium_photo-1684164601845-b6705ffa6352?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170'/>
     <div className="max-w-4xl mx-auto py-12 px-4 md:pr-22 md:pl-12">
       
       <div className="max-w-6xl mx-auto">

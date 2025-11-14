@@ -92,7 +92,7 @@ const Navbar = () => {
           <div className='md:hidden p-4 flex justify-between'>
             <a href='/'>
               <div id='nav-logo' className='flex justify-center items-center gap-2'>
-                  <img src="/bear-paw.svg" alt="Joy Bear Logo" className="w-6 h-6 inline" />
+                  <img src="/joybear-icononly.svg" alt="Joy Bear Logo" className="w-6 h-6 inline" />
                   <span>Joy Bear Toys</span>
               </div>
             </a>
@@ -120,13 +120,13 @@ const Navbar = () => {
                   <a href='/' className="menu-item">Home</a>
                 </li>
                 <li>
-                  <a href='/about' className="menu-item">About</a>
+                  <a href='/products' className="menu-item">Explore All</a>
                 </li>
                 <li>
-                  <a href='/products' className="menu-item">Toys</a>
+                  <a href='/categories' className="menu-item">Categories</a>
                 </li>
                 <li>
-                  <a href='/customize' className="menu-item">Customize</a>
+                  <a href='/customize' className="menu-item">Customize ODM</a>
                 </li>
             </ul>
         </div>

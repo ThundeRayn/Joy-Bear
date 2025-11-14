@@ -61,7 +61,7 @@ const Footer = () => {
 
                     {/* Column 2: Products & Services */}
                     <div className={columnClass}>
-                        <h3 className={headingClass}><br></br></h3>
+                        <h3 className={headingClass}>Trend</h3>
                         <ul className={listClass}>
                             
                             <li><a href="/tags/hottest" className={linkClass}>Hottest</a></li>
