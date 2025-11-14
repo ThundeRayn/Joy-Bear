@@ -1,13 +1,22 @@
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
 import Layout from "./components/Layout";
 import Home from './pages/Home'
-import Product from './pages/Product'
-import ProductDetail from './pages/ProductDetail';
 import Error from './pages/Error';
 import About from './pages/About';
 import Story from './pages/Story';
 import Cutomize from './pages/Cutomize';
+{/* Product Pages */}
+import Product from './pages/Product'
+import ProductDetail from './pages/ProductDetail';
+{/* Category Pages */}
+import Category from './pages/Category';
+import CategoryDetail from './pages/CategoryDetail';
+{/* Tags Pages */}
+import Tags from './pages/Tags';
+import TagsDetail from './pages/TagsDetail';
+import ActivityDetail from './pages/ActivityDetail';
 
 function App() {
 
@@ -17,11 +26,25 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="products" element={<Product />} />
-          <Route path="products/:slug" element={<ProductDetail />} />
           <Route path="story" element={<Story />} />
           <Route path="customize" element={<Cutomize />} />
           <Route path="*" element={<Error />} />
+
+          {/* Product Pages */}
+          <Route path="products" element={<Product />} />
+          <Route path="products/:slug" element={<ProductDetail />} />
+          
+          {/* Categories */}
+          <Route path="categories" element={<Category />} />
+          <Route path="categories/:slug" element={<CategoryDetail />} />
+
+          {/* Tags */}
+          <Route path="tags" element={<Tags />} />
+          <Route path="tags/:slug" element={<TagsDetail />} />
+
+          {/*Activity Detail Page */}
+          <Route path="activity/:slug" element={<ActivityDetail />} />
+
         </Route>
       </Routes>
     </BrowserRouter>

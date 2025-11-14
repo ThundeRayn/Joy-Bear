@@ -1,0 +1,158 @@
+import { useEffect, useState } from "react";
+import client from '../Client';
+import DisplayCard from "./DisplayCard";
+import { RiArrowLeftWideFill, RiArrowRightWideFill } from "react-icons/ri";
+
+interface Product {
+  _id: string;
+  id: string;
+  slug: {
+    _type: "slug";
+    current: string;
+  };
+  title: string;
+  description: string;
+  minOrderQuantity?: number;
+  category?: {title: string}[];
+  tags?: {name: string}[];
+  images?: { asset: { url: string } }[];
+}
+
+type TagToysProps = {
+  /** Heading text to display above the cards */
+  title?: string;
+  /** Tag name to query products by (e.g. 'Latest') */
+  tagName?: string;
+  /** Optional link for the "view more" button */
+  viewMoreLink?: string;
+  /** Optional label for the view more button */
+  viewMoreLabel?: string;
+}
+
+const TagToys: React.FC<TagToysProps> = ({
+  title = 'New Arrivals',
+  tagName = 'Latest',
+  viewMoreLink = '/tags/latest',
+  viewMoreLabel = 'VIEW MORE'
+}) => {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    // build a safe groq query using the provided tagName
+    const q = `*[_type == "product" && "${tagName}" in tags[]->name]{
+      _id,
+      id,
+      slug,
+      title,
+      minOrderQuantity,
+      description,
+      "category": category[]->{title},
+      "tags": tags[]->{name},
+      "images": images[].asset->url
+    }`;
+
+    client
+      .fetch(q)
+      .then((data) => {
+        setProducts(data || []);
+      })
+      .catch((err) => console.error(err));
+  }, [tagName]);
+
+  // Carousel state
+  const [visible, setVisible] = useState(0);
+  const getVisibleCount = () => {
+    if (typeof window !== "undefined") {
+      if (window.innerWidth >= 768) return 4;
+    }
+    return 2;
+  };
+  const [visibleCount, setVisibleCount] = useState(getVisibleCount());
+
+  useEffect(() => {
+    const handleResize = () => setVisibleCount(getVisibleCount());
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const maxIndex = Math.max(0, products.length - visibleCount);
+  const handlePrev = () => {
+    setVisible((v) => v === 0 ? maxIndex : v - 1);
+  };
+  const handleNext = () => {
+    setVisible((v) => v === maxIndex ? 0 : v + 1);
+  };
+
+  // Responsive logic
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 768;
+  const showCarouselDesktop = isDesktop && products.length > 4;
+  const showCarouselMobile = isMobile && products.length > 1;
+
+  return (
+    <section className="w-full py-16 px-10 lg:px-20">
+      <div className="flex flex-col items-center">
+        <h2 className="text-3xl font-medium text-gray-900 mb-8">
+          {title}
+        </h2>
+        <div className="w-full max-w-6xl relative mx-auto">
+          {(showCarouselDesktop || showCarouselMobile) ? (
+            <>
+              <button
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer transition"
+                onClick={handlePrev}
+              >
+                <RiArrowLeftWideFill />
+              </button>
+              <button
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer transition"
+                onClick={handleNext}
+              >
+                <RiArrowRightWideFill />
+              </button>
+              <div className="overflow-hidden">
+                <ul
+                  className={`flex gap-4 pt-4 px-4 min-w-full transition-transform duration-500`}
+                  style={{ transform: `translateX(-${visible * (100 / visibleCount)}%)` }}
+                >
+                  {products.map((product, idx) => (
+                    <li
+                      key={product._id || idx}
+                      className="flex-shrink-0 w-full md:w-1/4 lg:w-1/6 p-2 lg:p-3"
+                      style={{ minWidth: isMobile ? "100%" : (window.innerWidth >= 1024 ? "16.6667%" : "25%") }}
+                    >
+                      <DisplayCard product={product} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          ) : (
+            <div className="overflow-hidden">
+              <ul
+                className={`flex gap-4 pt-4 px-4 min-w-full justify-center`}
+              >
+                {products.map((product, idx) => (
+                  <li
+                    key={product._id || idx}
+                    className="flex-shrink-0 w-full md:w-1/4 lg:w-1/6 p-2 lg:p-3"
+                    style={{ minWidth: isMobile ? "100%" : (window.innerWidth >= 1024 ? "16.6667%" : "25%") }}
+                  >
+                    <DisplayCard product={product} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+        <div className="mt-8">
+          <a href={viewMoreLink} className="inline-block bg-Joyblue text-white px-6 py-2 rounded-xl shadow hover:bg-Joybrown transition">
+            {viewMoreLabel}
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default TagToys

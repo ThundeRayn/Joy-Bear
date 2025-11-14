@@ -1,7 +1,27 @@
 
-#root {
+:root {
+  --color-primary: #c99058;
+  --color-secondary: #90d2f4;
+  --color-tertiary: #f8f8f8;
+
+  /*text color*/
+  --color-txt-primary: #1c1c1c;
+  --color-txt-secondary: #542b05;
+  --color-txt-tertiary: #999999;
+
+  /*color palette*/
+  --color-Joygreen: #86A788;
+  --color-Joypink: #f9c8c8;
+  --color-Joyblue: #90d2f4;
+  --color-Joybrown: #c99058;
+  --color-Joybrown-med:#8b6f47;
+  --color-Joybrown-dark:#2c362d;
+  --color-yellow: #fffacd;
+  
+  --color-Joygrey: #f8f8f8;
 
 }
+
 
 @keyframes fadeIn {
   from { opacity: 0; }
