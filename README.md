@@ -26,6 +26,12 @@ It allows a non-technical client to easily manage **Products** and **Activities*
   - React app fetches content from Sanity and displays updated products/activities
 
 ---
+## SEO Optmization checklist
+- all links redirect to canonical
+- add cannonical to header link in `index.html`
+- set up sitemap and robots.txt, submit to [google search seo](https://search.google.com/search-console/welcome) waiting updated
+
+
 
 ## Disclaimer
 
