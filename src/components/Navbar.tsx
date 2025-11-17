@@ -51,7 +51,7 @@ const Navbar = () => {
               <div className="flex-1 flex justify-center">
                 <a href='/'>
                   <div id='nav-logo' className='flex justify-center items-center gap-2'>
-                      <img src="/joybear-full.svg" alt="Joy Bear Logo" className="w-14 h-14 inline" />
+                      <img src="/joybear-icononly.svg" alt="Joy Bear Logo" className="w-16 h-16 inline" />
                   </div>
                 </a>
               </div>
