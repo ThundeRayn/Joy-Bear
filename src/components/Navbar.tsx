@@ -25,6 +25,10 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  //classNames
+
+  const spanClassName = "absolute left-0 top-8 w-full h-[2px] bg-Joybrown scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left";
+
 
 
   return (
@@ -79,20 +83,35 @@ const Navbar = () => {
 
             {/* Menu items centered */}
             <ul className='flex flex-row items-center gap-6 justify-center'>
-              <li>
-                <a href='/products' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">EXPLORE ALL</a>
+              <li className="relative">
+                <a href='/products' className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1">
+                  EXPLORE ALL
+                  <span className={spanClassName}></span>
+                </a>
               </li>
-              <li>
-                <a href='/categories' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">CATEGORIES</a>
+              <li className="relative">
+                <a href='/categories' className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1">
+                  CATEGORIES
+                  <span className={spanClassName}></span>
+                </a>
               </li>
-              <li>
-                <a href='/tags/popular' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">POPULAR</a>
+              <li className="relative">
+                <a href='/tags/popular' className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1">
+                  POPULAR
+                  <span className={spanClassName}></span>
+                </a>
               </li>
-              <li>
-                <a href='/tags/latest' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">LATEST</a>
+              <li className="relative">
+                <a href='/tags/latest' className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1">
+                  LATEST
+                  <span className={spanClassName}></span>
+                </a>
               </li>
-              <li>
-                <a href='/customize' className="text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out">CUSTOMIZE-ODM</a>
+              <li className="relative">
+                <a href='/customize' className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1">
+                  CUSTOMIZE-ODM
+                  <span className={spanClassName}></span>
+                </a>
               </li>
             </ul>
 
