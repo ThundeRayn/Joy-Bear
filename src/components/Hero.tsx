@@ -28,10 +28,19 @@ const Hero = ({ title, img, description }: HeroProps) => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           {/* Left Joyblue gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6]/10 to-transparent" />
-          <div className="absolute left-0 top-0 h-full flex items-center w-1/3 px-8 md:px-12 text-white">
-            <div className="w-full flex flex-col items-start justify-center">
-              <h2 className="text-2xl md:text-3xl font-bold">{badgeTitle}</h2>
-              <p className="mt-4 text-sm md:text-base">{badgeDesc}</p>
+          {/* Desktop: text left, mobile: text bottom */}
+          <div className="absolute left-0 top-0 h-full w-full">
+            <div className="hidden md:flex items-center h-full w-1/3 px-8 md:px-12 text-white">
+              <div className="w-full flex flex-col items-start justify-center">
+                <h2 className="text-2xl md:text-3xl font-bold">{badgeTitle}</h2>
+                <p className="mt-4 text-sm md:text-base">{badgeDesc}</p>
+              </div>
+            </div>
+            <div className="flex md:hidden items-end h-full w-full px-6 pb-8 text-white">
+              <div className="w-full flex flex-col items-start justify-end">
+                <h2 className="text-2xl font-bold">{badgeTitle}</h2>
+                <p className="mt-4 text-sm">{badgeDesc}</p>
+              </div>
             </div>
           </div>
         </div>

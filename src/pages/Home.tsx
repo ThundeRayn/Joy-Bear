@@ -1,5 +1,5 @@
 
-//import Carousel from '../components/Carousel'
+import Carousels from '../components/Carousels'
 //import BrandIntro from '../components/BrandIntro'
 //import Certification from '../components/Certification'
 import Service from '../components/Service'
@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <div>
         <Hero />
-        {/* <Carousel/> */}
+        <Carousels/>
         <TagToys />
         <Categories />
         <TagToys title='Hottest' tagName='Hottest' viewMoreLink='/tags/hottest'/>
