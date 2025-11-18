@@ -120,8 +120,8 @@ const Heros = () => {
       scaleCurrent = 'scale-90';
       scaleNext = 'scale-90';
       opacityPrev = 'opacity-100';
-      opacityCurrent = 'opacity-40';
-      opacityNext = 'opacity-40';
+      opacityCurrent = 'opacity-100';
+      opacityNext = 'opacity-100';
       zPrev = 'z-20';
       zCurrent = 'z-10';
       zNext = 'z-10';
@@ -132,8 +132,8 @@ const Heros = () => {
       scalePrev = 'scale-90';
       scaleCurrent = 'scale-90';
       scaleNext = 'scale-100';
-      opacityPrev = 'opacity-40';
-      opacityCurrent = 'opacity-40';
+      opacityPrev = 'opacity-100';
+      opacityCurrent = 'opacity-100';
       opacityNext = 'opacity-100';
       zPrev = 'z-10';
       zCurrent = 'z-10';
@@ -154,7 +154,7 @@ const Heros = () => {
     }
 
     return (
-      <div className="w-full py-6 aspect-[13/9] md:aspect-[13/7] lg:aspect-[17/7] overflow-hidden relative flex items-center justify-center">
+      <div className="w-full pt-2 pb-6 aspect-[13/9] md:aspect-[13/7] lg:aspect-[17/7] overflow-hidden relative flex items-center justify-center">
         <div className="flex w-full h-full items-center justify-center gap-2" style={{overflow: 'hidden'}}>
           <div
             className="flex w-full h-full"
@@ -167,10 +167,11 @@ const Heros = () => {
             <img
               src={getSlide(prevIdx).image}
               alt={getSlide(prevIdx).title}
-              className={`w-[10%] h-full object-cover object-center rounded-xl transition-all duration-300 ${scalePrev} ${opacityPrev} ${zPrev}`}
+              className={`w-[10%] h-full object-cover object-center rounded-xl transition-all duration-300 cursor-pointer ${scalePrev} ${opacityPrev} ${zPrev}`}
               width={1920}
               height={800}
               loading="lazy"
+              onClick={prevSlide}
             />
             {/* Center Slide (animated) */}
             <img
@@ -189,10 +190,11 @@ const Heros = () => {
             <img
               src={getSlide(nextIdx).image}
               alt={getSlide(nextIdx).title}
-              className={`w-[10%] h-full object-cover object-center rounded-xl transition-all duration-300 ${scaleNext} ${opacityNext} ${zNext}`}
+              className={`w-[10%] h-full object-cover object-center rounded-xl transition-all duration-300 cursor-pointer ${scaleNext} ${opacityNext} ${zNext}`}
               width={1920}
               height={800}
               loading="lazy"
+              onClick={nextSlide}
             />
           </div>
         </div>
