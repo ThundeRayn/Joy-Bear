@@ -17,200 +17,94 @@ const Activities = [
 ]
 
 const Heros = () => {
-  // Track which image should be shown in the center during animation
-  const [animatingIdx, setAnimatingIdx] = useState<number | null>(null);
-  // ...existing code...
-    // Animation direction state
-    const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null);
+  const [current, setCurrent] = useState(1);
+  const [isSliding, setIsSliding] = useState(false);
+  const [clickedButton, setClickedButton] = useState<null | 'left' | 'right'>(null);
 
-    // Modified navigation to set direction
-    const prevSlide = () => {
-      if (isSliding) return;
-      setSlideDirection('left');
-      setIsSliding(true);
-      setAnimatingIdx(current - 1 < 1 ? Activities.length : current - 1);
-      setClickedButton('left');
-      setTimeout(() => {
-        setCurrent(current - 1 < 1 ? Activities.length : current - 1);
-        setIsSliding(false);
-        setClickedButton(null);
-        setSlideDirection(null);
-        setAnimatingIdx(null);
-      }, 300);
-    };
-    const nextSlide = () => {
-      if (isSliding) return;
-      setSlideDirection('right');
-      setIsSliding(true);
-      setAnimatingIdx(current + 1 > Activities.length ? 1 : current + 1);
-      setClickedButton('right');
-      setTimeout(() => {
-        setCurrent(current + 1 > Activities.length ? 1 : current + 1);
-        setIsSliding(false);
-        setClickedButton(null);
-        setSlideDirection(null);
-        setAnimatingIdx(null);
-      }, 300);
-    };
-    const [current, setCurrent] = useState(1); // Start at first real slide
-  // Removed unused transition and slidesRef
+  const slides = [
+    Activities[Activities.length - 1],
+    ...Activities,
+    Activities[0]
+  ];
 
-    // Prepare slides: [last, ...Activities, first]
-    const slides = [
-      Activities[Activities.length - 1],
-      ...Activities,
-      Activities[0]
-    ];
-
-
-
-    // Prevent rapid clicks by disabling navigation during transition
-    const [isSliding, setIsSliding] = useState(false);
-    const [clickedButton, setClickedButton] = useState<null | 'left' | 'right'>(null);
-
-    // Handle slide navigation and wrap around
-    const goTo = (idx: number, btn: 'left' | 'right') => {
-      if (isSliding) return;
-      let newIdx = idx;
-      if (newIdx < 1) newIdx = Activities.length;
-      if (newIdx > Activities.length) newIdx = 1;
-      setCurrent(newIdx);
-      setIsSliding(true);
-      setClickedButton(btn);
-      // Reset sliding after animation
-      setTimeout(() => {
-        setIsSliding(false);
-        setClickedButton(null);
-      }, 300); // match transition duration
-    };
-
-
-    // Removed unused handleTransitionEnd
-
-    // Only show three slides: previous, current, next
-    const getSlide = (idx: number) => {
-      // Wrap around
-      if (idx < 0) return slides[slides.length - 2];
-      if (idx >= slides.length) return slides[1];
-      return slides[idx];
-    };
-
-    const prevIdx = current - 1 < 0 ? slides.length - 2 : current - 1;
-    const nextIdx = current + 1 >= slides.length ? 1 : current + 1;
-
-    // During animation, center image is animatingIdx, otherwise current
-    const centerIdx = isSliding && animatingIdx !== null ? animatingIdx : current;
-
-    // Animation: move and grow
-    let translateX = '0%';
-    let scalePrev = 'scale-90';
-    let scaleCurrent = 'scale-100';
-    let scaleNext = 'scale-90';
-    let opacityPrev = 'opacity-40';
-    let opacityCurrent = 'opacity-100';
-    let opacityNext = 'opacity-40';
-    let zPrev = 'z-10';
-    let zCurrent = 'z-20';
-    let zNext = 'z-10';
-
-    if (isSliding && slideDirection === 'left') {
-      // Move left: previous image moves to center, center moves to right
-      translateX = '33%'; // Only enough to bring prev to center
-      scalePrev = 'scale-100';
-      scaleCurrent = 'scale-90';
-      scaleNext = 'scale-90';
-      opacityPrev = 'opacity-100';
-      opacityCurrent = 'opacity-100';
-      opacityNext = 'opacity-100';
-      zPrev = 'z-20';
-      zCurrent = 'z-10';
-      zNext = 'z-10';
-    }
-    if (isSliding && slideDirection === 'right') {
-      // Move right: next image moves to center, center moves to left
-      translateX = '-33%'; // Only enough to bring next to center
-      scalePrev = 'scale-90';
-      scaleCurrent = 'scale-90';
-      scaleNext = 'scale-100';
-      opacityPrev = 'opacity-100';
-      opacityCurrent = 'opacity-100';
-      opacityNext = 'opacity-100';
-      zPrev = 'z-10';
-      zCurrent = 'z-10';
-      zNext = 'z-20';
-    }
-
-    // Center image size animation logic (after all variables are defined)
-    let centerW = '80%';
-    let centerH = '100%';
-    if (isSliding && animatingIdx !== null) {
-      if ((slideDirection === 'left' && animatingIdx === prevIdx) || (slideDirection === 'right' && animatingIdx === nextIdx)) {
-        centerW = '80%';
-        centerH = '100%';
+  const prevSlide = () => {
+    if (isSliding) return;
+    setIsSliding(true);
+    setClickedButton('left');
+    setCurrent(current - 1);
+    setTimeout(() => {
+      setClickedButton(null);
+      if (current - 1 === 0) {
+        setTimeout(() => {
+          setIsSliding(false);
+          setCurrent(Activities.length);
+        }, 50);
       } else {
-        centerW = '10%';
-        centerH = '80%';
+        setIsSliding(false);
       }
-    }
+    }, 800);
+  };
 
-    return (
-      <div className="w-full pt-2 pb-6 aspect-[13/9] md:aspect-[13/7] lg:aspect-[17/7] overflow-hidden relative flex items-center justify-center">
-        <div className="flex w-full h-full items-center justify-center gap-2" style={{overflow: 'hidden'}}>
-          <div
-            className="flex w-full h-full"
-            style={{
-              transform: `translateX(${translateX})`,
-              transition: isSliding ? 'transform 0.3s cubic-bezier(0.4,0,0.2,1)' : 'none',
-            }}
-          >
-            {/* Previous Slide */}
+  const nextSlide = () => {
+    if (isSliding) return;
+    setIsSliding(true);
+    setClickedButton('right');
+    setCurrent(current + 1);
+    setTimeout(() => {
+      setClickedButton(null);
+      if (current + 1 === slides.length - 1) {
+        setTimeout(() => {
+          setIsSliding(false);
+          setCurrent(1);
+        }, 50);
+      } else {
+        setIsSliding(false);
+      }
+    }, 800);
+  };
+
+  return (
+    <div className="w-full pt-2 pb-6 aspect-[13/9] md:aspect-[13/7] lg:aspect-[17/7] overflow-hidden relative">
+      <div className="w-full h-full flex items-center justify-center" style={{overflow: 'visible'}}>
+        <div
+          className="flex h-full gap-4"
+          style={{
+            transform: `translateX(calc(-${current * 80}% - ${current * 16}px + 10%))`,
+            transition: isSliding ? 'transform 0.8s cubic-bezier(0.4,0,0.2,1)' : 'none',
+          }}
+        >
+          {slides.map((slide, idx) => (
             <img
-              src={getSlide(prevIdx).image}
-              alt={getSlide(prevIdx).title}
-              className={`w-[10%] h-full object-cover object-center rounded-xl transition-all duration-300 cursor-pointer ${scalePrev} ${opacityPrev} ${zPrev}`}
-              width={1920}
-              height={800}
-              loading="lazy"
-              onClick={prevSlide}
-            />
-            {/* Center Slide (animated) */}
-            <img
-              src={getSlide(centerIdx).image}
-              alt={getSlide(centerIdx).title}
-              className={`object-cover object-center shadow-lg rounded-xl transition-all duration-300 ${scaleCurrent} ${opacityCurrent} ${zCurrent}`}
-              style={{
-                width: centerW,
-                height: centerH,
+              key={idx}
+              src={slide.image}
+              alt={slide.title}
+              className="h-full object-cover object-center flex-shrink-0 cursor-pointer"
+              style={{ 
+                width: '80%',
+                opacity: idx === current ? 1 : 0.4,
+                transition: isSliding ? 'opacity 0.8s cubic-bezier(0.4,0,0.2,1)' : 'none'
               }}
               width={1920}
               height={800}
               loading="lazy"
+              onClick={idx < current ? prevSlide : idx > current ? nextSlide : undefined}
             />
-            {/* Next Slide */}
-            <img
-              src={getSlide(nextIdx).image}
-              alt={getSlide(nextIdx).title}
-              className={`w-[10%] h-full object-cover object-center rounded-xl transition-all duration-300 cursor-pointer ${scaleNext} ${opacityNext} ${zNext}`}
-              width={1920}
-              height={800}
-              loading="lazy"
-              onClick={nextSlide}
-            />
-          </div>
+          ))}
         </div>
-
-        <button
-          className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer ${isSliding && clickedButton === 'left' ? 'opacity-80' : ''}`}
-          onClick={prevSlide}
-          disabled={isSliding}
-        ><RiArrowLeftWideFill /></button>
-        <button
-          className={`absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer ${isSliding && clickedButton === 'right' ? 'opacity-80' : ''}`}
-          onClick={nextSlide}
-          disabled={isSliding}
-        ><RiArrowRightWideFill /></button>
       </div>
-    );
+
+      <button
+        className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer ${isSliding && clickedButton === 'left' ? 'opacity-80' : ''}`}
+        onClick={prevSlide}
+        disabled={isSliding}
+      ><RiArrowLeftWideFill /></button>
+      <button
+        className={`absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer ${isSliding && clickedButton === 'right' ? 'opacity-80' : ''}`}
+        onClick={nextSlide}
+        disabled={isSliding}
+      ><RiArrowRightWideFill /></button>
+    </div>
+  );
 }
 
 export default Heros;
