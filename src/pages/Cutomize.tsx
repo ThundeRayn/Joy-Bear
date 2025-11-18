@@ -19,20 +19,78 @@ const Customize = () => {
               <ul className="mt-4 ml-4 space-y-3 text-gray-700">
                 <li className="flex items-start">
                 <span className="h-6 w-6 flex items-center justify-center rounded-full bg-[#FFFDEC] text-Joybrown mr-3">✓</span>
-                Premium hypoallergenic, washable fabrics
+                <span>
+                  <strong>Custom Plush Design: </strong> 
+                  We create fully customized 
+                  plush toys based on your sketches, photos, characters, 
+                  or brand mascots.
+                </span>
                 </li>
+
                 <li className="flex items-start">
                 <span className="h-6 w-6 flex items-center justify-center rounded-full bg-[#FFFDEC] text-Joybrown mr-3">✓</span>
-                Flexible sizes and production quantities
+                <span>
+                  <strong>High-Quality Manufacturing: </strong> 
+                  We specialize in professional plush toy production with strict quality control.From fabric selection to stitching and stuffing, every step follows international safety standards.
+                </span>
                 </li>
+
                 <li className="flex items-start">
                 <span className="h-6 w-6 flex items-center justify-center rounded-full bg-[#FFFDEC] text-Joybrown mr-3">✓</span>
-                Custom embroidery, electronics, and branded trims
+                <span>
+                  <strong>Low MOQ Options: </strong> 
+                  Flexible minimum order quantities to support small businesses, gift companies, brand campaigns, tourism products and licensing projects
+                </span>
                 </li>
+                
                 <li className="flex items-start">
                 <span className="h-6 w-6 flex items-center justify-center rounded-full bg-[#FFFDEC] text-Joybrown mr-3">✓</span>
-                Small-batch runs with quality control and traceability
+                <span>
+                  <strong>OEM & ODM Services: </strong> 
+                  Whether you need your own design produced (OEM) or prefer our team to design for you (ODM), we offer full-service solutions tailored to your brand.
+                </span>
                 </li>
+
+                <li className="flex items-start">
+                <span className="h-6 w-6 flex items-center justify-center rounded-full bg-[#FFFDEC] text-Joybrown mr-3">✓</span>
+                <span>
+                  <strong>Name-Drop & Souvenir Programs: </strong> 
+                  We provide name-drop programs for gift shops, tourist attractions, national parks, zoos, and resorts—custom tags, embroidery and accessories available.
+                </span>
+                </li>
+
+                <li className="flex items-start">
+                <span className="h-6 w-6 flex items-center justify-center rounded-full bg-[#FFFDEC] text-Joybrown mr-3">✓</span>
+                <span>
+                  <strong>Fast Sample Turnaround: </strong> 
+                  Rapid prototyping and sample revisions to help you launch products quickly and meet seasonal demand.
+                </span>
+                </li>
+
+                <li className="flex items-start">
+                <span className="h-6 w-6 flex items-center justify-center rounded-full bg-[#FFFDEC] text-Joybrown mr-3">✓</span>
+                <span>
+                  <strong>Sustainable & Premium Materials: </strong> 
+                  Optional eco-friendly fabrics, recycled stuffing and premium materials like crystal velvet, sherpa, corduroy and more.
+                </span>
+                </li>
+
+                <li className="flex items-start">
+                <span className="h-6 w-6 flex items-center justify-center rounded-full bg-[#FFFDEC] text-Joybrown mr-3">✓</span>
+                <span>
+                  <strong>Packaging & Branding: </strong> 
+                  Custom hang tags, woven labels, display boxes, polybags and packaging solutions to enhance your brand presence.
+                </span>
+                </li>
+
+                <li className="flex items-start">
+                <span className="h-6 w-6 flex items-center justify-center rounded-full bg-[#FFFDEC] text-Joybrown mr-3">✓</span>
+                <span>
+                  <strong>Global Shipping & Logistics Support: </strong> 
+                  We handle worldwide shipping and flexible delivery plans to match your timeline.
+                </span>
+                </li>
+
             </ul>
           </section>
 
