@@ -167,7 +167,8 @@ const Heros = () => {
             <img
               src={getSlide(prevIdx).image}
               alt={getSlide(prevIdx).title}
-              className={`w-[20%] h-[80%] object-cover object-center rounded-xl transition-all duration-300 ${scalePrev} ${opacityPrev} ${zPrev}`}
+              className={`w-[20%] object-cover object-center rounded-xl transition-all duration-300 ${scalePrev} ${opacityPrev} ${zPrev}`}
+              style={{ height: centerH }}
               width={1920}
               height={800}
               loading="lazy"
@@ -189,7 +190,8 @@ const Heros = () => {
             <img
               src={getSlide(nextIdx).image}
               alt={getSlide(nextIdx).title}
-              className={`w-[20%] h-[80%] object-cover object-center rounded-xl transition-all duration-300 ${scaleNext} ${opacityNext} ${zNext}`}
+              className={`w-[20%] object-cover object-center rounded-xl transition-all duration-300 ${scaleNext} ${opacityNext} ${zNext}`}
+              style={{ height: centerH }}
               width={1920}
               height={800}
               loading="lazy"
