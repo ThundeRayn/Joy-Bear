@@ -25,7 +25,9 @@ const Join: React.FC = () => {
     >
       <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
         <div className="mb-6 w-full">
-          <h3 className="text-2xl font-semibold text-gray-900">Get Business Updates in your mailbox</h3>
+          <img src='/joybear-icononly.svg' alt="JoyBear Logo" className="w-full h-17" />
+          <h3 className="mt-3 text-2xl font-semibold text-Joybrown-med">Get Business Updates in your mailbox</h3>
+
           <p className="mt-3 text-lg text-gray-700">
             Stay in the loop! Get prototype previews, MOQ updates, and exclusive B2B offers.</p>
         </div>
@@ -40,7 +42,7 @@ const Join: React.FC = () => {
             value={email}
             onChange={handleChange}
             placeholder="you@company.com"
-            className="w-full sm:flex-1 rounded-md border border-gray-200 px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-opacity-75"
+            className="w-full sm:flex-1 rounded-md border border-gray-200 px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-opacity-75 focus:ring-Joybrown"
             aria-label="Email address"
           />
 

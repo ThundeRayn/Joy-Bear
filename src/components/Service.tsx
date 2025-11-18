@@ -11,7 +11,7 @@ interface SlantedSectionProps {
 const Service: React.FC<SlantedSectionProps> = (props) => {
   const {
     className = '',
-    gapPercent = 10,
+    gapPercent = 5,
   } = props;
 
   // Calculate the polygon points based on gapPercent
@@ -36,7 +36,7 @@ const Service: React.FC<SlantedSectionProps> = (props) => {
 
   //left content: bear toy product
   const leftContent = (
-    <div className="relative flex items-center justify-center h-full text-white overflow-hidden group">
+    <div className="md:ml-5 relative flex items-center justify-center h-full text-white overflow-hidden group">
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-400 group-hover:scale-105"
         style={{
@@ -52,7 +52,7 @@ const Service: React.FC<SlantedSectionProps> = (props) => {
 
   //right content: bear toy customization
   const rightContent = (
-    <div className="relative flex items-center justify-center h-full text-white overflow-hidden group">
+    <div className="md:mr-5 relative flex items-center justify-center h-full text-white overflow-hidden group">
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-400 group-hover:scale-105"
         style={{
@@ -67,7 +67,7 @@ const Service: React.FC<SlantedSectionProps> = (props) => {
   );
 
   return (
-    <div className={`w-full h-100 mb-6 md:h-150 lg:h-150 relative overflow-visible ${className}`}>
+    <div className={`w-full p-4 h-100 mb-6 md:h-150 lg:h-150 relative overflow-visible ${className}`}>
       {/* Left Section */}
       <a 
         className="absolute inset-0 w-1/2 z-10 cursor-pointer"

@@ -8,11 +8,13 @@ import Join from '../components/Join'
 import Categories from '../components/Categories'
 import TagToys from '../components/TagToys'
 import Hero from '../components/Hero'
+import Heros from '../components/Heros'
 
 const Home = () => {
   return (
     <div>
         <Hero />
+        <Heros />
         <Carousels/>
         <TagToys />
         <Categories />

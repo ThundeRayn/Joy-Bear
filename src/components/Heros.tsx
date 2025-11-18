@@ -16,7 +16,7 @@ const Activities = [
   { id: 3, image: Bear3, title: 'Item 3' },
 ]
 
-const Carousels = () => {
+const Heros = () => {
   // Track which image should be shown in the center during animation
   const [animatingIdx, setAnimatingIdx] = useState<number | null>(null);
   // ...existing code...
@@ -154,7 +154,7 @@ const Carousels = () => {
     }
 
     return (
-      <div className="w-full aspect-[13/9] md:aspect-[13/7] lg:aspect-[17/7] overflow-hidden relative flex items-center justify-center">
+      <div className="w-full py-6 aspect-[13/9] md:aspect-[13/7] lg:aspect-[17/7] overflow-hidden relative flex items-center justify-center">
         <div className="flex w-full h-full items-center justify-center gap-2" style={{overflow: 'hidden'}}>
           <div
             className="flex w-full h-full"
@@ -211,4 +211,4 @@ const Carousels = () => {
     );
 }
 
-export default Carousels;
+export default Heros;
