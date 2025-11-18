@@ -141,14 +141,14 @@ const Heros = () => {
     }
 
     // Center image size animation logic (after all variables are defined)
-    let centerW = '60%';
+    let centerW = '80%';
     let centerH = '100%';
     if (isSliding && animatingIdx !== null) {
       if ((slideDirection === 'left' && animatingIdx === prevIdx) || (slideDirection === 'right' && animatingIdx === nextIdx)) {
-        centerW = '60%';
+        centerW = '80%';
         centerH = '100%';
       } else {
-        centerW = '20%';
+        centerW = '10%';
         centerH = '80%';
       }
     }
@@ -167,8 +167,7 @@ const Heros = () => {
             <img
               src={getSlide(prevIdx).image}
               alt={getSlide(prevIdx).title}
-              className={`w-[20%] object-cover object-center rounded-xl transition-all duration-300 ${scalePrev} ${opacityPrev} ${zPrev}`}
-              style={{ height: centerH }}
+              className={`w-[10%] h-full object-cover object-center rounded-xl transition-all duration-300 ${scalePrev} ${opacityPrev} ${zPrev}`}
               width={1920}
               height={800}
               loading="lazy"
@@ -190,8 +189,7 @@ const Heros = () => {
             <img
               src={getSlide(nextIdx).image}
               alt={getSlide(nextIdx).title}
-              className={`w-[20%] object-cover object-center rounded-xl transition-all duration-300 ${scaleNext} ${opacityNext} ${zNext}`}
-              style={{ height: centerH }}
+              className={`w-[10%] h-full object-cover object-center rounded-xl transition-all duration-300 ${scaleNext} ${opacityNext} ${zNext}`}
               width={1920}
               height={800}
               loading="lazy"

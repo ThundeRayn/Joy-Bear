@@ -13,8 +13,8 @@ import Heros from '../components/Heros'
 const Home = () => {
   return (
     <div>
-        <Hero />
         <Heros />
+        <Hero />
         <Carousels/>
         <TagToys />
         <Categories />
