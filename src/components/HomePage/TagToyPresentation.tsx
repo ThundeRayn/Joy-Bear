@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import TagToys from './TagToys';
 
 const TagToyPresentation = () => {
   const [selectedOption, setSelectedOption] = useState<'A' | 'B' | 'C'>('A');
@@ -27,7 +28,7 @@ const TagToyPresentation = () => {
   const currentOption = options[selectedOption];
 
   return (
-    <div className="bg-Joybrown py-16 px-8">
+    <div className="bg-Joybrown py-12 px-8">
         <div className="max-w-7xl mx-auto">
           {/* Option Tabs */}
           <div className="flex gap-4 mb-8 justify-center">
@@ -64,6 +65,8 @@ const TagToyPresentation = () => {
           </div>
 
           {/* Content Section */}
+          <TagToys title='Hottest' tagName='Hottest' viewMoreLink='/tags/hottest'/>
+          
           <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
             <h3 className="text-3xl font-bold mb-4 text-gray-800">{currentOption.title}</h3>
             <p className="text-gray-600 mb-6 text-lg">

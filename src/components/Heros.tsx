@@ -20,6 +20,7 @@ const Heros = () => {
   const [current, setCurrent] = useState(1);
   const [isSliding, setIsSliding] = useState(false);
   const [clickedButton, setClickedButton] = useState<null | 'left' | 'right'>(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   // Add keyframes for text animation
   useEffect(() => {
@@ -40,6 +41,15 @@ const Heros = () => {
     return () => {
       document.head.removeChild(style);
     };
+  }, []);
+
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const slides = [
@@ -88,9 +98,11 @@ const Heros = () => {
     <div className="w-full pt-2 pb-6 aspect-[13/9] md:aspect-[13/7] lg:aspect-[17/7] overflow-hidden relative">
       <div className="w-full h-full flex items-center justify-center" style={{overflow: 'visible'}}>
         <div
-          className="flex h-full gap-4"
+          className="flex h-full gap-2 md:gap-4"
           style={{
-            transform: `translateX(calc(-${current * 80}% - ${current * 16}px + 10%))`,
+            transform: isMobile 
+              ? `translateX(calc(-${current * 80}% - ${current * 8}px + 10%))` 
+              : `translateX(calc(-${current * 80}% - ${current * 16}px + 10%))`,
             transition: isSliding ? 'transform 0.8s cubic-bezier(0.4,0,0.2,1)' : 'none',
           }}
         >
