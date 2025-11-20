@@ -20,18 +20,19 @@ const Join: React.FC = () => {
   return (
     <section
       aria-label="Join mailing list"
-      className="w-full py-10 px-6 sm:px-6 lg:px-8"
+      className="w-full py-20 sm:py-10 px-6 sm:px-6 lg:px-8"
       style={{ background: 'var(--color-tertiary, #F8FAFC)' }}
     >
-      <div className="max-w-3xl mx-auto">
-        <div className="text-start mb-6">
-          <h3 className="text-2xl font-semibold text-gray-900">Get Business Updates</h3>
-          <h3 className="text-2xl font-semibold text-gray-900">in your mailbox</h3>
-          <p className="mt-3 mr-4 text-lg text-gray-700">
-            Stay in the loop! Get prototype previews, MOQ updates, and exclusive B2B offers — all designed for toy retailers like you.</p>
+      <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
+        <div className="mb-6 w-full">
+          <img src='/joybear-icononly.svg' alt="JoyBear Logo" className="w-full h-17" />
+          <h3 className="mt-3 text-2xl font-semibold text-Joybrown-med">Get Business Updates in your mailbox</h3>
+
+          <p className="mt-3 text-lg text-gray-700">
+            Stay in the loop! Get prototype previews, MOQ updates, and exclusive B2B offers.</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-3">
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
           <label htmlFor="join-email" className="sr-only">Email address</label>
           <input
             id="join-email"
@@ -41,7 +42,7 @@ const Join: React.FC = () => {
             value={email}
             onChange={handleChange}
             placeholder="you@company.com"
-            className="w-full sm:flex-1 rounded-md border border-gray-200 px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-opacity-75"
+            className="w-full sm:flex-1 rounded-md border border-gray-200 px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-opacity-75 focus:ring-Joybrown"
             aria-label="Email address"
           />
 
@@ -54,7 +55,7 @@ const Join: React.FC = () => {
           </button>
         </form>
 
-        <p className="mt-3 text-sm text-gray-600 text-center">We respect your privacy. Unsubscribe anytime.</p>
+        <p className="mt-3 text-sm text-gray-600">We respect your privacy. Unsubscribe anytime.</p>
       </div>
     </section>
   )

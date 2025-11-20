@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { designFlow } from '../assets/data/designFlow';
 import ContactBadge from '../components/ContactBadge';
 import Upbadge from '../components/Upbadge'
 
 
 const Customize = () => {
+  const [openOfferIndex, setOpenOfferIndex] = useState<number | null>(null);
 
   return (
     <>
@@ -15,24 +17,71 @@ const Customize = () => {
         <div className="flex flex-col gap-8">
           {/* Left: what we do / offers */}
           <section className="mb-16">
-              <h2 className="text-2xl font-semibold text-gray-900">What We Offer</h2>
-              <ul className="mt-4 ml-4 space-y-3 text-gray-700">
-                <li className="flex items-start">
-                <span className="h-6 w-6 flex items-center justify-center rounded-full bg-[#FFFDEC] text-Joybrown mr-3">✓</span>
-                Premium hypoallergenic, washable fabrics
+            <strong className="block text-2xl font-bold text-Joybrown mb-4">What We Offer</strong>
+            <ul className="mt-2 ml-2 space-y-3">
+              {[
+                {
+                  title: "Custom Plush Design",
+                  text: "We create fully customized plush toys based on your sketches, photos, characters, or brand mascots."
+                },
+                {
+                  title: "High-Quality Manufacturing",
+                  text: "We specialize in professional plush toy production with strict quality control. From fabric selection to stitching and stuffing, every step follows international safety standards."
+                },
+                {
+                  title: "Low MOQ Options",
+                  text: "Flexible minimum order quantities to support small businesses, gift companies, brand campaigns, tourism products and licensing projects."
+                },
+                {
+                  title: "OEM & ODM Services",
+                  text: "Whether you need your own design produced (OEM) or prefer our team to design for you (ODM), we offer full-service solutions tailored to your brand."
+                },
+                {
+                  title: "Name-Drop & Souvenir Programs",
+                  text: "We provide name-drop programs for gift shops, tourist attractions, national parks, zoos, and resorts—custom tags, embroidery and accessories available."
+                },
+                {
+                  title: "Fast Sample Turnaround",
+                  text: "Rapid prototyping and sample revisions to help you launch products quickly and meet seasonal demand."
+                },
+                {
+                  title: "Sustainable & Premium Materials",
+                  text: "Optional eco-friendly fabrics, recycled stuffing and premium materials like crystal velvet, sherpa, corduroy and more."
+                },
+                {
+                  title: "Packaging & Branding",
+                  text: "Custom hang tags, woven labels, display boxes, polybags and packaging solutions to enhance your brand presence."
+                },
+                {
+                  title: "Global Shipping & Logistics Support",
+                  text: "We handle worldwide shipping and flexible delivery plans to match your timeline."
+                }
+              ].map((offer, idx) => (
+                <li key={idx} className="flex flex-col items-start bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+                  <button
+                    type="button"
+                    className="w-full flex items-center px-4 py-3 focus:outline-none focus:border-2 focus:border-Joybrown focus:rounded-lg"
+                    onClick={() => {
+                      setOpenOfferIndex(openOfferIndex === idx ? null : idx);
+                    }}
+                  >
+                    <span className="h-6 w-6 flex items-center justify-center rounded-full bg-[#FFFDEC] text-Joybrown mr-3">✓</span>
+                    <span className="font-semibold text-Joybrown text-lg">{offer.title}</span>
+                  </button>
+                  <div 
+                    className={`text-gray-700 text-base txt transition-all duration-500 ease-in-out ${
+                      openOfferIndex === idx 
+                        ? 'max-h-96 opacity-100 px-16 py-8' 
+                        : 'max-h-0 opacity-0 px-0 py-0'
+                    }`}
+                    style={{
+                      overflow: 'hidden'
+                    }}
+                  >
+                    {offer.text}
+                  </div>
                 </li>
-                <li className="flex items-start">
-                <span className="h-6 w-6 flex items-center justify-center rounded-full bg-[#FFFDEC] text-Joybrown mr-3">✓</span>
-                Flexible sizes and production quantities
-                </li>
-                <li className="flex items-start">
-                <span className="h-6 w-6 flex items-center justify-center rounded-full bg-[#FFFDEC] text-Joybrown mr-3">✓</span>
-                Custom embroidery, electronics, and branded trims
-                </li>
-                <li className="flex items-start">
-                <span className="h-6 w-6 flex items-center justify-center rounded-full bg-[#FFFDEC] text-Joybrown mr-3">✓</span>
-                Small-batch runs with quality control and traceability
-                </li>
+              ))}
             </ul>
           </section>
 
