@@ -38,7 +38,7 @@ const ContactFloat = () => {
     <div>
         {/* Floating contact button */}
         <a
-            href="mailto:hello@joybear.com"
+            href="/contact"
             className="fixed right-8 z-50 w-16 h-16 flex items-center justify-center rounded-full bg-Joygrey shadow-lg text-Joybrown text-lg font-bold hover:bg-Joyblue transition"
             style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.15)", bottom: `${bottomPosition * 4}px`, transition: 'bottom 0.3s ease' }}
         >

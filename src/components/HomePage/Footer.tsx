@@ -74,7 +74,7 @@ const Footer = () => {
                     <div className={columnClass}>
                         <h3 className={headingClass}>Connect</h3>
                         <ul className={listClass}>
-                            <li><a href="mailto:hello@joybear.com" className={linkClass}>Contact Us</a></li>
+                            <li><a href="/contact" className={linkClass}>Contact Us</a></li>
                             <li><a href="/about" className={linkClass}>About Us</a></li>
                             <li><a href={`/activity/${slug.current}`}  className={linkClass}>Activities</a></li>
                         </ul>

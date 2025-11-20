@@ -1,9 +1,117 @@
-
+import { useState } from "react";
 
 const ContactPage = () => {
-  return (
-    <div>ContactPage</div>
-  )
-}
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
-export default ContactPage
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("sending");
+
+    // Create mailto link with form data
+    const subject = encodeURIComponent(`Contact Form: Message from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    const mailtoLink = `mailto:hello@joybear.com?subject=${subject}&body=${body}`;
+
+    // Open default email client
+    window.location.href = mailtoLink;
+
+    // Reset form and show success
+    setTimeout(() => {
+      setFormData({ name: "", email: "", message: "" });
+      setStatus("success");
+      setTimeout(() => setStatus("idle"), 3000);
+    }, 500);
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-2xl mx-auto">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-900">Contact Us</h1>
+        </div>
+
+        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-8">
+          <div className="mb-6">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              Name *
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-Joyblue focus:border-Joyblue outline-none transition"
+              placeholder="Your name"
+            />
+          </div>
+
+          <div className="mb-6">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              Email *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-Joyblue focus:border-Joyblue outline-none transition"
+              placeholder="your.email@example.com"
+            />
+          </div>
+
+          <div className="mb-6">
+            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+              Message *
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              rows={6}
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-Joyblue focus:border-Joyblue outline-none transition resize-none"
+              placeholder="Your message..."
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={status === "sending"}
+            className="w-full bg-Joyblue text-white py-3 px-6 rounded-md font-medium hover:bg-Joybrown transition disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {status === "sending" ? "Sending..." : "Send Message"}
+          </button>
+
+          {status === "success" && (
+            <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-md">
+              <p className="text-green-800 text-sm text-center">
+                Your email client should open. Please send the email to complete your message.
+              </p>
+            </div>
+          )}
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default ContactPage;
