@@ -69,7 +69,7 @@ const Carousels = () => {
     const [clickedButton, setClickedButton] = useState<null | 'left' | 'right'>(null);
 
     // Handle slide navigation and wrap around
-    const goTo = (idx: number, btn: 'left' | 'right') => {
+    /* const goTo = (idx: number, btn: 'left' | 'right') => {
       if (isSliding) return;
       let newIdx = idx;
       if (newIdx < 1) newIdx = Activities.length;
@@ -81,8 +81,8 @@ const Carousels = () => {
       setTimeout(() => {
         setIsSliding(false);
         setClickedButton(null);
-      }, 300); // match transition duration
-    };
+      }, 300);
+    };*/
 
 
     // Removed unused handleTransitionEnd
