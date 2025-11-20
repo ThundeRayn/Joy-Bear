@@ -1,6 +1,7 @@
 import React from 'react'
 import Join from '../components/Join';
-import Certification from '../components/Certification';
+import Certification from '../components/ContactPage/Certification';
+import Testimonials from '../components/ContactPage/Testimonials';
 
 const About: React.FC = () => {
   return (
@@ -50,6 +51,8 @@ const About: React.FC = () => {
         </div>
       </div>
 
+
+      <Testimonials />
       <Certification />
     </div>
 
