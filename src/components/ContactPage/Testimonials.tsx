@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import { RiArrowLeftWideFill, RiArrowRightWideFill } from "react-icons/ri";
+
 const testimonials = [
   {
     id: 1,
@@ -30,6 +33,51 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  const [current, setCurrent] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(1);
+  const [isSliding, setIsSliding] = useState(false);
+
+  useEffect(() => {
+    const updateVisibleCount = () => {
+      if (window.innerWidth >= 1280) {
+        setVisibleCount(4);
+      } else if (window.innerWidth >= 768) {
+        setVisibleCount(2);
+      } else {
+        setVisibleCount(1);
+      }
+    };
+
+    updateVisibleCount();
+    window.addEventListener('resize', updateVisibleCount);
+    return () => window.removeEventListener('resize', updateVisibleCount);
+  }, []);
+
+  const prevSlide = () => {
+    if (isSliding) return;
+    setIsSliding(true);
+    setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setTimeout(() => setIsSliding(false), 300);
+  };
+
+  const nextSlide = () => {
+    if (isSliding) return;
+    setIsSliding(true);
+    setCurrent((prev) => (prev + 1) % testimonials.length);
+    setTimeout(() => setIsSliding(false), 300);
+  };
+
+  const getVisibleTestimonials = () => {
+    const visible = [];
+    for (let i = 0; i < visibleCount; i++) {
+      const index = (current + i) % testimonials.length;
+      visible.push(testimonials[index]);
+    }
+    return visible;
+  };
+
+  const visibleTestimonials = getVisibleTestimonials();
+
   return (
     <section className="w-full bg-secondary mt-6 py-16 px-6 sm:px-8 lg:px-12">
       <div className="max-w-7xl mx-auto">
@@ -40,24 +88,51 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {testimonials.map((testimonial) => (
-            <div
-              key={testimonial.id}
-              className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition"
+        <div className="relative">
+          <div className="overflow-hidden">
+            <div 
+              className="flex gap-6 transition-transform duration-300 ease-in-out"
+              style={{
+                transform: isSliding ? 'translateX(-10px)' : 'translateX(0)',
+              }}
             >
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full bg-Joyblue flex items-center justify-center text-white font-semibold text-lg">
-                  {testimonial.avatar}
+              {visibleTestimonials.map((testimonial) => (
+                <div
+                  key={testimonial.id}
+                  className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition flex-shrink-0"
+                  style={{
+                    width: visibleCount === 1 ? '100%' : visibleCount === 2 ? 'calc(50% - 12px)' : 'calc(25% - 18px)'
+                  }}
+                >
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 rounded-full bg-Joyblue flex items-center justify-center text-white font-semibold text-lg">
+                      {testimonial.avatar}
+                    </div>
+                    <div className="ml-3">
+                      <p className="font-semibold text-gray-900">{testimonial.name}</p>
+                      <p className="text-sm text-gray-500">{testimonial.company}</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-sm italic">"{testimonial.feedback}"</p>
                 </div>
-                <div className="ml-3">
-                  <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                  <p className="text-sm text-gray-500">{testimonial.company}</p>
-                </div>
-              </div>
-              <p className="text-gray-700 text-sm italic">"{testimonial.feedback}"</p>
+              ))}
             </div>
-          ))}
+          </div>
+
+          <button
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer shadow-lg hover:bg-gray-100 transition"
+            onClick={prevSlide}
+            disabled={isSliding}
+          >
+            <RiArrowLeftWideFill size={24} />
+          </button>
+          <button
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer shadow-lg hover:bg-gray-100 transition"
+            onClick={nextSlide}
+            disabled={isSliding}
+          >
+            <RiArrowRightWideFill size={24} />
+          </button>
         </div>
       </div>
     </section>
