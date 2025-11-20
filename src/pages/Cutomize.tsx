@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { designFlow } from '../assets/data/designFlow';
 import ContactBadge from '../components/ContactBadge';
 import Upbadge from '../components/Upbadge'
 
 
 const Customize = () => {
+  const [openOfferIndex, setOpenOfferIndex] = useState<number | null>(null);
 
   return (
     <>
@@ -55,21 +57,27 @@ const Customize = () => {
                   text: "We handle worldwide shipping and flexible delivery plans to match your timeline."
                 }
               ].map((offer, idx) => (
-                <li key={idx} className="flex flex-col items-start bg-white rounded-lg shadow-sm border border-gray-100">
+                <li key={idx} className="flex flex-col items-start bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
                   <button
                     type="button"
                     className="w-full flex items-center px-4 py-3 focus:outline-none focus:border-2 focus:border-Joybrown focus:rounded-lg"
-                    onClick={e => {
-                      const el = e.currentTarget.nextElementSibling;
-                      if (el) {
-                        el.classList.toggle('hidden');
-                      }
+                    onClick={() => {
+                      setOpenOfferIndex(openOfferIndex === idx ? null : idx);
                     }}
                   >
                     <span className="h-6 w-6 flex items-center justify-center rounded-full bg-[#FFFDEC] text-Joybrown mr-3">✓</span>
                     <span className="font-semibold text-Joybrown text-lg">{offer.title}</span>
                   </button>
-                  <div className="hidden px-16 p-8 text-gray-700 text-base txt">
+                  <div 
+                    className={`text-gray-700 text-base txt transition-all duration-500 ease-in-out ${
+                      openOfferIndex === idx 
+                        ? 'max-h-96 opacity-100 px-16 py-8' 
+                        : 'max-h-0 opacity-0 px-0 py-0'
+                    }`}
+                    style={{
+                      overflow: 'hidden'
+                    }}
+                  >
                     {offer.text}
                   </div>
                 </li>

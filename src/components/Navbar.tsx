@@ -33,7 +33,7 @@ const Navbar = () => {
   const dropdownDisappear = () => {
     setTimeout(() => {
       console.log("Dropdown disappeared");
-    }, 200);
+    }, 600);
 
     setHoveredNavItem(null);
   }

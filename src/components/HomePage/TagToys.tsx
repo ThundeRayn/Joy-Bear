@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import client from '../Client';
-import DisplayCard from "./DisplayCard";
+import client from '../../Client';
+import DisplayCard from "../DisplayCard";
 import { RiArrowLeftWideFill, RiArrowRightWideFill } from "react-icons/ri";
 
 interface Product {

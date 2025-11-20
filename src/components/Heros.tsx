@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { RiArrowLeftWideFill } from "react-icons/ri";
 import { RiArrowRightWideFill } from "react-icons/ri";
 
@@ -11,15 +11,36 @@ const Bear2 = Bear2Img;
 const Bear3 = Bear3Img;
 
 const Activities = [
-  { id: 1, image: Bear2, title: 'Item 1' },
-  { id: 2, image: Bear1, title: 'Item 2' },
-  { id: 3, image: Bear3, title: 'Item 3' },
+  { id: 1, image: Bear2, title: 'Item 1', description: 'Description for Item 1' },
+  { id: 2, image: Bear1, title: 'Item 2', description: 'Description for Item 2' },
+  { id: 3, image: Bear3, title: 'Item 3', description: 'Description for Item 3' },
 ]
 
 const Heros = () => {
   const [current, setCurrent] = useState(1);
   const [isSliding, setIsSliding] = useState(false);
   const [clickedButton, setClickedButton] = useState<null | 'left' | 'right'>(null);
+
+  // Add keyframes for text animation
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes slideUpFade {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    `;
+    document.head.appendChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
 
   const slides = [
     Activities[Activities.length - 1],
@@ -74,21 +95,42 @@ const Heros = () => {
           }}
         >
           {slides.map((slide, idx) => (
-            <img
+            <div
               key={idx}
-              src={slide.image}
-              alt={slide.title}
-              className="h-full object-cover object-center flex-shrink-0 cursor-pointer"
+              className="h-full flex-shrink-0 cursor-pointer relative"
               style={{ 
                 width: '80%',
                 opacity: idx === current ? 1 : 0.4,
                 transition: isSliding ? 'opacity 0.8s cubic-bezier(0.4,0,0.2,1)' : 'none'
               }}
-              width={1920}
-              height={800}
-              loading="lazy"
               onClick={idx < current ? prevSlide : idx > current ? nextSlide : undefined}
-            />
+            >
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full h-full object-cover object-center"
+                width={1920}
+                height={800}
+                loading="lazy"
+              />
+              <div 
+                className="absolute inset-0" 
+                style={{
+                  background: 'linear-gradient(to top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0) 100%)'
+                }}
+              ></div>
+              <div 
+                className="absolute bottom-8 left-8 right-8 text-white z-10"
+                style={{
+                  animation: idx === current ? 'slideUpFade 0.8s ease-out' : 'none',
+                  opacity: idx === current ? 1 : 0,
+                  transform: idx === current ? 'translateY(0)' : 'translateY(20px)'
+                }}
+              >
+                <h2 className="text-4xl font-bold mb-2">{slide.title}</h2>
+                <p className="text-lg">{slide.description}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>

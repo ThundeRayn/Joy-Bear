@@ -5,10 +5,9 @@ type NavDropDownProps = {
 
 const NavDropDown = ({ text }: NavDropDownProps) => {
     return (
-        <div className="hidden md:block w-full bg-white shadow-lg border-t border-gray-200 absolute left-0 top-full z-40">
-            <div className="max-w-6xl mx-auto py-6 px-8">
-                <div className="mb-4 text-lg font-semibold text-gray-800">{text}</div>
-                <div className="grid grid-cols-3 gap-8">
+        <div className="hidden md:block bg-white shadow-lg border border-gray-200 rounded-md absolute left-0 top-full z-40 py-6 px-8">
+            <div className="mb-4 text-lg font-semibold text-gray-800">{text}</div>
+            <div className="grid grid-cols-3 gap-8">
                     <div>
                         <h3 className="font-bold mb-2">Random Section 1</h3>
                         <ul className="list-disc ml-4 text-gray-700">
@@ -34,7 +33,6 @@ const NavDropDown = ({ text }: NavDropDownProps) => {
                         </ul>
                     </div>
                 </div>
-            </div>
         </div>
     );
 };
