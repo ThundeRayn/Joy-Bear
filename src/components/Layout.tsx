@@ -1,8 +1,9 @@
 import { Outlet } from "react-router-dom";
 import Banner from "./Banner";
 import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Footer from "./HomePage/Footer";
 import ActivityPopUp from "./ActivityPopUp";
+import ContactFloat from "./ContactFloat";
 
 function Layout() {
 
@@ -13,8 +14,10 @@ function Layout() {
       <Navbar />
       <ActivityPopUp />
       <main>
-        <Outlet /> {/* Page content goes here */}
+        <Outlet /> 
+        {/* Page content goes here */}
       </main>
+      <ContactFloat />
       <Footer />
     </div>
   );

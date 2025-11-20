@@ -6,6 +6,9 @@ import Bear1Img from '../../assets/imgs/Bear1_11zon.webp'
 import Bear2Img from '../../assets/imgs/Bear2_11zon.webp'
 import Bear3Img from '../../assets/imgs/Bear3_11zon.webp'
 
+// Import your Sanity client (adjust the path as needed)
+import client from '../../Client';
+
 const Bear1 = Bear1Img;
 const Bear2 = Bear2Img;
 const Bear3 = Bear3Img;
@@ -21,7 +24,62 @@ const Activities = [
   { id: 8, image: Bear3, title: 'Item 8' },
 ]
 
-const Carousel = () => {
+interface Product {
+  _id: string;
+  id: string;
+  slug: {
+    _type: "slug";
+    current: string;
+  };
+  title: string;
+  description: string;
+  minOrderQuantity?: number;
+  category?: {title: string}[];
+  tags?: {name: string}[];
+  images?: { asset: { url: string } }[];
+}
+
+type TagToysProps = {
+  /** Heading text to display above the cards */
+  title?: string;
+  /** Tag name to query products by (e.g. 'Latest') */
+  tagName?: string;
+  /** Optional link for the "view more" button */
+  viewMoreLink?: string;
+  /** Optional label for the view more button */
+  viewMoreLabel?: string;
+}
+
+const Carousel: React.FC<TagToysProps> = ({
+  title = 'New Arrivals',
+  tagName = 'Latest',
+  viewMoreLink = '/tags/latest',
+  viewMoreLabel = 'VIEW MORE'
+}) => {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    // build a safe groq query using the provided tagName
+    const q = `*[_type == "product" && "${tagName}" in tags[]->name]{
+      _id,
+      id,
+      slug,
+      title,
+      minOrderQuantity,
+      description,
+      "category": category[]->{title},
+      "tags": tags[]->{name},
+      "images": images[].asset->url
+    }`;
+
+    client
+      .fetch(q)
+      .then((data) => {
+        setProducts(data || []);
+      })
+      .catch((err) => console.error(err));
+  }, [tagName]);
+
   const [current, setCurrent] = useState(0);
   const [isSliding, setIsSliding] = useState(false);
   const [clickedButton, setClickedButton] = useState<null | 'left' | 'right'>(null);
@@ -121,28 +179,32 @@ const Carousel = () => {
             let height = isSide ? '80%' : isBuffer ? '60%' : '100%';
             let display = isBuffer && !isSliding ? 'none' : 'block';
             
-            // During animation, change opacity/height to create smooth transitions
+            // During animation, update opacity/height based on target position
             if (isSliding) {
-              // Slides moving towards center: gradually increase opacity and height
-              if ((slideDirection === 'left' && slide.offset === -1) || (slideDirection === 'right' && slide.offset === 1)) {
+              // Moving from side to center (left side coming in when going prev)
+              if (slideDirection === 'left' && slide.offset < 0) {
                 opacity = 1;
                 height = '100%';
               }
-              // Slides moving away from center: gradually decrease opacity and height
-              else if ((slideDirection === 'left' && slide.offset === 1) || (slideDirection === 'right' && slide.offset === -1)) {
+              // Moving from side to center (right side coming in when going next)
+              else if (slideDirection === 'right' && slide.offset > 0) {
+                opacity = 1;
+                height = '100%';
+              }
+              // Moving from center to side (going away)
+              else if (slideDirection === 'left' && slide.offset > 0) {
                 opacity = 0.4;
                 height = '80%';
               }
-              // Side slides moving towards center
-              else if ((slideDirection === 'left' && slide.offset < -1) || (slideDirection === 'right' && slide.offset > 1)) {
-                opacity = 0.7; // Intermediate opacity during transition
-                height = '90%';
+              else if (slideDirection === 'right' && slide.offset < 0) {
+                opacity = 0.4;
+                height = '80%';
               }
               // Buffer slides entering view
-              else if ((slideDirection === 'left' && slide.offset === -half - 1) || (slideDirection === 'right' && slide.offset === half + 1)) {
+              else if (Math.abs(slide.offset) > half) {
+                display = 'block';
                 opacity = 0.4;
                 height = '80%';
-                display = 'block';
               }
             }
             
@@ -160,6 +222,14 @@ const Carousel = () => {
                   zIndex: isSide || isBuffer ? 10 : 20,
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                   position: 'relative',
+                  cursor: isSide ? 'pointer' : 'default',
+                }}
+                onClick={() => {
+                  if (isSide && slide.offset < 0) {
+                    prevSlide();
+                  } else if (isSide && slide.offset > 0) {
+                    nextSlide();
+                  }
                 }}
               >
                 <img
@@ -171,7 +241,7 @@ const Carousel = () => {
                   loading="lazy"
                 />
                 {!isSide && !isBuffer && (
-                  <p className="text-center" style={{ position: 'absolute', bottom: '-40px', left: 0, right: 0, color: '#2c362d', fontSize: '16px' }}>
+                  <p className="text-center font-bold" style={{ position: 'absolute', bottom: '-40px', left: 0, right: 0, color: '#2c362d', fontSize: '20px', textTransform: 'capitalize' }}>
                     {slide.title}
                   </p>
                 )}
