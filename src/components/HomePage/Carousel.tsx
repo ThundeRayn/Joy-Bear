@@ -101,7 +101,7 @@ const Carousel = () => {
   }
 
   return (
-    <div className="w-full aspect-[13/9] md:aspect-[13/5] lg:aspect-[17/5] overflow-hidden relative flex items-center justify-center">
+    <div className="w-full aspect-[13/9] md:aspect-[13/5] lg:aspect-[17/5] relative flex items-center justify-center" style={{overflow: 'visible'}}>
       <div className="flex w-full h-full items-center justify-center gap-2" style={{overflow: 'visible'}}>
         <div
           className="flex items-center justify-center gap-2 h-full"
@@ -159,6 +159,7 @@ const Carousel = () => {
                   opacity: opacity,
                   zIndex: isSide || isBuffer ? 10 : 20,
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  position: 'relative',
                 }}
               >
                 <img
@@ -169,6 +170,11 @@ const Carousel = () => {
                   height={800}
                   loading="lazy"
                 />
+                {!isSide && !isBuffer && (
+                  <p className="text-center" style={{ position: 'absolute', bottom: '-40px', left: 0, right: 0, color: '#2c362d', fontSize: '16px' }}>
+                    {slide.title}
+                  </p>
+                )}
               </div>
             );
           })}
