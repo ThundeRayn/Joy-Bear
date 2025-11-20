@@ -76,7 +76,9 @@ const Carousel = () => {
     const slides = [];
     const half = Math.floor(visibleCount / 2);
     
-    for (let i = -half; i <= half; i++) {
+    // Add buffer slides on both sides to prevent gaps during animation
+    const bufferSize = 1;
+    for (let i = -half - bufferSize; i <= half + bufferSize; i++) {
       const index = (current + i + Activities.length) % Activities.length;
       slides.push({
         ...Activities[index],
@@ -110,11 +112,14 @@ const Carousel = () => {
           }}
         >
           {visibleSlides.map((slide, idx) => {
-            const isSide = Math.abs(slide.offset) === Math.floor(visibleCount / 2);
+            const half = Math.floor(visibleCount / 2);
+            const isSide = Math.abs(slide.offset) === half;
+            const isBuffer = Math.abs(slide.offset) > half;
             
             // Default state (no animation)
-            let opacity = isSide ? 0.4 : 1;
-            let height = isSide ? '80%' : '100%';
+            let opacity = isSide ? 0.4 : isBuffer ? 0 : 1;
+            let height = isSide ? '80%' : isBuffer ? '60%' : '100%';
+            let display = isBuffer && !isSliding ? 'none' : 'block';
             
             // During animation, change opacity/height to create smooth transitions
             if (isSliding) {
@@ -133,6 +138,12 @@ const Carousel = () => {
                 opacity = 0.7; // Intermediate opacity during transition
                 height = '90%';
               }
+              // Buffer slides entering view
+              else if ((slideDirection === 'left' && slide.offset === -half - 1) || (slideDirection === 'right' && slide.offset === half + 1)) {
+                opacity = 0.4;
+                height = '80%';
+                display = 'block';
+              }
             }
             
             return (
@@ -140,12 +151,13 @@ const Carousel = () => {
                 key={`${slide.index}-${idx}`}
                 className="flex-shrink-0 object-cover object-center rounded-xl"
                 style={{
-                  width: isSide 
+                  display: display,
+                  width: isSide || isBuffer
                     ? visibleCount === 3 ? '20%' : visibleCount === 5 ? '15%' : '12%'
                     : visibleCount === 3 ? '60%' : visibleCount === 5 ? '23.33%' : '15.2%',
                   height: height,
                   opacity: opacity,
-                  zIndex: isSide ? 10 : 20,
+                  zIndex: isSide || isBuffer ? 10 : 20,
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 }}
               >
