@@ -38,14 +38,36 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Contact Us</h1>
-        </div>
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row min-h-screen">
+          {/* Brown Section - Left Side on Desktop */}
+          <div className="bg-Joybrown text-white lg:w-1/2 px-8 py-12 lg:py-20 flex flex-col justify-center">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-6">Get In Touch</h1>
+            <p className="text-lg lg:text-xl mb-8 leading-relaxed">
+              We'd love to hear from you! Whether you have a question about our products, 
+              need assistance, or just want to share your JoyBear experience, our team is ready to help.
+            </p>
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Email Us</h3>
+                <p className="text-gray-100">hello@joybear.com</p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Business Hours</h3>
+                <p className="text-gray-100">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                <p className="text-gray-100">Saturday - Sunday: 10:00 AM - 4:00 PM</p>
+              </div>
+            </div>
+          </div>
 
-        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-8">
-          <div className="mb-6">
+          {/* Form Section - Right Side on Desktop */}
+          <div className="lg:w-1/2 px-8 py-12 lg:py-20 flex flex-col justify-center bg-white">
+            <div className="max-w-xl mx-auto w-full">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center lg:text-left">Send Us a Message</h2>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
               Name *
             </label>
@@ -61,7 +83,7 @@ const ContactPage = () => {
             />
           </div>
 
-          <div className="mb-6">
+          <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
               Email *
             </label>
@@ -77,7 +99,7 @@ const ContactPage = () => {
             />
           </div>
 
-          <div className="mb-6">
+          <div>
             <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
               Message *
             </label>
@@ -109,6 +131,9 @@ const ContactPage = () => {
             </div>
           )}
         </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

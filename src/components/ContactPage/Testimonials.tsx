@@ -81,9 +81,9 @@ const Testimonials = () => {
   return (
     <section className="w-full bg-secondary mt-6 py-16 px-6 sm:px-8 lg:px-12">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900">What Our Customers Say</h2>
-          <p className="mt-3 text-lg text-gray-600">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-gray-700">What Our Customers Say</h2>
+          <p className="mt-2 text-lg text-gray-600">
             Trusted by businesses worldwide for quality and service
           </p>
         </div>
@@ -118,16 +118,40 @@ const Testimonials = () => {
               ))}
             </div>
           </div>
+        </div>
 
+        {/* Navigation Controls */}
+        <div className="flex items-center justify-center gap-4 mt-8">
           <button
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer shadow-lg hover:bg-gray-100 transition"
+            className="p-2 text-[#2c362d] bg-white rounded-full cursor-pointer shadow-lg hover:bg-gray-100 transition"
             onClick={prevSlide}
             disabled={isSliding}
           >
             <RiArrowLeftWideFill size={24} />
           </button>
+
+          {/* Dots Indicator */}
+          <div className="flex gap-2">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  if (!isSliding) {
+                    setIsSliding(true);
+                    setCurrent(index);
+                    setTimeout(() => setIsSliding(false), 300);
+                  }
+                }}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  index === current ? 'bg-white w-5' : 'bg-gray-400'
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
+
           <button
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer shadow-lg hover:bg-gray-100 transition"
+            className="p-2 text-[#2c362d] bg-white rounded-full cursor-pointer shadow-lg hover:bg-gray-100 transition"
             onClick={nextSlide}
             disabled={isSliding}
           >

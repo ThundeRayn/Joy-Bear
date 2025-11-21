@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const ContactFloat = () => {
   const [bottomPosition, setBottomPosition] = useState(8);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,12 +40,14 @@ const ContactFloat = () => {
         {/* Floating contact button */}
         <a
             href="/contact"
-            className="fixed right-8 z-50 w-16 h-16 flex items-center justify-center rounded-full bg-Joygrey shadow-lg text-Joybrown text-lg font-bold hover:bg-Joyblue transition"
+            className="fixed right-8 z-50 w-16 h-16 flex items-center justify-center rounded-full bg-Joygrey shadow-lg text-Joybrown text-lg font-bold hover:bg-Joyblue hover:text-white transition"
             style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.15)", bottom: `${bottomPosition * 4}px`, transition: 'bottom 0.3s ease' }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
         >
             <div>
                 <span className="flex flex-col items-center justify-center">
-                    <img src="/joybear-icononly.svg" alt="Contact" width={28} height={28} />
+                    <img src={isHovered ? "/joybear-colorVert2.svg" : "/joybear-icononly.svg"} alt="Contact" width={28} height={28} />
                     <span className="text-xs mt-1">Contact</span>
                 </span>
             </div>
