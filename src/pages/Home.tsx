@@ -1,7 +1,7 @@
 
 import Carousels from '../components/HomePage/Carousels'
 import Service from '../components/HomePage/Service'
-import Join from '../components/Join'
+import Join from '../components/HomePage/Join'
 import Categories from '../components/Categories'
 import Heros from '../components/Heros'
 import TagToyPresentation from '../components/HomePage/TagToyPresentation'
@@ -16,11 +16,11 @@ const Home = () => {
         <Heros />
 
         <TagToyPresentation />
-        <Carousels/>
+        {/* <Carousels/> */}
         
         <Categories />
         <Service />
-        <Join />
+         <Join />
     </div>
   )
 }

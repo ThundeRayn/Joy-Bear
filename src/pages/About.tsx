@@ -1,5 +1,5 @@
 import React from 'react'
-import Join from '../components/Join';
+import Join from '../components/HomePage/Join';
 import Certification from '../components/ContactPage/Certification';
 import Testimonials from '../components/ContactPage/Testimonials';
 
