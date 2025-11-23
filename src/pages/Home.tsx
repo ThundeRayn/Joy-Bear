@@ -6,6 +6,8 @@ import Categories from '../components/Categories'
 import Heros from '../components/Heros'
 import TagToyPresentation from '../components/HomePage/TagToyPresentation'
 import Hero from '../components/Hero'
+import TagToys from '../components/HomePage/TagToys'
+import Img from '../components/Img'
 
 
 
@@ -17,9 +19,11 @@ const Home = () => {
 
         <TagToyPresentation />
         {/* <Carousels/> */}
-        
-        <Categories />
-        <Service />
+        <TagToys title='Hottest' tagName='Hottest' viewMoreLink='/tags/hottest'/>
+        {/* <Categories /> */}
+
+        <Img />
+        {/* <Service /> */}
          <Join />
     </div>
   )

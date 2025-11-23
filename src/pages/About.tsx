@@ -10,7 +10,7 @@ const About: React.FC = () => {
       {/* Hero Section */}
       <div className="text-center max-w-2xl">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-          about <span className="text-Joybrown">Joybear</span>
+          About <span className="text-Joybrown">JoyBear</span>
         </h1>
         <p className="text-gray-600 text-lg">
           Bringing joy, imagination<br />and creativity to kids around the world.

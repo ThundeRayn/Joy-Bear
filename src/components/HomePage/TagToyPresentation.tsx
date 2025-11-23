@@ -31,36 +31,36 @@ const TagToyPresentation = () => {
   const currentOption = options[selectedOption];
 
   return (
-    <div className="bg-Joybrown pb-8 px-1">
+    <div className="bg-Joybrown pb-12 px-1">
         <div className="max-w-7xl mx-auto">
           {/* Option Tabs */}
-          <div className="flex flex-wrap gap-1 sm:gap-4 mb-8 justify-center">
+          <div className="flex flex-wrap gap-0 sm:gap-4 mb-8 justify-center">
             <button
               onClick={() => setSelectedOption('A')}
-              className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-semibold transition-all duration-300 ${
+              className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-semibold transition-all duration-300 border-2 border-white ${
                 selectedOption === 'A'
-                  ? 'border-2 border-Joyblue text-Joyblue scale-105'
-                  : 'border-2 border-white text-white hover:border-gray-200 hover:text-gray-200'
+                  ? 'bg-Joyblue text-white scale-105'
+                  : 'text-white hover:text-gray-200'
               }`}
             >
               Lattest
             </button>
             <button
               onClick={() => setSelectedOption('B')}
-              className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-semibold transition-all duration-300 ${
+              className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-semibold transition-all duration-300 border-2 border-white ${
                 selectedOption === 'B'
-                  ? 'border-2 border-Joyblue text-Joyblue scale-105'
-                  : 'border-2 border-white text-white hover:border-gray-200 hover:text-gray-200'
+                  ? 'bg-Joyblue text-white scale-105'
+                  : 'text-white hover:text-gray-200'
               }`}
             >
               Hottest
             </button>
             <button
               onClick={() => setSelectedOption('C')}
-              className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-semibold transition-all duration-300 ${
+              className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-semibold transition-all duration-300 border-2 border-white ${
                 selectedOption === 'C'
-                  ? 'border-2 border-Joyblue text-Joyblue scale-105'
-                  : 'border-2 border-white text-white hover:border-gray-200 hover:text-gray-200'
+                  ? 'bg-Joyblue text-white scale-105'
+                  : 'text-white hover:text-gray-200'
               }`}
             >
               Popular
@@ -69,7 +69,7 @@ const TagToyPresentation = () => {
 
           {/* Content Section */}
           <Carousel/>
-          <TagToys title='Hottest' tagName='Hottest' viewMoreLink='/tags/hottest'/>
+          {/* <TagToys title='Hottest' tagName='Hottest' viewMoreLink='/tags/hottest'/> */}
           
           {/*options*/}
           {/* <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">

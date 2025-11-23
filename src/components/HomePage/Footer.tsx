@@ -47,7 +47,7 @@ const Footer = () => {
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 lg:w-3/4 lg:pl-16">
                     {/* Column 1: About & Products */} 
                     <div className={columnClass}>
-                        <h3 className={headingClass}>Products</h3>
+                        <h3 className={headingClass}>Product</h3>
                         <ul className={listClass}>
                             <li><a href="/products" className={linkClass}>Explore All</a></li>
                             <li><a href="/categories" className={linkClass}>IP Collection</a></li>
@@ -74,9 +74,11 @@ const Footer = () => {
                     <div className={columnClass}>
                         <h3 className={headingClass}>Connect</h3>
                         <ul className={listClass}>
-                            <li><a href="/contact" className={linkClass}>Contact Us</a></li>
+                            <li><a href={`/activity/${slug.current}`}  className={linkClass}>Activity</a></li>
                             <li><a href="/about" className={linkClass}>About Us</a></li>
-                            <li><a href={`/activity/${slug.current}`}  className={linkClass}>Activities</a></li>
+                            
+                
+                            <li><a href="/contact" className={linkClass}>Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
