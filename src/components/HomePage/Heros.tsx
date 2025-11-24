@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 import { RiArrowLeftWideFill } from "react-icons/ri";
 import { RiArrowRightWideFill } from "react-icons/ri";
 
-import Bear1Img from '../assets/imgs/Bear1_11zon.webp'
-import Bear2Img from '../assets/imgs/Bear2_11zon.webp'
-import Bear3Img from '../assets/imgs/Bear3_11zon.webp'
+import Bear1Img from '../../assets/imgs/Bear1_11zon.webp'
+import Bear2Img from '../../assets/imgs/Bear2_11zon.webp'
+import Bear3Img from '../../assets/imgs/Bear3_11zon.webp'
 
 const Bear1 = Bear1Img;
 const Bear2 = Bear2Img;
@@ -52,6 +52,15 @@ const Heros = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Auto-advance slide every 30 seconds
+  useEffect(() => {
+    const autoSlide = setInterval(() => {
+      nextSlide();
+    }, 3000);
+    return () => clearInterval(autoSlide);
+  }, [current, isSliding]);
+  //end of auto-advance
+
   const slides = [
     Activities[Activities.length - 1],
     ...Activities,
@@ -95,7 +104,7 @@ const Heros = () => {
   };
 
   return (
-    <div className="w-full pt-6 pb-6 aspect-[13/9] md:aspect-[13/7] lg:aspect-[17/7] overflow-hidden relative">
+    <div className="w-full pt-2 lg:pt-4 pb-6 aspect-[13/9] md:aspect-[13/7] lg:aspect-[17/7] overflow-hidden relative">
       <div className="w-full h-full flex items-center justify-center" style={{overflow: 'visible'}}>
         <div
           className="flex h-full gap-2 md:gap-4"

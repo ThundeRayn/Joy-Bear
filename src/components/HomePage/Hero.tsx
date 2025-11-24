@@ -17,7 +17,7 @@ const Hero = ({ title, img, description }: HeroProps) => {
   return (
     <div>
       {/* Hero image with gentle overlay to give breathing room */}
-      <div className="w-full overflow-hidden lg:shadow-lg">
+      <div className="w-full overflow-hidden">
         <div className="relative h-68 md:h-96 bg-gray-200">
           <img
             src={imageSrc}

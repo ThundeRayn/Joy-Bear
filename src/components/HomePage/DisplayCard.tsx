@@ -31,7 +31,7 @@ const DisplayCard: React.FC<ProductCardProps> = ({ product }) => {
                 <img
                   src={typeof product.images[0] === 'string' ? product.images[0] : product.images[0]?.asset?.url}
                   alt={product.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-gray-400">

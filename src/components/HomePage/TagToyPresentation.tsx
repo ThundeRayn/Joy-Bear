@@ -1,6 +1,8 @@
 import { useState } from 'react'
-import TagToys from './TagToys';
-import Carousel from './Carousel';
+//import TagToys from './TagToys';
+//import Carousel from './Carousel';
+import NewToys from '../NewToys';
+import TagToys2 from './TagToys2';
 
 
 
@@ -68,9 +70,10 @@ const TagToyPresentation = () => {
           </div>
 
           {/* Content Section */}
-          <Carousel/>
-          {/* <TagToys title='Hottest' tagName='Hottest' viewMoreLink='/tags/hottest'/> */}
+          {/* <Carousel/> */}
+           <TagToys2 title='Hottest' tagName='Hottest' viewMoreLink='/tags/hottest'/>
           
+ 
           {/*options*/}
           {/* <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
             <h3 className="text-3xl font-bold mb-4 text-gray-800">{currentOption.title}</h3>

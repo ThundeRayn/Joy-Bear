@@ -29,7 +29,7 @@ type TagToysProps = {
   viewMoreLabel?: string;
 }
 
-const TagToys: React.FC<TagToysProps> = ({
+const TagToys2: React.FC<TagToysProps> = ({
   title = 'New Arrivals',
   tagName = 'Latest',
   viewMoreLink = '/tags/latest',
@@ -155,4 +155,4 @@ const TagToys: React.FC<TagToysProps> = ({
   );
 }
 
-export default TagToys
+export default TagToys2
