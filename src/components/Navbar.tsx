@@ -68,7 +68,8 @@ const Navbar = () => {
               <div className="flex-1 flex justify-center">
                 <a href='/'>
                   <div id='nav-logo' className='flex justify-center items-center gap-2'>
-                      <img src="/joybear-icononly.svg" alt="Joy Bear Logo" className="w-18 h-18 inline" />
+                      <img src="/joybear-icononly.svg" alt="Joy Bear Logo" className="w-16 h-16 inline" />
+                      <img src="/textonly-cropped.svg" alt="Joy Bear Text Logo" className="h-6 inline" />
                   </div>
                 </a>
               </div>
@@ -153,8 +154,9 @@ const Navbar = () => {
           <div className='md:hidden p-4 flex justify-between'>
             <a href='/'>
               <div id='nav-logo' className='flex justify-center items-center gap-2'>
-                  <img src="/joybear-icononly.svg" alt="Joy Bear Logo" className="w-6 h-6 inline" />
-                  <span>Joy Bear Toys</span>
+                  <img src="/joybear-icononly.svg" alt="Joy Bear Logo" className="w-7 h-7 inline" />
+                  <img src="/textonly-cropped.svg" alt="Joy Bear Text Logo" className="h-3 inline" />
+                  {/* <span>Joy Bear Toys</span> */}
               </div>
             </a>
 
