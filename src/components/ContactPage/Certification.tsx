@@ -5,12 +5,9 @@ import { RiArrowRightWideFill } from "react-icons/ri";
 const Certification = () => {
         // Carousel data
         const items = [
-            { src: "https://picsum.photos/id/1015/600/400", label: "AWS Certified", hidden: false },
-            { src: "https://picsum.photos/id/1025/600/400", label: "Google Cloud", hidden: false },
-            { src: "https://picsum.photos/id/1035/600/400", label: "Azure Certified", hidden: false },
-            { src: "https://picsum.photos/id/1045/600/400", label: "React Developer", hidden: false },
-            { src: "https://picsum.photos/id/1055/600/400", label: "Kubernetes Admin", hidden: false },
-            { src: "https://picsum.photos/id/1055/600/400", label: "Hidden img", hidden: false},
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1765112061/cert3_lvewgm.jpg", label: "Recycled Materials", hidden: false },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1765112061/cert1_imtkwd.png", label: "Sedex", hidden: false },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1765112061/cert2_uhldfu.jpg", label: "FCCA", hidden: false },
         ];
         const visibleItems = items.filter(item => !item.hidden);
 
@@ -53,6 +50,8 @@ const Certification = () => {
             {/* Carousel Section */}
             <div className="w-full max-w-6xl relative mx-auto large:px-5">
                 {/*buttons*/}
+                {visibleItems.length >= 5 && (
+                    <>
                 <button
                     className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer transition"
                     onClick={handlePrev}
@@ -66,20 +65,21 @@ const Certification = () => {
                     disabled={visible === maxIndex}
                     style={{ opacity: visible === maxIndex ? 0.1 : 1 }}
                 ><RiArrowRightWideFill /></button>
+                    </>
+                )}
 
                 {/*certification carousel*/}
                 <div className="overflow-hidden">
                     <ul
-                        className="flex gap-4 pt-4 px-4 min-w-full transition-transform duration-500"
-                        style={{ transform: `translateX(-${visible * (100 / visibleCount)}%)` }}
+                        className={`flex gap-4 pt-4 px-4 min-w-full transition-transform duration-500 ${visibleItems.length < 5 ? 'justify-center' : ''}`}
+                        style={{ transform: visibleItems.length < 5 ? 'none' : `translateX(-${visible * (100 / visibleCount)}%)` }}
                     >
                         {visibleItems.map((item, idx) => (
                             <li
                                 key={idx}
                                 className="flex-shrink-0 w-1/2 md:w-1/4 p-4"
                                 style={{
-                                    minWidth: visibleCount === 2 ? '50%' : '25%',
-                                    display: idx === visibleItems.length - 1 ? 'none' : undefined
+                                    minWidth: visibleCount === 2 ? '50%' : '25%'
                                 }}
                             >
                                 <div className="flex flex-col items-center">

@@ -24,7 +24,7 @@ const ContactPage = () => {
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     );
-    const mailtoLink = `mailto:hello@joybear.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:tangshirong477@gmail.com?subject=${subject}&body=${body}`;
 
     // Open default email client
     window.location.href = mailtoLink;
