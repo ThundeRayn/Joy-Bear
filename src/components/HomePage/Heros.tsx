@@ -54,6 +54,7 @@ const Heros = () => {
       nextSlide();
     }, 3000);
     return () => clearInterval(autoSlide);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [current, isSliding]);
   //end of auto-advance
 
