@@ -1,77 +1,65 @@
 import { useState } from 'react'
 //import TagToys from './TagToys';
 //import Carousel from './Carousel';
-import NewToys from '../NewToys';
-import TagToys2 from './TagToys2';
+//import NewToys from '../NewToys';
+import TagToys from './TagToys2';
 
 
 
 const TagToyPresentation = () => {
   const [selectedOption, setSelectedOption] = useState<'A' | 'B' | 'C'>('A');
 
-  const options = {
-    A: {
-      title: 'Option A',
-      description: 'This is the detailed description for Option A. It provides comprehensive information about this particular choice and its benefits.',
-      buttonText: 'Choose A',
-      buttonColor: 'bg-blue-600 hover:bg-blue-700'
-    },
-    B: {
-      title: 'Option B',
-      description: 'This is the detailed description for Option B. It highlights unique features and advantages that make this option stand out.',
-      buttonText: 'Choose B',
-      buttonColor: 'bg-green-600 hover:bg-green-700'
-    },
-    C: {
-      title: 'Option C',
-      description: 'This is the detailed description for Option C. It explains the specific characteristics and value proposition of this selection.',
-      buttonText: 'Choose C',
-      buttonColor: 'bg-purple-600 hover:bg-purple-700'
-    }
-  };
-
-  const currentOption = options[selectedOption];
-
   return (
-    <div className="bg-Joybrown pb-12 px-1">
-        <div className="max-w-7xl mx-auto">
+    <div className="bg-white pb-12 pt-4 px-1">
+        <div className="max-w-7xl mx-auto border">
           {/* Option Tabs */}
-          <div className="flex flex-wrap gap-0 sm:gap-4 mb-8 justify-center">
+          <div className="flex flex-wrap gap-0 sm:gap-8 mb-2 justify-center">
             <button
               onClick={() => setSelectedOption('A')}
-              className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-semibold transition-all duration-300 border-2 border-white ${
+              className={`group relative px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-semibold transition-all duration-300 ${
                 selectedOption === 'A'
-                  ? 'bg-Joyblue text-white scale-105'
-                  : 'text-white hover:text-gray-200'
+                  ? 'text-Joyblue'
+                  : 'text-gray-200 hover:text-gray-400'
               }`}
             >
-              Lattest
+              LATEST
+              <span className={`absolute left-0 bottom-0 w-full h-[2px] bg-Joyblue transition-transform duration-300 origin-left ${
+                selectedOption === 'A' ? 'scale-x-100' : 'scale-x-0'
+              }`}></span>
             </button>
             <button
               onClick={() => setSelectedOption('B')}
-              className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-semibold transition-all duration-300 border-2 border-white ${
+              className={`group relative px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-semibold transition-all duration-300 ${
                 selectedOption === 'B'
-                  ? 'bg-Joyblue text-white scale-105'
-                  : 'text-white hover:text-gray-200'
+                  ? 'text-Joyblue'
+                  : 'text-gray-200 hover:text-gray-400'
               }`}
             >
-              Hottest
+              HOTTEST
+              <span className={`absolute left-0 bottom-0 w-full h-[2px] bg-Joyblue transition-transform duration-300 origin-left ${
+                selectedOption === 'B' ? 'scale-x-100' : 'scale-x-0'
+              }`}></span>
             </button>
             <button
               onClick={() => setSelectedOption('C')}
-              className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-semibold transition-all duration-300 border-2 border-white ${
+              className={`group relative px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-semibold transition-all duration-300 ${
                 selectedOption === 'C'
-                  ? 'bg-Joyblue text-white scale-105'
-                  : 'text-white hover:text-gray-200'
+                  ? 'text-Joyblue'
+                  : 'text-gray-200 hover:text-gray-400'
               }`}
             >
-              Popular
+              POPULAR
+              <span className={`absolute left-0 bottom-0 w-full h-[2px] bg-Joyblue transition-transform duration-300 origin-left ${
+                selectedOption === 'C' ? 'scale-x-100' : 'scale-x-0'
+              }`}></span>
             </button>
           </div>
 
           {/* Content Section */}
           {/* <Carousel/> */}
-           <TagToys2 title='Hottest' tagName='Hottest' viewMoreLink='/tags/hottest'/>
+          {selectedOption === 'A' && <TagToys title='Latest' tagName='Latest' viewMoreLink='/tags/latest'/>}
+          {selectedOption === 'B' && <TagToys title='Hottest' tagName='Hottest' viewMoreLink='/tags/hottest'/>}
+          {selectedOption === 'C' && <TagToys title='Popular' tagName='Popular' viewMoreLink='/tags/popular'/>}
           
  
           {/*options*/}

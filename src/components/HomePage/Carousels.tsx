@@ -36,7 +36,7 @@ const Carousels = () => {
         setClickedButton(null);
         setSlideDirection(null);
         setAnimatingIdx(null);
-      }, 300);
+      }, 500);
     };
     const nextSlide = () => {
       if (isSliding) return;

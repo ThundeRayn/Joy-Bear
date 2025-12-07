@@ -42,22 +42,31 @@ const ContactPage = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row min-h-screen">
           {/* Brown Section - Left Side on Desktop */}
-          <div className="bg-Joybrown text-white lg:w-1/2 px-8 py-12 lg:py-20 flex flex-col justify-center">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">Get In Touch</h1>
-            <p className="text-lg lg:text-xl mb-8 leading-relaxed">
+          <div 
+            className="text-white lg:w-1/2 px-8 py-12 lg:py-20 flex flex-col justify-center bg-cover bg-center relative"
+            style={{
+              backgroundImage: 'url(https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img1_att4en.png)'
+            }}
+          >
+            <div className="absolute inset-0 bg-Joybrown/60"></div>
+            <div className="relative z-10">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-6 drop-shadow-lg">Get In Touch</h1>
+            <p className="text-lg lg:text-xl mb-8 leading-relaxed drop-shadow-md">
               We'd love to hear from you! Whether you have a question about our products, 
               need assistance, or just want to share your JoyBear experience, our team is ready to help.
             </p>
             <div className="space-y-4">
               <div>
-                <h3 className="text-xl font-semibold mb-2">Email Us</h3>
-                <p className="text-gray-100">hello@joybear.com</p>
+                <h3 className="text-xl font-semibold mb-2 drop-shadow-md">Email Us</h3>
+                <p className="text-gray-100 drop-shadow-md">joybeartoys@gmail.com</p>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Business Hours</h3>
-                <p className="text-gray-100">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                <p className="text-gray-100">Saturday - Sunday: 10:00 AM - 4:00 PM</p>
+                <h3 className="text-xl font-semibold mb-2 drop-shadow-md">Our Social Media</h3>
+                <p className="text-gray-100 drop-shadow-md">Youtube Channel</p>
+                <p className="text-gray-100 drop-shadow-md">Tiktok</p>
+                <p className="text-gray-100 drop-shadow-md">Instagram</p>
               </div>
+            </div>
             </div>
           </div>
 

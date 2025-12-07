@@ -92,9 +92,6 @@ const TagToys: React.FC<TagToysProps> = ({
   return (
     <section className="w-full py-16 px-10 lg:px-20">
       <div className="flex flex-col items-center">
-        <h2 className="text-3xl font-medium text-gray-900 mb-8">
-          {title}
-        </h2>
         <div className="w-full max-w-6xl relative mx-auto">
           {(showCarouselDesktop || showCarouselMobile) ? (
             <>
@@ -150,6 +147,9 @@ const TagToys: React.FC<TagToysProps> = ({
             {viewMoreLabel}
           </a>
         </div>
+        <p className="text-sm font-normal text-gray-300 mb-8">
+          {title}
+        </p>
       </div>
     </section>
   );

@@ -19,6 +19,7 @@ import TagsDetail from './pages/TagsDetail';
 import ActivityDetail from './pages/ActivityDetail';
 import ContactPage from './pages/ContactPage';
 
+{/* Cloudinary */}
 function App() {
 
   return (

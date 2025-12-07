@@ -14,7 +14,7 @@ import Img from '../components/Img'
 const Home = () => {
   return (
     <div>
-        <Hero />
+        <Hero img='https://res.cloudinary.com/dqj2gwlpf/image/upload/c_crop,g_auto,h_1500/v1764552511/img2_ebhcga.png'/>
         <Heros />
 
         <TagToyPresentation />

@@ -59,97 +59,96 @@ const TagToys2: React.FC<TagToysProps> = ({
       .catch((err) => console.error(err));
   }, [tagName]);
 
-  // Carousel state
-  const [visible, setVisible] = useState(0);
-  const getVisibleCount = () => {
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(0);
+  
+  const getItemsPerPage = () => {
     if (typeof window !== "undefined") {
-      if (window.innerWidth >= 768) return 4;
+      if (window.innerWidth >= 768) return 10; // 2 rows × 5 columns
     }
-    return 2;
+    return 4; // 2 rows × 2 columns for mobile
   };
-  const [visibleCount, setVisibleCount] = useState(getVisibleCount());
+  
+  const [itemsPerPage, setItemsPerPage] = useState(getItemsPerPage());
 
   useEffect(() => {
-    const handleResize = () => setVisibleCount(getVisibleCount());
+    const handleResize = () => setItemsPerPage(getItemsPerPage());
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const maxIndex = Math.max(0, products.length - visibleCount);
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const startIndex = currentPage * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentProducts = products.slice(startIndex, endIndex);
+
   const handlePrev = () => {
-    setVisible((v) => v === 0 ? maxIndex : v - 1);
+    setCurrentPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
   };
+  
   const handleNext = () => {
-    setVisible((v) => v === maxIndex ? 0 : v + 1);
+    setCurrentPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
   };
 
-  // Responsive logic
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 768;
-  const showCarouselDesktop = isDesktop && products.length > 4;
-  const showCarouselMobile = isMobile && products.length > 1;
+  const goToPage = (pageIndex: number) => {
+    setCurrentPage(pageIndex);
+  };
 
   return (
     <section className="w-full py-16 px-10 lg:px-20">
       <div className="flex flex-col items-center">
-        <h2 className="text-3xl font-medium text-gray-900 mb-8">
-          {title}
-        </h2>
         <div className="w-full max-w-6xl relative mx-auto">
-          {(showCarouselDesktop || showCarouselMobile) ? (
+          {totalPages > 1 && (
             <>
               <button
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer transition"
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer transition hover:bg-gray-100"
                 onClick={handlePrev}
               >
                 <RiArrowLeftWideFill />
               </button>
               <button
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer transition"
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer transition hover:bg-gray-100"
                 onClick={handleNext}
               >
                 <RiArrowRightWideFill />
               </button>
-              <div className="overflow-hidden">
-                <ul
-                  className={`flex gap-4 pt-4 px-4 min-w-full transition-transform duration-500`}
-                  style={{ transform: `translateX(-${visible * (100 / visibleCount)}%)` }}
-                >
-                  {products.map((product, idx) => (
-                    <li
-                      key={product._id || idx}
-                      className="flex-shrink-0 w-full md:w-1/4 lg:w-1/6 p-2 lg:p-3"
-                      style={{ minWidth: isMobile ? "100%" : (window.innerWidth >= 1024 ? "16.6667%" : "25%") }}
-                    >
-                      <DisplayCard product={product} />
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </>
-          ) : (
-            <div className="overflow-hidden">
-              <ul
-                className={`flex gap-4 pt-4 px-4 min-w-full justify-center`}
-              >
-                {products.map((product, idx) => (
-                  <li
-                    key={product._id || idx}
-                    className="flex-shrink-0 w-full md:w-1/4 lg:w-1/6 p-2 lg:p-3"
-                    style={{ minWidth: isMobile ? "100%" : (window.innerWidth >= 1024 ? "16.6667%" : "25%") }}
-                  >
-                    <DisplayCard product={product} />
-                  </li>
-                ))}
-              </ul>
-            </div>
           )}
+          <div className="px-12">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+              {currentProducts.map((product, idx) => (
+                <div key={product._id || idx}>
+                  <DisplayCard product={product} />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
+        
+        {/* Pagination dots */}
+        {totalPages > 1 && (
+          <div className="flex justify-center gap-2 mt-6">
+            {Array.from({ length: totalPages }).map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => goToPage(idx)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  idx === currentPage ? 'bg-Joyblue w-5' : 'bg-gray-300'
+                }`}
+                aria-label={`Go to page ${idx + 1}`}
+              />
+            ))}
+          </div>
+        )}
+        
         <div className="mt-8">
           <a href={viewMoreLink} className="inline-block bg-Joyblue text-white px-6 py-2 rounded-xl shadow hover:bg-Joybrown transition">
             {viewMoreLabel}
           </a>
         </div>
+        <p className="text-sm font-normal text-gray-300 mb-8">
+          {title}
+        </p>
       </div>
     </section>
   );
