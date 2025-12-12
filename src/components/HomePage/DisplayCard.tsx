@@ -26,12 +26,12 @@ const DisplayCard: React.FC<ProductCardProps> = ({ product }) => {
         <a href={`/products/${product.slug.current}`} className="block">
           <div className="overflow-hidden shadow-sm transition-all cursor-pointer group">
             {/* Product Image */}
-            <div className="w-full h-full bg-gray-200 overflow-hidden">
+            <div className="w-full aspect-square bg-gray-200 overflow-hidden">
               {product.images && product.images.length > 0 ? (
                 <img
                   src={typeof product.images[0] === 'string' ? product.images[0] : product.images[0]?.asset?.url}
                   alt={product.title}
-                  className="border w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-gray-400">
@@ -41,8 +41,9 @@ const DisplayCard: React.FC<ProductCardProps> = ({ product }) => {
             </div>
 
             {/* Product Title */}
-            <div className="flex justify-center p-4">
-              <h3 className="open-sans-text-600 text-center text-normal font-semibold text-gray-800 group-hover:text-gray-400 transition-colors duration-200">{product.title}</h3>
+            <div className="flex justify-center py-3 px-3">
+              <h3 className="open-sans-text-600 text-center text-normal font-semibold text-gray-800 group-hover:text-gray-400 transition-colors duration-200 line-clamp-2 min-h-[3em]">
+                {product.title}</h3>
             </div>
           </div>
         </a>

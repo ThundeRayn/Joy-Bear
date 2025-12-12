@@ -33,7 +33,7 @@ const TagToys2: React.FC<TagToysProps> = ({
   title = 'New Arrivals',
   tagName = 'Latest',
   viewMoreLink = '/tags/latest',
-  viewMoreLabel = 'VIEW MORE2'
+  viewMoreLabel = 'VIEW MORE'
 }) => {
   const [products, setProducts] = useState<Product[]>([]);
 
@@ -64,9 +64,9 @@ const TagToys2: React.FC<TagToysProps> = ({
   
   const getItemsPerPage = () => {
     if (typeof window !== "undefined") {
-      if (window.innerWidth >= 768) return 10; // 2 rows × 5 columns
+      if (window.innerWidth >= 768) return 5; // 1 row × 5 columns
     }
-    return 4; // 2 rows × 2 columns for mobile
+    return 2; // 1 row × 2 columns for mobile
   };
   
   const [itemsPerPage, setItemsPerPage] = useState(getItemsPerPage());
@@ -95,7 +95,7 @@ const TagToys2: React.FC<TagToysProps> = ({
   };
 
   return (
-    <section className="w-full py-16 px-10 lg:px-20">
+    <section className="w-full py-8 px-10 lg:px-20">
       <div className="flex flex-col items-center">
         <div className="w-full max-w-6xl relative mx-auto">
           {totalPages > 1 && (
@@ -114,8 +114,9 @@ const TagToys2: React.FC<TagToysProps> = ({
               </button>
             </>
           )}
-          <div className="px-12">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+
+          <div className="px-22 pt-3">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 min-h-[250px] md:min-h-[260px]">
               {currentProducts.map((product, idx) => (
                 <div key={product._id || idx}>
                   <DisplayCard product={product} />
@@ -141,14 +142,33 @@ const TagToys2: React.FC<TagToysProps> = ({
           </div>
         )}
         
-        <div className="mt-8">
+        <div className="mt-4 flex items-center gap-3">
+          <button
+            onClick={handlePrev}
+            className="p-2 text-Joyblue bg-white rounded-full cursor-pointer transition hover:bg-gray-100"
+            aria-label="Previous page"
+          >
+            <RiArrowLeftWideFill className="text-3xl" />
+          </button>
           <a href={viewMoreLink} className="inline-block bg-Joyblue text-white px-6 py-2 rounded-xl shadow hover:bg-Joybrown transition">
             {viewMoreLabel}
           </a>
+          <button
+            onClick={handleNext}
+            className="p-2 text-Joyblue bg-white rounded-full cursor-pointer transition hover:bg-gray-100"
+            aria-label="Next page"
+          >
+            <RiArrowRightWideFill className="text-3xl" />
+          </button>
         </div>
-        <p className="text-sm font-normal text-gray-300 mb-8">
+        <p className="text-sm font-normal text-gray-300">
           {title}
         </p>
+        {products.length <= 5 ? (
+          <p className="text-center mt-2 text-gray-500">yes</p>
+        ) : (
+          <p className="text-center mt-2 text-gray-500">no</p>
+        )}
       </div>
     </section>
   );

@@ -10,8 +10,8 @@ const TagToyPresentation = () => {
   const [selectedOption, setSelectedOption] = useState<'A' | 'B' | 'C'>('A');
 
   return (
-    <div className="bg-white pb-12 pt-4 px-1">
-        <div className="max-w-7xl mx-auto border">
+    <div className="bg-tertiary pt-1 mb-5">
+        <div className="max-w-7xl mx-auto">
           {/* Option Tabs */}
           <div className="flex flex-wrap gap-0 sm:gap-8 mb-2 justify-center">
             <button

@@ -3,7 +3,7 @@ import Join from '../components/HomePage/Join'
 import Heros from '../components/HomePage/Heros'
 import TagToyPresentation from '../components/HomePage/TagToyPresentation'
 import Hero from '../components/HomePage/Hero'
-import TagToys from '../components/HomePage/TagToys'
+//import TagToys from '../components/HomePage/TagToys'
 import Img from '../components/Img'
 
 
@@ -16,7 +16,7 @@ const Home = () => {
 
         <TagToyPresentation />
         {/* <Carousels/> */}
-        <TagToys title='Hottest' tagName='Hottest' viewMoreLink='/tags/hottest'/>
+        {/* <TagToys title='Hottest' tagName='Hottest' viewMoreLink='/tags/hottest'/> */}
         {/* <Categories /> */}
 
         <Img />
