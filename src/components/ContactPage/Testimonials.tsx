@@ -79,7 +79,7 @@ const Testimonials = () => {
   const visibleTestimonials = getVisibleTestimonials();
 
   return (
-    <section className="w-full bg-secondary mt-6 py-16 px-6 sm:px-8 lg:px-12">
+    <section className="w-full bg-secondary py-16 px-6 sm:px-8 lg:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-gray-700">What Our Customers Say</h2>

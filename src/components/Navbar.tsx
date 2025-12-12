@@ -137,6 +137,14 @@ const Navbar = () => {
                   <span className={spanClassName}></span>
                 </a>
               </li>
+              <li className="relative"
+                  onMouseEnter={() => setHoveredNavItem('ABOUT')}
+                  onMouseLeave={dropdownDisappear}>
+                <a href='/about' className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1">
+                  ABOUT
+                  <span className={spanClassName}></span>
+                </a>
+              </li>
             </ul>
 
             {/* Contact us on right */}
