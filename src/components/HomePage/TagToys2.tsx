@@ -128,7 +128,7 @@ const TagToys2: React.FC<TagToysProps> = ({
         
         {/* Pagination dots */}
         {totalPages > 1 && (
-          <div className="flex justify-center gap-2 mt-6">
+          <div className="flex justify-center gap-2 mt-1">
             {Array.from({ length: totalPages }).map((_, idx) => (
               <button
                 key={idx}
