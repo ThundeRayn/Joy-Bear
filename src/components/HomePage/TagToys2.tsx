@@ -143,32 +143,32 @@ const TagToys2: React.FC<TagToysProps> = ({
         )}
         
         <div className="mt-4 flex items-center gap-3">
-          <button
-            onClick={handlePrev}
-            className="p-2 text-Joyblue bg-white rounded-full cursor-pointer transition hover:bg-gray-100"
-            aria-label="Previous page"
-          >
-            <RiArrowLeftWideFill className="text-3xl" />
-          </button>
+          {products.length > 5 && (
+            <button
+              onClick={handlePrev}
+              className="p-2 text-Joyblue bg-white rounded-full cursor-pointer transition hover:bg-gray-100"
+              aria-label="Previous page"
+            >
+              <RiArrowLeftWideFill className="text-3xl" />
+            </button>
+          )}
           <a href={viewMoreLink} className="inline-block bg-Joyblue text-white px-6 py-2 rounded-xl shadow hover:bg-Joybrown transition">
             {viewMoreLabel}
           </a>
-          <button
-            onClick={handleNext}
-            className="p-2 text-Joyblue bg-white rounded-full cursor-pointer transition hover:bg-gray-100"
-            aria-label="Next page"
-          >
-            <RiArrowRightWideFill className="text-3xl" />
-          </button>
+          {products.length > 5 && (
+            <button
+              onClick={handleNext}
+              className="p-2 text-Joyblue bg-white rounded-full cursor-pointer transition hover:bg-gray-100"
+              aria-label="Next page"
+            >
+              <RiArrowRightWideFill className="text-3xl" />
+            </button>
+          )}
         </div>
-        <p className="text-sm font-normal text-gray-300">
+        {/* <p className="text-sm font-normal text-gray-300">
           {title}
-        </p>
-        {products.length <= 5 ? (
-          <p className="text-center mt-2 text-gray-500">yes</p>
-        ) : (
-          <p className="text-center mt-2 text-gray-500">no</p>
-        )}
+        </p> */}
+        
       </div>
     </section>
   );
