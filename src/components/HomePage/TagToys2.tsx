@@ -30,7 +30,7 @@ type TagToysProps = {
 }
 
 const TagToys2: React.FC<TagToysProps> = ({
-  title = 'New Arrivals',
+  // title = 'New Arrivals',
   tagName = 'Latest',
   viewMoreLink = '/tags/latest',
   viewMoreLabel = 'VIEW MORE'

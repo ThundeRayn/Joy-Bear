@@ -5,7 +5,7 @@ const headingClass = "text-black font-semibold text-xl mb-4";
 const columnClass = "";
 const listClass = "space-y-2 text-black text-sm";
 const linkClass = "hover:text-black hover:underline";
-const iconLinkClass = "text-black hover:text-black";
+//const iconLinkClass = "text-black hover:text-black";
 type FooterData = {
   hint: string
   slug: {
