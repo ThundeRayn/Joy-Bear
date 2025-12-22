@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import client from '../Client';
-import DisplayCard from "./DisplayCard";
+import DisplayCard from "./HomePage/DisplayCard";
 
 interface Product {
   _id: string;

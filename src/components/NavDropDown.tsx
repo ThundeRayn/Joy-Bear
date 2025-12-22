@@ -5,7 +5,7 @@ type NavDropDownProps = {
 
 const NavDropDown = ({ text }: NavDropDownProps) => {
     return (
-        <div className="hidden md:block bg-white shadow-lg border border-gray-200 rounded-md absolute left-0 top-full z-40 py-6 px-8">
+        <div className="hidden md:block bg-white shadow-lg border border-gray-200 rounded-md absolute left-1/2 -translate-x-1/2 top-full mt-2 z-40 py-6 px-8 w-max">
             <div className="mb-4 text-lg font-semibold text-gray-800">{text}</div>
             <div className="grid grid-cols-3 gap-8">
                     <div>

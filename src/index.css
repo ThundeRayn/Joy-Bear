@@ -37,3 +37,11 @@ html, body {
   
   --color-Joygrey: #f8f8f8;
 }
+
+.open-sans-text-600 {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600; /*any value from 100 to 900*/
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}

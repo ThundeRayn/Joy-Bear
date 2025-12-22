@@ -3,7 +3,7 @@ import React from 'react'
 const Error: React.FC = () => {
   return (
     <div className="flex h-150 w-full flex-col items-center justify-center bg-gray-100 text-center">
-      <div className="text-7xl text-gray-400">🐻</div>
+      <img src="/joybear-icononly.svg" alt="JoyBear" className="w-28 h-28 text-gray-400" />
       <h1 className="mt-6 text-2xl font-semibold text-gray-700">
         Oops, this page is not found.
       </h1>

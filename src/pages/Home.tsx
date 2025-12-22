@@ -1,27 +1,27 @@
 
-import Carousels from '../components/Carousels'
-//import BrandIntro from '../components/BrandIntro'
-//import Certification from '../components/Certification'
-import Service from '../components/Service'
-import Join from '../components/Join'
-//import NewToys from '../components/NewToys'
-import Categories from '../components/Categories'
-import TagToys from '../components/HomePage/TagToys'
-import Hero from '../components/Hero'
-import Heros from '../components/Heros'
+import Join from '../components/HomePage/Join'
+import Heros from '../components/HomePage/Heros'
 import TagToyPresentation from '../components/HomePage/TagToyPresentation'
+import Hero from '../components/HomePage/Hero'
+//import TagToys from '../components/HomePage/TagToys'
+import Img from '../components/Img'
+
+
 
 const Home = () => {
   return (
     <div>
-        <Hero />
+        <Hero img='https://res.cloudinary.com/dqj2gwlpf/image/upload/c_crop,g_auto,h_1500/v1764552511/img2_ebhcga.png'/>
         <Heros />
-        <Carousels/>
+
         <TagToyPresentation />
-        <Categories />
-        <TagToys title='Hottest' tagName='Hottest' viewMoreLink='/tags/hottest'/>
-        <Service />
-        <Join />
+        {/* <Carousels/> */}
+        {/* <TagToys title='Hottest' tagName='Hottest' viewMoreLink='/tags/hottest'/> */}
+        {/* <Categories /> */}
+
+        <Img />
+        {/* <Service /> */}
+         <Join />
     </div>
   )
 }

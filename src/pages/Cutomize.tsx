@@ -138,19 +138,7 @@ const Customize = () => {
 
     <ContactBadge />
 
-    {/* Floating contact button */}
-    <a
-      href="mailto:hello@joybear.com"
-      className="fixed bottom-8 right-8 z-50 w-16 h-16 flex items-center justify-center rounded-full bg-Joybrown shadow-lg text-white text-lg font-bold hover:bg-Joyblue transition"
-      style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.15)" }}
-    >
-      <div>
-        <span className="flex flex-col items-center justify-center">
-          <img src="/joybear-icononly.svg" alt="Contact" width={28} height={28} />
-          <span className="text-xs mt-1">Contact</span>
-        </span>
-      </div>
-    </a>
+  
     </>
   )
 }

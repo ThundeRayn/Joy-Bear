@@ -1,55 +1,116 @@
 import React from 'react'
-import Join from '../components/Join';
-import Certification from '../components/Certification';
+import Join from '../components/HomePage/Join';
+import Certification from '../components/ContactPage/Certification';
+import Testimonials from '../components/ContactPage/Testimonials';
 
 const About: React.FC = () => {
   return (
     <>
-    <div className="min-h-screen bg-gradient-to-b from-white to-white flex flex-col items-center px-6 py-12">
+    <div className="min-h-screen bg-gradient-to-b bg-white flex flex-col items-center">
       {/* Hero Section */}
-      <div className="text-center max-w-2xl">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-          about <span className="text-Joybrown">Joybear</span>
-        </h1>
-        <p className="text-gray-600 text-lg">
-          Bringing joy, imagination<br />and creativity to kids around the world.
+      <div 
+        className="text-center w-full relative py-32 px-8 overflow-hidden"
+        style={{
+          backgroundImage: 'url(https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img1_att4en.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-t from-Joyblue/30 to-transparent"></div>
+        <div className="relative z-10">
+        <img src="/joybear-icononly.svg" alt="Joy Bear Logo" className="w-22 h-16 mx-auto mb-2" />
+        
+        <p className="text-white text-lg font-semibold drop-shadow-sm">
+          Inspire Joy, Comfort, and Imagination <br />across generations through every plush toy.
         </p>
+        </div>
       </div>
 
-      {/* Company Story */}
-      {/* <div className="mt-12 max-w-4xl text-center">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Our Story</h2>
+      {/* About US */}
+      <div className="pt-12 pb-12 bg-Joygrey w-full">
+        <div className="max-w-4xl mx-auto px-6">
+        <h2 className="text-center text-2xl font-semibold text-gray-800 my-4">
+          About &nbsp;
+          <img src="/textonly-cropped.svg" alt="Joy Bear Text Logo" className="h-8 inline" />
+        </h2>
+        
+        
         <p className="text-gray-600 leading-relaxed">
-          Founded in 2010, ToyWorld started as a small family business with a big dream: 
-          to make high-quality, safe, and fun toys that inspire children’s imagination. 
-          Over the years, we have grown into a global brand, loved by kids and trusted by parents. 
-          Our mission is to create toys that spark curiosity, encourage creativity, and 
-          bring families closer together.
+          JoyBear is a Canadian plush toy company dedicated to creating comfort,
+          connection, and pure happiness through high-quality, beautifully
+          crafted plush companions. From our roots in USA & Canada to
+          our global manufacturing partners, we combine thoughtful
+          design, exceptional craftsmanship, and strict quality
+          standards to bring safe, lovable, and memorable products
+          to families, retailers, and brands around the world.
         </p>
-      </div> */}
-
-      {/* Mission & Values */}
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl">
-        <div className="p-6 bg-white rounded-2xl shadow">
-          <h3 className="text-xl font-semibold text-pink-500 mb-2">✨ Creativity</h3>
-          <p className="text-gray-600">
-            We design toys that encourage imagination, storytelling, and endless adventures.
-          </p>
-        </div>
-        <div className="p-6 bg-white rounded-2xl shadow">
-          <h3 className="text-xl font-semibold text-yellow-500 mb-2">🛡️ Safety</h3>
-          <p className="text-gray-600">
-            Every toy we make is rigorously tested to meet the highest safety standards.
-          </p>
-        </div>
-        <div className="p-6 bg-white rounded-2xl shadow">
-          <h3 className="text-xl font-semibold text-green-500 mb-2">🌍 Sustainability</h3>
-          <p className="text-gray-600">
-            We care for the planet by using eco-friendly materials and responsible practices.
-          </p>
+        <br />
+        <p className="text-gray-600 leading-relaxed">
+          We specialize in premium plush toys—designed in USA & Canada, 
+          trusted globally. Our offerings range from classic teddy 
+          bears to modern character lines, seasonal collections, 
+          custom OEM/ODM designs, and large-scale production 
+          solutions for retailers, distributors, and corporate 
+          partners.
+        </p>
+        <br />
+        <p className="text-gray-600 leading-relaxed">
+          At JoyBear, we believe a toy is more than a 
+          product—it's a feeling, a memory, a friend.</p>
         </div>
       </div>
 
+      {/* Mission */}
+      <div className="w-full py-8 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            {/* Left - Image */}
+            <div className="w-full md:w-2/5">
+              <img 
+                src="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img2_ebhcga.png" 
+                alt="Our Mission" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            
+            {/* Right - Text */}
+            <div className="w-full md:w-3/5">
+              <h2 className="text-4xl font-bold text-gray-800 mb-6">Our Mission</h2>
+              <p className="text-gray-700 leading-relaxed text-lg">
+                We craft high-quality, safe, and love-filled plush toys that bring warmth to families, value to wholesalers, and creativity to global partners. Through thoughtful design, responsible production, and an obsession with detail, we deliver products that make the world a softer place.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Vision */}
+        <div className="max-w-5xl mx-auto mt-16">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            {/* Left - Text */}
+            <div className="w-full md:w-3/5">
+              <h2 className="text-4xl font-bold text-gray-800 mb-6">Our Vision</h2>
+              <p className="text-gray-700 leading-relaxed text-lg">
+                To be the world's most trusted and beloved plush toy brand—recognized for quality, integrity, and innovation. We envision a future where every JoyBear product sparks joy, builds connection, and becomes a cherished part of someone's story.
+              </p>
+            </div>
+
+            {/* Right - Image */}
+            <div className="w-full md:w-2/5">
+              <img 
+                src="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img4_w7ucja.png" 
+                alt="Our Vision" 
+                className="w-full h-auto object-cover max-h-[400px]"
+              />
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+      
+
+
+      <Testimonials />
       <Certification />
     </div>
 

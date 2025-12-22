@@ -1,5 +1,5 @@
 import Categories from "../components/Categories"
-import Hero from "../components/Hero"
+import Hero from "../components/HomePage/Hero"
 //import Upbadge from "../components/Upbadge"
 
 

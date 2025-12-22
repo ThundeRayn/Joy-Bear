@@ -17,7 +17,9 @@ import CategoryDetail from './pages/CategoryDetail';
 import Tags from './pages/Tags';
 import TagsDetail from './pages/TagsDetail';
 import ActivityDetail from './pages/ActivityDetail';
+import ContactPage from './pages/ContactPage';
 
+{/* Cloudinary */}
 function App() {
 
   return (
@@ -28,6 +30,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="story" element={<Story />} />
           <Route path="customize" element={<Cutomize />} />
+          <Route path="contact" element={<ContactPage />} />
           <Route path="*" element={<Error />} />
 
           {/* Product Pages */}

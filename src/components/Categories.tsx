@@ -39,7 +39,7 @@ const Categories = () => {
                 />
 
                 {/* Gradient overlay (bottom -> top) */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent group-hover:from-black/80 transition-colors duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent group-hover:from-black/10 transition-colors duration-300" />
 
                 {/* Title as a button-like text (hover shows underline) */}
                 <div className="absolute inset-0 flex items-center justify-center">

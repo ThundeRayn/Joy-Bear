@@ -68,7 +68,8 @@ const Navbar = () => {
               <div className="flex-1 flex justify-center">
                 <a href='/'>
                   <div id='nav-logo' className='flex justify-center items-center gap-2'>
-                      <img src="/joybear-icononly.svg" alt="Joy Bear Logo" className="w-18 h-18 inline" />
+                      <img src="/joybear-icononly.svg" alt="Joy Bear Logo" className="w-16 h-16 inline" />
+                      <img src="/textonly-cropped.svg" alt="Joy Bear Text Logo" className="h-6 inline" />
                   </div>
                 </a>
               </div>
@@ -136,15 +137,23 @@ const Navbar = () => {
                   <span className={spanClassName}></span>
                 </a>
               </li>
+              <li className="relative"
+                  onMouseEnter={() => setHoveredNavItem('ABOUT')}
+                  onMouseLeave={dropdownDisappear}>
+                <a href='/about' className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1">
+                  ABOUT
+                  <span className={spanClassName}></span>
+                </a>
+              </li>
             </ul>
 
             {/* Contact us on right */}
             <div className="flex-1 flex justify-end">
               <a
-                href="mailto:hello@joybear.com"
+                href="/contact"
                 className="inline-block px-6 py-2 rounded-xl border border-Joybrown text-Joybrown font-medium transition-colors duration-200 hover:text-[#8b6f47] hover:border-[#8b6f47] whitespace-nowrap"
               >
-                Contact Us Now
+                Contact Us
               </a>
             </div>
           </div>
@@ -153,8 +162,9 @@ const Navbar = () => {
           <div className='md:hidden p-4 flex justify-between'>
             <a href='/'>
               <div id='nav-logo' className='flex justify-center items-center gap-2'>
-                  <img src="/joybear-icononly.svg" alt="Joy Bear Logo" className="w-6 h-6 inline" />
-                  <span>Joy Bear Toys</span>
+                  <img src="/joybear-icononly.svg" alt="Joy Bear Logo" className="w-7 h-7 inline" />
+                  <img src="/textonly-cropped.svg" alt="Joy Bear Text Logo" className="h-3 inline" />
+                  {/* <span>Joy Bear Toys</span> */}
               </div>
             </a>
 

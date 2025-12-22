@@ -1,3 +1,9 @@
+/* cloudinary-imgs*/
+// import { AdvancedImage } from '@cloudinary/react';
+// import { auto } from '@cloudinary/url-gen/actions/resize';
+// import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
+
+
 interface HeroProps {
   title?: string;
   img?: string;
@@ -11,14 +17,21 @@ const DEFAULT_DESC =
   'we create personalized toys that inspire joy and creativity.';
 
 const Hero = ({ title, img, description }: HeroProps) => {
+  {/* cloudinary image setup */}
+  {/* const imgDis = cld
+    .image('cld-sample-5')
+    .format('auto')
+    .quality('auto')
+    .resize(auto().gravity(autoGravity()).width(500).height(500));*/}
+  
   const imageSrc = img || DEFAULT_IMG;
   const badgeTitle = title || DEFAULT_TITLE;
   const badgeDesc = description || DEFAULT_DESC;
   return (
     <div>
       {/* Hero image with gentle overlay to give breathing room */}
-      <div className="w-full overflow-hidden mb-8 lg:shadow-lg">
-        <div className="relative h-68 md:h-96 bg-gray-200">
+      <div className="w-full overflow-hidden">
+        <div className="relative h-68 md:h-98 bg-gray-200">
           <img
             src={imageSrc}
             alt={badgeTitle}
@@ -45,6 +58,8 @@ const Hero = ({ title, img, description }: HeroProps) => {
           </div>
         </div>
       </div>
+
+      {/* <AdvancedImage cldImg={imgDis} /> */}
     </div>
   );
 };
