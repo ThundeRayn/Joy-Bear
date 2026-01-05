@@ -90,7 +90,7 @@ const Footer = () => {
             <div className="border-t border-black pt-6 flex flex-col md:flex-row justify-between items-center">
                 <div className="text-black text-sm">
                     <p>&copy; 2025 JoyBear. All rights reserved.</p>
-                    <a href="/disclaimer" className="hover:underline">Disclaimer</a>
+                    <a href="/disclaimer" className="invisible md:visible inline-block pl-4 font-semibold hover:underline hover:translate-x-2 transition-transform duration-300 ease-in-out">View Disclaimer &rarr;</a>
                 </div>
                 <div className="flex flex-col items-center md:items-end">
                     <p className="text-black text-sm font-semibold mb-2">Follow Us</p>
@@ -124,6 +124,10 @@ const Footer = () => {
                         </a>
                     </div>
                 </div>
+            </div>
+
+            <div className="flex justify-center">
+                <a href="/disclaimer" className="md:invisible inline-block mt-4 font-semibold hover:translate-x-2 transition-transform duration-300 ease-in-out">View Disclaimer &rarr;</a>
             </div>
         </div>
     </footer>
