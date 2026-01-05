@@ -66,7 +66,7 @@ const TagToys2: React.FC<TagToysProps> = ({
     if (typeof window !== "undefined") {
       if (window.innerWidth >= 768) return 5; // 1 row × 5 columns
     }
-    return 2; // 1 row × 2 columns for mobile
+    return 1; // 1 row × 1 column for mobile
   };
   
   const [itemsPerPage, setItemsPerPage] = useState(getItemsPerPage());
@@ -116,7 +116,7 @@ const TagToys2: React.FC<TagToysProps> = ({
           )}
 
           <div className="px-22 pt-3">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 min-h-[250px] md:min-h-[260px]">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-8 min-h-[250px] md:min-h-[260px]">
               {currentProducts.map((product, idx) => (
                 <div key={product._id || idx}>
                   <DisplayCard product={product} />
