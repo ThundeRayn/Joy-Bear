@@ -18,6 +18,7 @@ import Tags from './pages/Tags';
 import TagsDetail from './pages/TagsDetail';
 import ActivityDetail from './pages/ActivityDetail';
 import ContactPage from './pages/ContactPage';
+import Discalimer from './pages/Discalimer';
 
 {/* Cloudinary */}
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path="story" element={<Story />} />
           <Route path="customize" element={<Cutomize />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="disclaimer" element={<Discalimer />} />
           <Route path="*" element={<Error />} />
 
           {/* Product Pages */}
