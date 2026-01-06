@@ -14,6 +14,7 @@ const Navbar = () => {
   const [hoveredNavItem, setHoveredNavItem] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,12 +34,34 @@ const Navbar = () => {
   }, [lastScrollY]);
 
   //functions
-  const dropdownDisappear = () => {
-    setTimeout(() => {
-      console.log("Dropdown disappeared");
-    }, 600);
+  const handleCategoryMouseEnter = () => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout);
+      setDropdownTimeout(null);
+    }
+    setHoveredNavItem('CATEGORIES');
+    setShowDropdown(true);
+  }
 
+  const handleCategoryMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setHoveredNavItem(null);
+      setShowDropdown(false);
+    }, 300);
+    setDropdownTimeout(timeout);
+  }
+
+  const handleDropdownMouseEnter = () => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout);
+      setDropdownTimeout(null);
+    }
+    setShowDropdown(true);
+  }
+
+  const handleDropdownMouseLeave = () => {
     setHoveredNavItem(null);
+    setShowDropdown(false);
   }
 
   const handleSearchChange = (value: string) => {
@@ -68,8 +91,6 @@ const Navbar = () => {
   return (
     <nav
       className={`sticky top-0 left-0 w-full bg-white transition-transform duration-300 z-50 ${show ? "translate-y-0" : "-translate-y-full"}`}
-      onMouseEnter={() => setShowDropdown(true)}
-      onMouseLeave={() => { setShowDropdown(false); setHoveredNavItem(null); }}
     >
 
     {/* Navbar */}
@@ -125,49 +146,36 @@ const Navbar = () => {
 
             {/* Menu items centered */}
             <ul className='flex flex-row items-center gap-6 justify-center'>
-              <li className="relative"
-                  onMouseEnter={() => setHoveredNavItem('EXPLORE ALL')}
-                  onMouseLeave={dropdownDisappear}>
+              <li className="relative">
                 <a href='/products' className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1">
                   EXPLORE ALL
                   <span className={spanClassName}></span>
                 </a>
               </li>
               <li className="relative"
-                  onMouseEnter={() => setHoveredNavItem('CATEGORIES')}
-                  onMouseLeave={dropdownDisappear}>
+                  onMouseEnter={handleCategoryMouseEnter}
+                  onMouseLeave={handleCategoryMouseLeave}>
                 <a href='/categories' className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1">
                   CATEGORIES
                   <span className={spanClassName}></span>
                 </a>
+                {/* Dropdown positioned relative to this li */}
+                {showDropdown && hoveredNavItem === 'CATEGORIES' && !isSearchFocused && !searchQuery && (
+                  <NavDropDown 
+                    text={hoveredNavItem} 
+                    onMouseEnter={handleDropdownMouseEnter}
+                    onMouseLeave={handleDropdownMouseLeave}
+                  />
+                )}
               </li>
-              <li className="relative"
-                  onMouseEnter={() => setHoveredNavItem('POPULAR')}
-                  onMouseLeave={dropdownDisappear}>
-                <a href='/tags/popular' className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1">
-                  POPULAR
-                  <span className={spanClassName}></span>
-                </a>
-              </li>
-              <li className="relative"
-                  onMouseEnter={() => setHoveredNavItem('LATEST')}
-                  onMouseLeave={dropdownDisappear}>
-                <a href='/tags/latest' className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1">
-                  LATEST
-                  <span className={spanClassName}></span>
-                </a>
-              </li>
-              <li className="relative"
-                  onMouseEnter={() => setHoveredNavItem('CUSTOMIZE-ODM')}
-                  onMouseLeave={dropdownDisappear}>
+            
+              <li className="relative">
                 <a href='/customize' className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1">
                   CUSTOMIZE-ODM
                   <span className={spanClassName}></span>
                 </a>
               </li>
-              <li className="relative"
-                  onMouseEnter={() => setHoveredNavItem('ABOUT')}
-                  onMouseLeave={dropdownDisappear}>
+              <li className="relative">
                 <a href='/about' className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1">
                   ABOUT
                   <span className={spanClassName}></span>
@@ -210,9 +218,6 @@ const Navbar = () => {
           </div>
         </div>
 
-
-  {/* Second Dropdown - desktop only, appears on hover under navbar, shows different text for each nav item */}
-  {showDropdown && hoveredNavItem && !isSearchFocused && !searchQuery && <NavDropDown text={hoveredNavItem} />}
 
   {/* Search Dropdown - appears when search is focused or has input */}
   {(isSearchFocused || searchQuery) && <SearchDropDown searchQuery={searchQuery} isVisible={true} />}

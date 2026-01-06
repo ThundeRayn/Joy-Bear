@@ -48,12 +48,14 @@ const ContactPage = () => {
               backgroundImage: 'url(https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img1_att4en.png)'
             }}
           >
-            <div className="absolute inset-0 bg-Joybrown/60"></div>
+            <div className="absolute inset-0 bg-black/40"></div>
             <div className="relative z-10">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6 drop-shadow-lg">Get In Touch</h1>
             <p className="text-lg lg:text-xl mb-8 leading-relaxed drop-shadow-md">
-              We'd love to hear from you! Whether you have a question about our products, 
-              need assistance, or just want to share your JoyBear experience, our team is ready to help.
+              Have a question or need more information? We’d love to hear from you.
+              Whether you’re looking for product details, pricing, customization 
+              options, or general inquiries, simply fill out the form below and 
+              our team will get back to you as soon as possible. We respect your 
+              privacy. Your information will only be used to respond to your inquiry.
             </p>
             <div className="space-y-4">
               <div>
@@ -62,7 +64,6 @@ const ContactPage = () => {
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-2 drop-shadow-md">Our Social Media</h3>
-                <p className="text-gray-100 drop-shadow-md">Youtube Channel</p>
                 <p className="text-gray-100 drop-shadow-md">Tiktok</p>
                 <p className="text-gray-100 drop-shadow-md">Instagram</p>
               </div>

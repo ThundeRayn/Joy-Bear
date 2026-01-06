@@ -24,21 +24,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <div>
       {product ? (
         <div key={product._id}>
-            <a href={`/products/${product.slug.current}`}>
-              {/* {product.title}, 
-              {product.price}, 
-              {product.description},
-              {product.images && product.images.length > 0 ? `${product.images[0]}` : 'No Image'},
-              {product.category ? product.category.title : 'No Category'} */}
+            <a href={`/products/${product.slug.current}`} className="group block bg-white rounded-lg border border-gray-200 hover:border-Joyblue hover:shadow-md transition-all duration-300">
             
-                <div className="max-w-xs bg-white shadow rounded overflow-hidden">
+                <div className="bg-white rounded-lg overflow-hidden">
                     {/* Product Image */}
                     {
-                        <div className="relative aspect-square w-full">
+                        <div className="relative aspect-square w-full overflow-hidden rounded-t-lg bg-gray-100">
                         <img
                             src={product.images && product.images.length > 0 ? `${product.images[0]}` : `https://images.unsplash.com/photo-1583478415880-b79447d73a84?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`}
                             alt={product.title}
-                            className="object-cover w-full h-full"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                         {/* Category Tags */}
                         {product.category && product.category.length > 0 && (
@@ -54,9 +49,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                     }
 
                     {/* Product Info */}
-                    <div className="p-4">
-                        <h2 className="text-lg font-semibold line-clamp-2 min-h-[3.5rem]">{product.title}</h2>
-                        <p className="mt-1 text-gray-700">#{product.id}</p>
+                    <div className="p-3">
+                        <h4 className="font-medium text-sm line-clamp-2 min-h-[2.5rem] text-gray-800 group-hover:text-Joyblue transition-colors">{product.title}</h4>
+                        <p className="text-xs text-gray-500 mt-1">#{product.id}</p>
                     </div>
                     
                 </div>

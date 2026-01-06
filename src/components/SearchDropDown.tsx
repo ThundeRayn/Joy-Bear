@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import client from '../Client';
 import { FiPackage } from 'react-icons/fi';
+import ProductCard from './ProductCard';
 
 interface Product {
   _id: string;
@@ -90,45 +91,9 @@ const SearchDropDown: React.FC<SearchDropDownProps> = ({ searchQuery, isVisible 
                 View all results →
               </a>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
               {products.map((product) => (
-                <a
-                  key={product._id}
-                  href={`/products/${product.slug.current}`}
-                  className="group block bg-white rounded-lg border border-gray-200 hover:border-Joyblue hover:shadow-md transition-all duration-300"
-                >
-                  <div className="aspect-square w-full overflow-hidden rounded-t-lg bg-gray-100">
-                    {product.images && product.images.length > 0 ? (
-                      <img
-                        src={product.images[0]}
-                        alt={product.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center">
-                        <FiPackage size={48} className="text-gray-300" />
-                      </div>
-                    )}
-                  </div>
-                  <div className="p-3">
-                    <h4 className="font-medium text-sm line-clamp-2 min-h-[2.5rem] text-gray-800 group-hover:text-Joyblue transition-colors">
-                      {product.title}
-                    </h4>
-                    <p className="text-xs text-gray-500 mt-1">#{product.id}</p>
-                    {product.category && product.category.length > 0 && (
-                      <div className="flex flex-wrap gap-1 mt-2">
-                        {product.category.slice(0, 2).map((cat, idx) => (
-                          <span
-                            key={idx}
-                            className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded"
-                          >
-                            {cat.title}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </a>
+                <ProductCard key={product._id} product={product} />
               ))}
             </div>
           </div>
