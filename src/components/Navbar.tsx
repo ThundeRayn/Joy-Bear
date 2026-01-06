@@ -3,6 +3,7 @@ import { FiMenu } from "react-icons/fi";
 import { RiArrowDownWideFill } from "react-icons/ri";
 import Search from './Search'
 import NavDropDown from './NavDropDown';
+import SearchDropDown from './SearchDropDown';
 
 
 const Navbar = () => {
@@ -11,6 +12,8 @@ const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showDropdown, setShowDropdown] = useState(false);
   const [hoveredNavItem, setHoveredNavItem] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +39,25 @@ const Navbar = () => {
     }, 600);
 
     setHoveredNavItem(null);
+  }
+
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value);
+  }
+
+  const handleSearchFocus = () => {
+    setIsSearchFocused(true);
+  }
+
+  const handleSearchBlur = () => {
+    setTimeout(() => {
+      setIsSearchFocused(false);
+    }, 150);
+  }
+
+  const handleSearchClear = () => {
+    setSearchQuery('');
+    setIsSearchFocused(false);
   }
 
   //classNames
@@ -91,7 +113,13 @@ const Navbar = () => {
             {/* Search on left */}
             <div className="flex-1 flex justify-start">
               <div className="w-2/3 max-w-xs">
-                <Search />
+                <Search 
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  onFocus={handleSearchFocus}
+                  onBlur={handleSearchBlur}
+                  onClear={handleSearchClear}
+                />
               </div>
             </div>
 
@@ -184,7 +212,10 @@ const Navbar = () => {
 
 
   {/* Second Dropdown - desktop only, appears on hover under navbar, shows different text for each nav item */}
-  {showDropdown && hoveredNavItem && <NavDropDown text={hoveredNavItem} />}
+  {showDropdown && hoveredNavItem && !isSearchFocused && !searchQuery && <NavDropDown text={hoveredNavItem} />}
+
+  {/* Search Dropdown - appears when search is focused or has input */}
+  {(isSearchFocused || searchQuery) && <SearchDropDown searchQuery={searchQuery} isVisible={true} />}
 
         {/* Dropdown - only visible on mobile */}
         <div
