@@ -79,7 +79,7 @@ const TagToys2: React.FC<TagToysProps> = ({
 
   // Create displayProducts with fill logic for desktop
   const isDesktop = typeof window !== "undefined" && window.innerWidth >= 768;
-  let displayProducts = [...products];
+  const displayProducts = [...products];
   
   // For desktop view only: if last page isn't full, add products from beginning to fill it
   if (isDesktop && products.length > 5) {
