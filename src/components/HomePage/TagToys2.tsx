@@ -77,10 +77,25 @@ const TagToys2: React.FC<TagToysProps> = ({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const totalPages = Math.ceil(products.length / itemsPerPage);
+  // Create displayProducts with fill logic for desktop
+  const isDesktop = typeof window !== "undefined" && window.innerWidth >= 768;
+  let displayProducts = [...products];
+  
+  // For desktop view only: if last page isn't full, add products from beginning to fill it
+  if (isDesktop && products.length > 5) {
+    const remainder = products.length % 5;
+    if (remainder !== 0) {
+      const itemsToAdd = 5 - remainder;
+      for (let i = 0; i < itemsToAdd; i++) {
+        displayProducts.push(products[i]);
+      }
+    }
+  }
+
+  const totalPages = Math.ceil(displayProducts.length / itemsPerPage);
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const currentProducts = products.slice(startIndex, endIndex);
+  const currentProducts = displayProducts.slice(startIndex, endIndex);
 
   const handlePrev = () => {
     setCurrentPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
@@ -118,7 +133,7 @@ const TagToys2: React.FC<TagToysProps> = ({
           <div className="px-22 pt-3">
             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 min-h-[250px] md:min-h-[260px]">
               {currentProducts.map((product, idx) => (
-                <div key={product._id || idx}>
+                <div key={`${product._id}-${startIndex + idx}`}>
                   <DisplayCard product={product} />
                 </div>
               ))}
