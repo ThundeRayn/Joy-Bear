@@ -4,7 +4,7 @@ const ContactBadge = () => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("hello@joybear.com");
+    navigator.clipboard.writeText("joybeartoys@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -25,7 +25,7 @@ const ContactBadge = () => {
         <div className="flex flex-col items-center gap-3">
           <div className="flex items-center gap-2">
             <span className="inline-block rounded-md px-4 py-2 text-base font-medium text-white bg-Joybrown shadow">
-              <a href="mailto:hello@joybear.com" className="hover:underline">hello@joybear.com</a>
+              <a href="mailto:joybeartoys@gmail.com" className="hover:underline">joybeartoys@gmail.com</a>
             </span>
             <button
               onClick={handleCopy}

@@ -1,38 +1,77 @@
 
 type NavDropDownProps = {
     text: string;
+    onMouseEnter?: () => void;
+    onMouseLeave?: () => void;
 };
 
-const NavDropDown = ({ text }: NavDropDownProps) => {
+const NavDropDown = ({ text, onMouseEnter, onMouseLeave }: NavDropDownProps) => {
+    if (text !== 'CATEGORIES') return null;
+
+    const spanClassName = "absolute left-0 top-8 w-full h-[2px] bg-Joybrown scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left";
+
     return (
-        <div className="hidden md:block bg-white shadow-lg border border-gray-200 rounded-md absolute left-1/2 -translate-x-1/2 top-full mt-2 z-40 py-6 px-8 w-max">
-            <div className="mb-4 text-lg font-semibold text-gray-800">{text}</div>
-            <div className="grid grid-cols-3 gap-8">
-                    <div>
-                        <h3 className="font-bold mb-2">Random Section 1</h3>
-                        <ul className="list-disc ml-4 text-gray-700">
-                            <li>Random Item A</li>
-                            <li>Random Item B</li>
-                            <li>Random Item C</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 className="font-bold mb-2">Random Section 2</h3>
-                        <ul className="list-disc ml-4 text-gray-700">
-                            <li>Random Item D</li>
-                            <li>Random Item E</li>
-                            <li>Random Item F</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 className="font-bold mb-2">Random Section 3</h3>
-                        <ul className="list-disc ml-4 text-gray-700">
-                            <li>Random Item G</li>
-                            <li>Random Item H</li>
-                            <li>Random Item I</li>
-                        </ul>
-                    </div>
-                </div>
+        <div 
+            className="hidden md:block bg-Joygrey border border-gray-200 absolute left-0 top-full mt-4 z-40 py-6 px-8 w-max"
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+        >
+            <ul className="flex flex-col gap-3">
+                <li className="relative">
+                    <a 
+                        href="/categories/everyday" 
+                        className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1"
+                    >
+                        EVERYDAY
+                        <span className={spanClassName}></span>
+                    </a>
+                </li>
+                <li className="relative">
+                    <a 
+                        href="/categories/games" 
+                        className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1"
+                    >
+                        GAMES
+                        <span className={spanClassName}></span>
+                    </a>
+                </li>
+                <li className="relative">
+                    <a 
+                        href="/categories/halloween" 
+                        className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1"
+                    >
+                        HALLOWEEN
+                        <span className={spanClassName}></span>
+                    </a>
+                </li>
+                <li className="relative">
+                    <a 
+                        href="/categories/christmas" 
+                        className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1"
+                    >
+                        CHRISTMAS
+                        <span className={spanClassName}></span>
+                    </a>
+                </li>
+                <li className="relative">
+                    <a 
+                        href="/categories/valentines-day" 
+                        className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1"
+                    >
+                        VALENTINE'S DAY
+                        <span className={spanClassName}></span>
+                    </a>
+                </li>
+                <li className="relative">
+                    <a 
+                        href="/categories/easter" 
+                        className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1"
+                    >
+                        EASTER
+                        <span className={spanClassName}></span>
+                    </a>
+                </li>
+            </ul>
         </div>
     );
 };

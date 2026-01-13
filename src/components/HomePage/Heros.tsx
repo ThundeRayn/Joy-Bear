@@ -2,14 +2,20 @@ import { useState, useEffect } from 'react'
 //import { RiArrowLeftWideFill } from "react-icons/ri";
 //import { RiArrowRightWideFill } from "react-icons/ri";
 
-const Bear1 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img5_sjffnq.png";
-const Bear2 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img6_mtqm9x.png";
-const Bear3 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img3_crddrj.png";
+// const Bear1 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img5_sjffnq.png";
+// const Bear2 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img6_mtqm9x.png";
+// const Bear3 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img3_crddrj.png";
+
+const Bear1 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1768334143/slides1_mylrf5.png";
+const Bear2 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1768334149/slides4_yfw9tl.png";
+const Bear3 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1768334156/slides3_d8uokh.png";
+const Bear4 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1768334138/slides2_irmjes.png";
 
 const Activities = [
-  { id: 1, image: Bear2, title: 'Item 1', description: 'Description for Item 1' },
-  { id: 2, image: Bear1, title: 'Item 2', description: 'Description for Item 2' },
-  { id: 3, image: Bear3, title: 'Item 3', description: 'Description for Item 3' },
+  { id: 1, image: Bear1, title: 'Full Customization', description: '' },
+  { id: 2, image: Bear2, title: 'Factory Direct Manufacturing', description: '' },
+  { id: 3, image: Bear3, title: 'Soft, Safe & Certified', description: '' },
+  { id: 4, image: Bear4, title: 'From Sample to Mass Production', description: '' },
 ]
 
 const Heros = () => {
@@ -141,7 +147,7 @@ const Heros = () => {
                   transform: idx === current ? 'translateY(0)' : 'translateY(20px)'
                 }}
               >
-                <h2 className="text-4xl font-bold mb-2">{slide.title}</h2>
+                <h2 className="text-2xl md:text-4xl font-bold font-serif mb-2">{slide.title}</h2>
                 <p className="text-lg">{slide.description}</p>
               </div>
             </div>

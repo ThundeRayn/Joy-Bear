@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { designFlow } from '../assets/data/designFlow';
+//import { designFlow } from '../assets/data/designFlow';
 import ContactBadge from '../components/ContactBadge';
 import Upbadge from '../components/Upbadge'
 
@@ -85,9 +85,21 @@ const Customize = () => {
             </ul>
           </section>
 
+          {/* Flow Chart Section */}
+          <section className="mb-16">
+            <strong className="block text-2xl font-bold text-Joybrown mb-4">Our Design Flow</strong>
+            <div className="w-full bg-white rounded-lg shadow-sm border border-gray-100 p-4 md:p-6">
+              <img 
+                src="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1767915348/flowchart_e7v5rj.png" 
+                alt="Design Flow Chart" 
+                className="w-full h-auto"
+              />
+            </div>
+          </section>
+
           
           {/* Design flow */}
-          <div className="lg:col-span-2">
+          {/* <div className="lg:col-span-2">
             <h2 className="text-2xl font-semibold text-gray-900">Our Design Flow</h2>
 
             <div className="mt-4 mb-8 p-4 bg-sky-50 border-l-4 border-Joyblue rounded-md">
@@ -96,25 +108,25 @@ const Customize = () => {
             
             <section>
                   <div className="relative">
-                    {/* Vertical dashed line - show on mobile and up; left position smaller on phones */}
+                    // Vertical dashed line - show on mobile and up; left position smaller on phones
                     <div className="absolute left-4 md:left-5 top-0 bottom-0 border-l-2 border-dashed border-gray-200" />
               
                     <ul className="space-y-6">
                       {designFlow.map((item, idx) => (
                         // pl on mobile makes room for the line; md increases space
                         <li key={idx} className="relative pl-12 md:pl-20">
-                          {/* Dot */}
+                          //
                           <div className="absolute left-3 md:left-4 top-3 z-10">
                             <div className="w-4 h-4 rounded-full bg-Joybrown ring-4 ring-white shadow-lg" />
                           </div>
               
                           <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
-                            {/* Image - larger on mobile and full width above content */}
+                            // Image - larger on mobile and full width above content
                             <div className="w-full md:w-56 h-48 md:h-28 rounded-lg overflow-hidden flex-shrink-0">
                               <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
                             </div>
               
-                            {/* Content - stacked under image on mobile */}
+                            // Content - stacked under image on mobile
                             <div className="pt-2 md:pt-0">
                               <div className="flex items-baseline gap-3">
                                 <span className="text-sm font-semibold text-Joybrown">{item.time}</span>
@@ -130,7 +142,7 @@ const Customize = () => {
             </section>
 
           
-          </div>
+          </div> */}
 
         </div>
       </div>

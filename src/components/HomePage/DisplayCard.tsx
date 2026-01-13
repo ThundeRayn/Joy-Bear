@@ -1,4 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
+import imageUrlBuilder from '@sanity/image-url'
+import sanityClient from '../../Client'
+
+// Initialize Sanity image URL builder for optimized image delivery
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const builder = imageUrlBuilder(sanityClient as any)
 
 interface Product {
   _id: string;
@@ -20,6 +26,55 @@ type ProductCardProps = {
 }
 
 const DisplayCard: React.FC<ProductCardProps> = ({ product }) => {
+  // Track image loading state for blur effect
+  const [imageLoaded, setImageLoaded] = useState(false)
+  const [currentImageUrl, setCurrentImageUrl] = useState<string>('')
+  const imgRef = React.useRef<HTMLImageElement>(null)
+
+  // Helper function to generate optimized image URL with Sanity image builder
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const getOptimizedImageUrl = (imageAsset: any): string | undefined => {
+    // If imageAsset is already a string URL, add Sanity CDN optimization parameters
+    if (typeof imageAsset === 'string') {
+      // Add query parameters for image optimization: width, quality, format
+      const url = new URL(imageAsset)
+      url.searchParams.set('w', '400')
+      url.searchParams.set('q', '75')
+      url.searchParams.set('auto', 'format')
+      url.searchParams.set('fit', 'max')
+      return url.toString()
+    }
+    
+    // If imageAsset has asset reference, use builder
+    if (!imageAsset?.asset) return undefined
+    
+    // Build optimized image URL: resize to 400px width, auto format, quality 75
+    const url = builder
+      .image(imageAsset.asset)
+      .width(400)
+      .auto('format')
+      .quality(75)
+      .fit('max')
+      .url()
+    return url ?? undefined
+  }
+
+  // Get the image URL for the current product
+  const imageUrl = product?.images?.[0] ? getOptimizedImageUrl(product.images[0]) : undefined
+
+  // Reset loading state when image URL changes and check if already loaded
+  React.useEffect(() => {
+    if (imageUrl && imageUrl !== currentImageUrl) {
+      setImageLoaded(false)
+      setCurrentImageUrl(imageUrl)
+    }
+    
+    // Check if image is already complete (cached)
+    if (imgRef.current?.complete) {
+      setImageLoaded(true)
+    }
+  }, [imageUrl, currentImageUrl])
+
   return (
     <div>
       {product ? (
@@ -29,9 +84,21 @@ const DisplayCard: React.FC<ProductCardProps> = ({ product }) => {
             <div className="w-full aspect-square bg-gray-200 overflow-hidden">
               {product.images && product.images.length > 0 ? (
                 <img
-                  src={typeof product.images[0] === 'string' ? product.images[0] : product.images[0]?.asset?.url}
+                  ref={imgRef}
+                  // Use Sanity image builder for optimized image delivery (resized to 400px, auto format, quality 75)
+                  src={imageUrl}
                   alt={product.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  // Lazy loading: defer image loading until near viewport for better performance
+                  loading="lazy"
+                  // Decode async for smoother rendering
+                  decoding="async"
+                  // Only apply blur while image is loading (blur removed once loaded)
+                  onLoad={() => setImageLoaded(true)}
+                  // Fallback: remove blur on error to prevent stuck blur
+                  onError={() => setImageLoaded(true)}
+                  className={`w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ${
+                    imageLoaded ? 'blur-0' : 'blur-md'
+                  }`}
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-gray-400">

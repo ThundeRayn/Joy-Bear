@@ -2,9 +2,18 @@
 
 const Discalimer = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50">
       
-    <div className="pt-12 pb-12 bg-Joygrey w-full max-w-4xl mx-auto px-6">
+      {/* Brown hero section */}
+      <div className="bg-Joybrown w-full mb-18 h-28">
+        <img 
+          src="https://images.unsplash.com/photo-1527261834078-9b37d35a4a32?q=80&w=2070&auto=format&fit=crop" 
+          alt="Disclaimer Header" 
+          className="w-full h-full object-cover"
+        />
+      </div>
+      
+    <div className="py-12 pt-4 sm:px-6 lg:px-8 pb-12 bg-Joygrey w-full max-w-4xl mx-auto px-6">
         
         
         <h2 className="text-center text-2xl font-semibold text-gray-800 my-4">
@@ -15,67 +24,32 @@ const Discalimer = () => {
 
         <div className="space-y-6 pt-12 text-gray-700 leading-relaxed">
           <section>
-            <h2 className="text-lg font-semibold text-gray-900 mb-3">Intellectual Property Notice</h2>
             <p>
-              All product images, logos, trademarks, brand names, and intellectual property displayed on this website are the property of their respective owners. 
-              JoyBear does not claim ownership of any third-party intellectual property. The use of these images and trademarks is for illustrative and promotional purposes only.
+              The information provided on this website is for general informational purposes only. While we strive to ensure that the content on this website is accurate, complete, and up to date, we make no representations or warranties of any kind, express or implied, regarding the accuracy, reliability, suitability, or availability of the information contained herein.
             </p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-gray-900 mb-3">Product Information</h2>
             <p>
-              While we strive to ensure that all product information, descriptions, specifications, and images are accurate and up-to-date, JoyBear does not warrant that product descriptions or other content on this website are accurate, complete, reliable, current, or error-free. 
-              Products may vary slightly from images shown due to manufacturing processes, screen color variations, or updates to product designs.
+              Under no circumstances shall this website or its owners, operators, or affiliates be liable for any loss or damage, including without limitation indirect or consequential loss or damage, arising out of or in connection with the use of this website or reliance on any information provided.
             </p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-gray-900 mb-3">Safety and Compliance</h2>
             <p>
-              All toys sold by JoyBear are intended to meet applicable safety standards and regulations. However, it is the responsibility of the purchaser to ensure products are suitable for their intended use and age group. 
-              Always supervise children during play and follow all safety warnings and instructions provided with the products.
+              The content on this website does not constitute professional advice of any kind, including but not limited to legal, financial, medical, or business advice. Users are advised to seek independent professional advice before making any decisions based on the information provided on this website.
             </p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-gray-900 mb-3">Pricing and Availability</h2>
             <p>
-              Prices, minimum order quantities, and product availability are subject to change without notice. We reserve the right to modify or discontinue products at any time. 
-              For OEM and ODM services, final pricing and terms will be provided through direct quotation based on specific project requirements.
+              This website may contain links to third-party websites. Such links are provided for convenience only and do not imply endorsement or responsibility for the content, products, or services offered by any third-party websites. Access to and use of third-party websites are at the user's own risk.
             </p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-gray-900 mb-3">Limitation of Liability</h2>
             <p>
-              JoyBear shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or relating to the use of our website or products. 
-              Our total liability for any claims arising from the use of our products or services shall not exceed the amount paid for the product in question.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-gray-900 mb-3">Third-Party Links</h2>
-            <p>
-              This website may contain links to third-party websites or services. JoyBear is not responsible for the content, accuracy, or practices of any linked sites. 
-              These links are provided for convenience only and do not imply endorsement.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-gray-900 mb-3">Copyright Concerns</h2>
-            <p>
-              If you believe any content on this website infringes on your copyright or intellectual property rights, please contact us immediately at{' '}
-              <a href="mailto:joybeartoys@gmail.com" className="text-Joybrown hover:underline font-semibold">joybeartoys@gmail.com</a>. 
-              We will promptly investigate and take appropriate action, including removal of the content if necessary.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-gray-900 mb-3">Changes to This Disclaimer</h2>
-            <p>
-              JoyBear reserves the right to update or modify this disclaimer at any time without prior notice. 
-              Continued use of our website after any such changes constitutes acceptance of the new terms.
+              We reserve the right to modify, update, or remove any content on this website, including this disclaimer, at any time without prior notice. By using this website, you acknowledge that you have read, understood, and agree to be bound by this disclaimer.
             </p>
           </section>
 
