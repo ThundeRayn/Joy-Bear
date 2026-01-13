@@ -119,13 +119,21 @@ export default function ActivityPopUp() {
             )}
 
             {activity.slug?.current && (
-              <Link
-                to={`/activity/${activity.slug.current}`}
-                onClick={() => setShowPopup(false)}
-                className="inline-block text-center mt-2 px-8 py-2 bg-Joybrown text-white rounded-sm hover:bg-Joyblue transition font-semibold"
-              >
-                Explore Now →
-              </Link>
+              // <Link
+              //   to={`/activity/${activity.slug.current}`}
+              //   onClick={() => setShowPopup(false)}
+              //   className="inline-block text-center mt-2 px-8 py-2 bg-Joybrown text-white rounded-sm hover:bg-Joyblue transition font-semibold"
+              // >
+              //   Explore Now →
+              // </Link>
+
+               <Link
+                 to={`/`}
+                 onClick={() => setShowPopup(false)}
+                 className="inline-block text-center mt-2 px-8 py-2 bg-Joybrown text-white rounded-sm hover:bg-Joyblue transition font-semibold"
+               >
+                Explore More →
+               </Link>
             )}
           </div>
         </div>

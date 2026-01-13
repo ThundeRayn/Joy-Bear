@@ -2,9 +2,18 @@
 
 const Discalimer = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50">
       
-    <div className="pt-12 pb-12 bg-Joygrey w-full max-w-4xl mx-auto px-6">
+      {/* Brown hero section */}
+      <div className="bg-Joybrown w-full mb-18 h-28">
+        <img 
+          src="https://images.unsplash.com/photo-1527261834078-9b37d35a4a32?q=80&w=2070&auto=format&fit=crop" 
+          alt="Disclaimer Header" 
+          className="w-full h-full object-cover"
+        />
+      </div>
+      
+    <div className="py-12 pt-4 sm:px-6 lg:px-8 pb-12 bg-Joygrey w-full max-w-4xl mx-auto px-6">
         
         
         <h2 className="text-center text-2xl font-semibold text-gray-800 my-4">
