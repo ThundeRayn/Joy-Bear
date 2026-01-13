@@ -29,6 +29,7 @@ const DisplayCard: React.FC<ProductCardProps> = ({ product }) => {
   // Track image loading state for blur effect
   const [imageLoaded, setImageLoaded] = useState(false)
   const [currentImageUrl, setCurrentImageUrl] = useState<string>('')
+  const imgRef = React.useRef<HTMLImageElement>(null)
 
   // Helper function to generate optimized image URL with Sanity image builder
   const getOptimizedImageUrl = (imageAsset: any): string | undefined => {
@@ -60,11 +61,16 @@ const DisplayCard: React.FC<ProductCardProps> = ({ product }) => {
   // Get the image URL for the current product
   const imageUrl = product?.images?.[0] ? getOptimizedImageUrl(product.images[0]) : undefined
 
-  // Reset loading state when image URL changes
+  // Reset loading state when image URL changes and check if already loaded
   React.useEffect(() => {
     if (imageUrl && imageUrl !== currentImageUrl) {
       setImageLoaded(false)
       setCurrentImageUrl(imageUrl)
+    }
+    
+    // Check if image is already complete (cached)
+    if (imgRef.current?.complete) {
+      setImageLoaded(true)
     }
   }, [imageUrl, currentImageUrl])
 
@@ -77,6 +83,7 @@ const DisplayCard: React.FC<ProductCardProps> = ({ product }) => {
             <div className="w-full aspect-square bg-gray-200 overflow-hidden">
               {product.images && product.images.length > 0 ? (
                 <img
+                  ref={imgRef}
                   // Use Sanity image builder for optimized image delivery (resized to 400px, auto format, quality 75)
                   src={imageUrl}
                   alt={product.title}
@@ -86,6 +93,8 @@ const DisplayCard: React.FC<ProductCardProps> = ({ product }) => {
                   decoding="async"
                   // Only apply blur while image is loading (blur removed once loaded)
                   onLoad={() => setImageLoaded(true)}
+                  // Fallback: remove blur on error to prevent stuck blur
+                  onError={() => setImageLoaded(true)}
                   className={`w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ${
                     imageLoaded ? 'blur-0' : 'blur-md'
                   }`}
