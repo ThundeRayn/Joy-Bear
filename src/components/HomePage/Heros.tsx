@@ -147,7 +147,7 @@ const Heros = () => {
                   transform: idx === current ? 'translateY(0)' : 'translateY(20px)'
                 }}
               >
-                <h2 className="text-4xl font-bold mb-2">{slide.title}</h2>
+                <h2 className="text-2xl md:text-4xl font-bold font-serif mb-2">{slide.title}</h2>
                 <p className="text-lg">{slide.description}</p>
               </div>
             </div>
