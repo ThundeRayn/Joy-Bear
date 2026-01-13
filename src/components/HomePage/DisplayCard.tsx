@@ -3,7 +3,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import sanityClient from '../../Client'
 
 // Initialize Sanity image URL builder for optimized image delivery
-// Cast to 'any' to bypass type incompatibility between @sanity/client and @sanity/image-url
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const builder = imageUrlBuilder(sanityClient as any)
 
 interface Product {
@@ -32,6 +32,7 @@ const DisplayCard: React.FC<ProductCardProps> = ({ product }) => {
   const imgRef = React.useRef<HTMLImageElement>(null)
 
   // Helper function to generate optimized image URL with Sanity image builder
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getOptimizedImageUrl = (imageAsset: any): string | undefined => {
     // If imageAsset is already a string URL, add Sanity CDN optimization parameters
     if (typeof imageAsset === 'string') {

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { designFlow } from '../assets/data/designFlow';
+//import { designFlow } from '../assets/data/designFlow';
 import ContactBadge from '../components/ContactBadge';
 import Upbadge from '../components/Upbadge'
 
