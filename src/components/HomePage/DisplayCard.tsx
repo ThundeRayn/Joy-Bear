@@ -28,6 +28,7 @@ type ProductCardProps = {
 const DisplayCard: React.FC<ProductCardProps> = ({ product }) => {
   // Track image loading state for blur effect
   const [imageLoaded, setImageLoaded] = useState(false)
+  const [currentImageUrl, setCurrentImageUrl] = useState<string>('')
 
   // Helper function to generate optimized image URL with Sanity image builder
   const getOptimizedImageUrl = (imageAsset: any): string | undefined => {
@@ -56,6 +57,17 @@ const DisplayCard: React.FC<ProductCardProps> = ({ product }) => {
     return url ?? undefined
   }
 
+  // Get the image URL for the current product
+  const imageUrl = product?.images?.[0] ? getOptimizedImageUrl(product.images[0]) : undefined
+
+  // Reset loading state when image URL changes
+  React.useEffect(() => {
+    if (imageUrl && imageUrl !== currentImageUrl) {
+      setImageLoaded(false)
+      setCurrentImageUrl(imageUrl)
+    }
+  }, [imageUrl, currentImageUrl])
+
   return (
     <div>
       {product ? (
@@ -66,13 +78,13 @@ const DisplayCard: React.FC<ProductCardProps> = ({ product }) => {
               {product.images && product.images.length > 0 ? (
                 <img
                   // Use Sanity image builder for optimized image delivery (resized to 400px, auto format, quality 75)
-                  src={getOptimizedImageUrl(product.images[0])}
+                  src={imageUrl}
                   alt={product.title}
                   // Lazy loading: defer image loading until near viewport for better performance
                   loading="lazy"
                   // Decode async for smoother rendering
                   decoding="async"
-                  // Blur effect while loading: smooth transition from blur to sharp
+                  // Only apply blur while image is loading (blur removed once loaded)
                   onLoad={() => setImageLoaded(true)}
                   className={`w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ${
                     imageLoaded ? 'blur-0' : 'blur-md'
