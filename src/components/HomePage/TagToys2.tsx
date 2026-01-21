@@ -64,12 +64,12 @@ const TagToys2: React.FC<TagToysProps> = ({
   
   const getItemsPerPage = () => {
     if (typeof window !== "undefined") {
-      if (window.innerWidth >= 768) return 5; // 1 row × 5 columns
+      return window.innerWidth >= 768 ? 5 : 2; // 5 for desktop, 2 for mobile
     }
-    return 1; // 1 row × 1 column for mobile
+    return 2; // Default to 2 for mobile
   };
   
-  const [itemsPerPage, setItemsPerPage] = useState(getItemsPerPage());
+  const [itemsPerPage, setItemsPerPage] = useState(() => getItemsPerPage());
 
   useEffect(() => {
     const handleResize = () => setItemsPerPage(getItemsPerPage());
@@ -77,7 +77,7 @@ const TagToys2: React.FC<TagToysProps> = ({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Create displayProducts with fill logic for desktop
+  // Create displayProducts with fill logic for desktop only
   const isDesktop = typeof window !== "undefined" && window.innerWidth >= 768;
   const displayProducts = [...products];
   
@@ -110,28 +110,11 @@ const TagToys2: React.FC<TagToysProps> = ({
   };
 
   return (
-    <section className="w-full py-8 px-10 lg:px-20">
-      <div className="flex flex-col items-center">
+    <section className="w-full py-4 px-4 md:py-8 md:px-10 lg:px-20">
+      <div className="flex flex-col items-center gap-1">
         <div className="w-full max-w-6xl relative mx-auto">
-          {totalPages > 1 && (
-            <>
-              <button
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer transition hover:bg-gray-100"
-                onClick={handlePrev}
-              >
-                <RiArrowLeftWideFill />
-              </button>
-              <button
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 text-[#2c362d] bg-white rounded-full cursor-pointer transition hover:bg-gray-100"
-                onClick={handleNext}
-              >
-                <RiArrowRightWideFill />
-              </button>
-            </>
-          )}
-
-          <div className="px-22 pt-3">
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-8 min-h-[250px] md:min-h-[260px]">
+          <div className="px-2 md:px-22 pt-0 md:pt-3">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-8 min-h-[220px] md:min-h-[180px] lg:min-h-[230px]">
               {currentProducts.map((product, idx) => (
                 <div key={`${product._id}-${startIndex + idx}`}>
                   <DisplayCard product={product} />
@@ -143,7 +126,7 @@ const TagToys2: React.FC<TagToysProps> = ({
         
         {/* Pagination dots */}
         {totalPages > 1 && (
-          <div className="flex justify-center gap-2 mt-1">
+          <div className="flex justify-center gap-2 mt-3">
             {Array.from({ length: totalPages }).map((_, idx) => (
               <button
                 key={idx}
