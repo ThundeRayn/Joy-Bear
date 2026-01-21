@@ -31,12 +31,12 @@ const Hero = ({ title, img, description }: HeroProps) => {
     <div>
       {/* Hero image with gentle overlay to give breathing room */}
       <div className="w-full overflow-hidden">
-        <div className="relative h-68 md:h-98 bg-gray-200">
+        <div className="relative h-68 md:h-[75vh] bg-gray-200">
           <img
             src={imageSrc}
             alt={badgeTitle}
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectPosition: 'center 60%' }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           {/* Left Joyblue gradient overlay */}

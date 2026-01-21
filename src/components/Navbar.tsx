@@ -224,22 +224,46 @@ const Navbar = () => {
 
         {/* Dropdown - only visible on mobile */}
         <div
-          className={`w-full md:hidden overflow-hidden transition-all duration-500 ease-in-out bg-[#f8f8f8] flex items-center justify-center text-black text-normal font-normal ${open ? 'max-h-64 py-5 opacity-100' : 'max-h-0 py-0 opacity-0'}`}
+          className={`w-full md:hidden overflow-hidden transition-all duration-500 ease-in-out bg-[#f8f8f8] flex items-center justify-center text-black text-normal font-normal ${open ? 'max-h-96 py-5 opacity-100' : 'max-h-0 py-0 opacity-0'}`}
         >
-            <ul className='w-full flex flex-col'>
-                <li>
-                  <a href='/' className="menu-item">Home</a>
-                </li>
-                <li>
-                  <a href='/products' className="menu-item">Explore All</a>
-                </li>
-                <li>
-                  <a href='/categories' className="menu-item">Categories</a>
-                </li>
-                <li>
-                  <a href='/customize' className="menu-item">Customize ODM</a>
-                </li>
-            </ul>
+            <div className="w-full max-w-6xl mx-auto">
+              {/* Top section: Search */}
+              <div className="px-4 mb-4">
+                <Search 
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  onFocus={handleSearchFocus}
+                  onBlur={handleSearchBlur}
+                  onClear={handleSearchClear}
+                />
+              </div>
+
+              {/* Menu items */}
+              <ul className='w-full flex flex-col px-4 gap-3'>
+                  <li>
+                    <a href='/products' className="block py-2 text-[#2c362d] hover:text-txt-secondary transition-colors">EXPLORE ALL</a>
+                  </li>
+                  <li>
+                    <a href='/categories' className="block py-2 text-[#2c362d] hover:text-txt-secondary transition-colors">CATEGORIES</a>
+                  </li>
+                  <li>
+                    <a href='/customize' className="block py-2 text-[#2c362d] hover:text-txt-secondary transition-colors">CUSTOMIZE-ODM</a>
+                  </li>
+                  <li>
+                    <a href='/about' className="block py-2 text-[#2c362d] hover:text-txt-secondary transition-colors">ABOUT</a>
+                  </li>
+              </ul>
+
+              {/* Bottom section: Contact Us */}
+              <div className="px-4 mt-4">
+                <a
+                  href="/contact"
+                  className="inline-block w-full text-center px-6 py-2 rounded-xl border border-Joybrown text-Joybrown font-medium transition-colors duration-200 hover:text-[#8b6f47] hover:border-[#8b6f47]"
+                >
+                  Contact Us
+                </a>
+              </div>
+            </div>
         </div>
 
     </nav>

@@ -167,7 +167,7 @@ const TagToys2: React.FC<TagToysProps> = ({
               <RiArrowLeftWideFill className="text-3xl" />
             </button>
           )}
-          <a href={viewMoreLink} className="inline-block bg-Joyblue text-white px-6 py-2 rounded-xl shadow hover:bg-Joybrown transition">
+          <a href={viewMoreLink} className="font-semibold inline-block bg-Joyblue text-white px-6 py-2 rounded-xl shadow hover:bg-Joybrown transition">
             {viewMoreLabel}
           </a>
           {products.length > 5 && (

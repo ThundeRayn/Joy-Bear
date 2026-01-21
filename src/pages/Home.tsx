@@ -12,9 +12,10 @@ const Home = () => {
   return (
     <div>
         <Hero img='https://res.cloudinary.com/dqj2gwlpf/image/upload/c_crop,g_auto,h_1500/v1764552511/img2_ebhcga.png'/>
-        <Heros />
+        
 
         <TagToyPresentation />
+        <Heros />
         {/* <Carousels/> */}
         {/* <TagToys title='Hottest' tagName='Hottest' viewMoreLink='/tags/hottest'/> */}
         {/* <Categories /> */}
