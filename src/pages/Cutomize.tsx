@@ -1,7 +1,7 @@
 import { useState } from 'react';
 //import { designFlow } from '../assets/data/designFlow';
-import ContactBadge from '../components/ContactBadge';
 import Upbadge from '../components/Upbadge'
+import Join from '../components/HomePage/Join';
 
 
 const Customize = () => {
@@ -16,7 +16,7 @@ const Customize = () => {
 
         <div className="flex flex-col gap-8">
           {/* Left: what we do / offers */}
-          <section className="mb-16">
+          <section className="mb-6 md:mb-16">
             <strong className="block text-2xl font-bold text-Joybrown mb-4">What We Offer</strong>
             <ul className="mt-2 ml-2 space-y-3">
               {[
@@ -86,11 +86,11 @@ const Customize = () => {
           </section>
 
           {/* Flow Chart Section */}
-          <section className="mb-16">
+          <section className="mb-4 md:mb-16">
             <strong className="block text-2xl font-bold text-Joybrown mb-4">Our Design Flow</strong>
             <div className="w-full bg-white rounded-lg shadow-sm border border-gray-100 p-4 md:p-6">
               <img 
-                src="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1767915348/flowchart_e7v5rj.png" 
+                src="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769035283/joybear-flow-nowatermark_jrozua.png" 
                 alt="Design Flow Chart" 
                 className="w-full h-auto"
               />
@@ -148,7 +148,7 @@ const Customize = () => {
       </div>
     </div>
 
-    <ContactBadge />
+    <Join /> 
 
   
     </>

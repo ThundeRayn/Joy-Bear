@@ -14,7 +14,7 @@ const DEFAULT_IMG =
   'https://plus.unsplash.com/premium_photo-1664373233010-7c4abae40f78?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=688';
 const DEFAULT_TITLE = 'Joybear Toys';
 const DEFAULT_DESC =
-  'we create personalized toys that inspire joy and creativity.';
+  'WE create personalized toys that inspire joy and creativity.';
 
 const Hero = ({ title, img, description }: HeroProps) => {
   {/* cloudinary image setup */}
@@ -31,7 +31,7 @@ const Hero = ({ title, img, description }: HeroProps) => {
     <div>
       {/* Hero image with gentle overlay to give breathing room */}
       <div className="w-full overflow-hidden">
-        <div className="relative h-68 md:h-[75vh] bg-gray-200">
+        <div className="relative h-[300px] md:h-[75vh] bg-gray-200">
           <img
             src={imageSrc}
             alt={badgeTitle}
@@ -45,8 +45,8 @@ const Hero = ({ title, img, description }: HeroProps) => {
           <div className="absolute left-0 top-0 h-full w-full">
             <div className="hidden md:flex items-center h-full w-1/3 px-8 md:px-12 text-white">
               <div className="w-full flex flex-col items-start justify-center">
-                <h2 className="text-2xl md:text-3xl font-bold">{badgeTitle}</h2>
-                <p className="mt-4 text-sm md:text-base">{badgeDesc}</p>
+                <h2 className="text-2xl md:text-3xl lg:text-3xl font-semibold">{badgeTitle}</h2>
+                <p className="mt-4 font-normal text-sm md:text-base lg:text-lg">{badgeDesc}</p>
               </div>
             </div>
             <div className="flex md:hidden items-end h-full w-full px-6 pb-8 text-white">

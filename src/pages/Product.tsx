@@ -2,7 +2,7 @@ import {useState, useEffect} from "react"
 import client from '../Client'
 import ProductCard from "../components/ProductCard";
 import Back2 from "../components/Back2";
-import Upbadge from "../components/Upbadge";
+import Hero from "../components/HomePage/Hero";
 //import ContactBadge from "../components/ContactBadge";
 
 interface Product {
@@ -47,9 +47,11 @@ const Product = () => {
 
   return (
     <>
-    <Upbadge 
-      title="View our storage - discover your target Ip"
-      description="Explore our full collection — from playful plush to personalized keepsakes, crafted with heart and imagination."/>
+    <Hero 
+    title="View Our Products" 
+    description="Explore our full collection — from playful plush to personalized keepsakes, crafted with heart and imagination."
+    img="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769036590/banner-image_qnmml8.png"/>
+
     <div className=" px-5 lg:px-8 pb-6 md:pb-8 lg:pb-15">
       <Back2 text="Back to Menu"/>
       <div className=" flex flex-col items-center justify-center">

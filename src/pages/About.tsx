@@ -1,30 +1,37 @@
 import React from 'react'
-import Join from '../components/HomePage/Join';
 import Certification from '../components/ContactPage/Certification';
 import Testimonials from '../components/ContactPage/Testimonials';
+import ContactBadge from '../components/ContactBadge';
+import Hero from '../components/HomePage/Hero';
 
 const About: React.FC = () => {
   return (
     <>
-    <div className="min-h-screen bg-gradient-to-b bg-white flex flex-col items-center">
-      {/* Hero Section */}
-      <div 
-        className="text-center w-full relative py-32 px-8 overflow-hidden"
-        style={{
-          backgroundImage: 'url(https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img1_att4en.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-t from-Joyblue/30 to-transparent"></div>
-        <div className="relative z-10">
-        <img src="/joybear-icononly.svg" alt="Joy Bear Logo" className="w-22 h-16 mx-auto mb-2" />
-        
-        <p className="text-white text-lg font-semibold drop-shadow-sm">
-          Inspire Joy, Comfort, and Imagination <br />across generations through every plush toy.
-        </p>
-        </div>
+    {/* <div className="text-center w-full relative py-32 px-8 overflow-hidden"
+      style={{
+        backgroundImage: 'url(https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img1_att4en.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-t from-Joyblue/30 to-transparent"></div>
+      <div className="relative z-10">
+      <img src="/joybear-icononly.svg" alt="Joy Bear Logo" className="w-22 h-16 mx-auto mb-2" />
+      
+      <p className="text-white text-lg font-semibold drop-shadow-sm">
+        Inspire Joy, Comfort, and Imagination <br />across generations through every plush toy.
+      </p>
       </div>
+    </div> */}
+
+    <Hero 
+      title="Joy, Comfort, and Imagination" 
+      description="Inspiration across generations through every plush toy"
+      img="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img1_att4en.png"/>
+
+    <div className="min-h-screen bg-gradient-to-b bg-white flex flex-col items-center">
+
+        
 
       {/* About US */}
       <div className="pt-12 pb-12 bg-Joygrey w-full">
@@ -115,7 +122,7 @@ const About: React.FC = () => {
     </div>
 
     {/* Email Subscription Section */}
-    <Join />
+    <ContactBadge />
     </>
   );
 };

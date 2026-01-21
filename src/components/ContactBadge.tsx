@@ -15,11 +15,12 @@ const ContactBadge = () => {
       className="w-full py-10 px-6 sm:px-6 lg:px-8"
       style={{ background: 'var(--color-tertiary, #F8FAFC)' }}
     >
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-6">
-          <h3 className="text-2xl font-semibold text-gray-900">Contact Us</h3>
+      <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
+        <div className="mb-6 w-full">
+          <img src='/joybear-icononly.svg' alt="JoyBear Logo" className="w-full h-17" />
+          <h3 className="mt-3 text-2xl font-semibold text-Joybrown-med">Reach out to us Directly</h3>
           <p className="mt-3 text-lg text-gray-700">
-            For business inquiries, custom plush requests, or partnership opportunities, reach out to us directly:
+            For business inquiries, custom plush requests, or partnership opportunities:
           </p>
         </div>
         <div className="flex flex-col items-center gap-3">
