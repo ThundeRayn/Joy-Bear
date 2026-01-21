@@ -64,9 +64,9 @@ const TagToys2: React.FC<TagToysProps> = ({
   
   const getItemsPerPage = () => {
     if (typeof window !== "undefined") {
-      return window.innerWidth >= 768 ? 5 : 2; // 5 for desktop, 2 for mobile
+      return window.innerWidth >= 768 ? 5 : 4; // 5 for desktop, 4 (2x2) for mobile
     }
-    return 2; // Default to 2 for mobile
+    return 4; // Default to 4 for mobile
   };
   
   const [itemsPerPage, setItemsPerPage] = useState(() => getItemsPerPage());
