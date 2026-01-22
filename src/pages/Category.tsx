@@ -11,6 +11,7 @@ const Category = () => {
       description="Browse our curated toy families — from licensed IP favorites to whimsical playground fun and custom creations."/> */}
 
     <Hero 
+    objectPosition = 'center 50%'
     title="Find Our Categories" 
     description="Explore our diverse range of toy categories tailored for every child's joy."
     img="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769056876/category-banner_g61ypq.png"/>
