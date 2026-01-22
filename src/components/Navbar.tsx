@@ -219,16 +219,16 @@ const Navbar = () => {
         </div>
 
 
-  {/* Search Dropdown - appears when search is focused or has input */}
-  {(isSearchFocused || searchQuery) && <SearchDropDown searchQuery={searchQuery} isVisible={true} />}
+  {/* Search Dropdown - Desktop only, appears when search is focused or has input */}
+  {(isSearchFocused || searchQuery) && <div className="hidden md:block"><SearchDropDown searchQuery={searchQuery} isVisible={true} /></div>}
 
         {/* Dropdown - only visible on mobile */}
         <div
-          className={`w-full md:hidden overflow-hidden transition-all duration-500 ease-in-out bg-[#f8f8f8] flex items-center justify-center text-black text-normal font-normal ${open ? 'max-h-96 py-5 opacity-100' : 'max-h-0 py-0 opacity-0'}`}
+          className={`w-full md:hidden overflow-hidden transition-all duration-500 ease-in-out bg-[#f8f8f8] flex flex-col text-black text-normal font-normal ${open ? (isSearchFocused || searchQuery ? 'max-h-screen py-5 opacity-100' : 'max-h-96 py-5 opacity-100') : 'max-h-0 py-0 opacity-0'}`}
         >
-            <div className="w-full max-w-6xl mx-auto">
-              {/* Top section: Search */}
-              <div className="px-4 mb-4">
+            <div className="w-full max-w-6xl mx-auto flex flex-col h-full">
+              {/* Top section: Search - sticky */}
+              <div className="px-4 mb-4 sticky top-0 bg-[#f8f8f8] z-10">
                 <Search 
                   value={searchQuery}
                   onChange={handleSearchChange}
@@ -238,21 +238,29 @@ const Navbar = () => {
                 />
               </div>
 
-              {/* Menu items */}
-              <ul className='w-full flex flex-col px-4 gap-3'>
-                  <li>
-                    <a href='/products' className="block py-2 text-[#2c362d] hover:text-txt-secondary transition-colors">EXPLORE ALL</a>
-                  </li>
-                  <li>
-                    <a href='/categories' className="block py-2 text-[#2c362d] hover:text-txt-secondary transition-colors">CATEGORIES</a>
-                  </li>
-                  <li>
-                    <a href='/customize' className="block py-2 text-[#2c362d] hover:text-txt-secondary transition-colors">CUSTOMIZE-ODM</a>
-                  </li>
-                  <li>
-                    <a href='/about' className="block py-2 text-[#2c362d] hover:text-txt-secondary transition-colors">ABOUT</a>
-                  </li>
-              </ul>
+              {/* Scrollable content area */}
+              <div className="overflow-y-auto flex-1">
+                {/* Mobile Search Dropdown - only visible when searching */}
+                {(isSearchFocused || searchQuery) && (
+                  <SearchDropDown searchQuery={searchQuery} isVisible={true} />
+                )}
+
+                {/* Menu items */}
+                <ul className='w-full flex flex-col px-4 gap-3'>
+                    <li>
+                      <a href='/products' className="block py-2 text-[#2c362d] hover:text-txt-secondary transition-colors">EXPLORE ALL</a>
+                    </li>
+                    <li>
+                      <a href='/categories' className="block py-2 text-[#2c362d] hover:text-txt-secondary transition-colors">CATEGORIES</a>
+                    </li>
+                    <li>
+                      <a href='/customize' className="block py-2 text-[#2c362d] hover:text-txt-secondary transition-colors">CUSTOMIZE-ODM</a>
+                    </li>
+                    <li>
+                      <a href='/about' className="block py-2 text-[#2c362d] hover:text-txt-secondary transition-colors">ABOUT</a>
+                    </li>
+                </ul>
+              </div>
 
               {/* Bottom section: Contact Us */}
               <div className="px-4 mt-4">
