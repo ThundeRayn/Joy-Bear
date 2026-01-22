@@ -23,10 +23,32 @@ interface Product {
 const CategoryDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const [products, setProducts] = useState<Product[]>([]);
+  const [categoryTitle, setCategoryTitle] = useState<string>('View our products');
+  const [categoryDescription, setCategoryDescription] = useState<string>('Explore our full collection — from playful plush to personalized keepsakes, crafted with heart and imagination.');
+  const [categoryImage, setCategoryImage] = useState<string>('');
 
   useEffect(() => {
     if (!slug) return;
 
+    // Fetch category details
+    client
+      .fetch(
+        `*[_type == "category" && slug.current == "${slug}"][0]{
+          title,
+          description,
+          "image": image.asset->url
+        }`
+      )
+      .then((data) => {
+        if (data) {
+          setCategoryTitle(data.title || 'View our products');
+          setCategoryDescription(data.description || 'Explore our full collection — from playful plush to personalized keepsakes, crafted with heart and imagination.');
+          setCategoryImage(data.image || '');
+        }
+      })
+      .catch((err) => console.error('Error fetching category:', err));
+
+    // Fetch products
     client
       .fetch(
         `*[_type == "product" && "${slug}" in category[]->slug.current]{
@@ -51,8 +73,9 @@ const CategoryDetail = () => {
   return (
     <>
     <Upbadge 
-      title="View our products"
-      description="Explore our full collection — from playful plush to personalized keepsakes, crafted with heart and imagination."/>
+      title={categoryTitle}
+      description={categoryDescription}
+      img={categoryImage}/>
     
     <div className="px-5 lg:px-8 pb-6 md:pb-8 lg:pb-15">
       <Back2 text="Back to Menu" />
