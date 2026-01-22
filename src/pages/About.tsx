@@ -1,8 +1,8 @@
 import React from 'react'
 import Certification from '../components/ContactPage/Certification';
 import Testimonials from '../components/ContactPage/Testimonials';
-import ContactBadge from '../components/ContactBadge';
 import Hero from '../components/HomePage/Hero';
+import Join from '../components/HomePage/Join';
 
 const About: React.FC = () => {
   return (
@@ -122,7 +122,7 @@ const About: React.FC = () => {
     </div>
 
     {/* Email Subscription Section */}
-    <ContactBadge />
+    <Join /> 
     </>
   );
 };

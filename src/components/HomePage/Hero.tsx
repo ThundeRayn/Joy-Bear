@@ -11,10 +11,10 @@ interface HeroProps {
 }
 
 const DEFAULT_IMG =
-  'https://plus.unsplash.com/premium_photo-1664373233010-7c4abae40f78?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=688';
+  'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img2_ebhcga.png';
 const DEFAULT_TITLE = 'Joybear Toys';
 const DEFAULT_DESC =
-  'WE create personalized toys that inspire joy and creativity.';
+  'We create personalized toys that inspire joy and creativity.';
 
 const Hero = ({ title, img, description }: HeroProps) => {
   {/* cloudinary image setup */}
@@ -36,7 +36,7 @@ const Hero = ({ title, img, description }: HeroProps) => {
             src={imageSrc}
             alt={badgeTitle}
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectPosition: 'center 60%' }}
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectPosition: 'center 70%' }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           {/* Left Joyblue gradient overlay */}
