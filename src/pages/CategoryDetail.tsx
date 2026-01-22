@@ -51,7 +51,7 @@ const CategoryDetail = () => {
   return (
     <>
     <Upbadge 
-      title="View our storage - discover your target Ip"
+      title="View our products"
       description="Explore our full collection — from playful plush to personalized keepsakes, crafted with heart and imagination."/>
     
     <div className="px-5 lg:px-8 pb-6 md:pb-8 lg:pb-15">

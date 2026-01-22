@@ -10,23 +10,11 @@ const TagToyPresentation = () => {
   const [selectedOption, setSelectedOption] = useState<'A' | 'B' | 'C'>('A');
 
   return (
-    <div className="bg-tertiary pt-1 mb-5">
+    <div className="bg-tertiary pt-1 md:pt-4">
         <div className="max-w-7xl mx-auto">
           {/* Option Tabs */}
           <div className="flex flex-wrap gap-0 sm:gap-8 mb-2 justify-center">
-            <button
-              onClick={() => setSelectedOption('A')}
-              className={`group relative px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-semibold transition-all duration-300 ${
-                selectedOption === 'A'
-                  ? 'text-Joyblue'
-                  : 'text-gray-200 hover:text-gray-400'
-              }`}
-            >
-              LATEST
-              <span className={`absolute left-0 bottom-0 w-full h-[2px] bg-Joyblue transition-transform duration-300 origin-left ${
-                selectedOption === 'A' ? 'scale-x-100' : 'scale-x-0'
-              }`}></span>
-            </button>
+            
             <button
               onClick={() => setSelectedOption('B')}
               className={`group relative px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-semibold transition-all duration-300 ${
@@ -38,6 +26,19 @@ const TagToyPresentation = () => {
               HOTTEST
               <span className={`absolute left-0 bottom-0 w-full h-[2px] bg-Joyblue transition-transform duration-300 origin-left ${
                 selectedOption === 'B' ? 'scale-x-100' : 'scale-x-0'
+              }`}></span>
+            </button>
+            <button
+              onClick={() => setSelectedOption('A')}
+              className={`group relative px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-semibold transition-all duration-300 ${
+                selectedOption === 'A'
+                  ? 'text-Joyblue'
+                  : 'text-gray-200 hover:text-gray-400'
+              }`}
+            >
+              LATEST
+              <span className={`absolute left-0 bottom-0 w-full h-[2px] bg-Joyblue transition-transform duration-300 origin-left ${
+                selectedOption === 'A' ? 'scale-x-100' : 'scale-x-0'
               }`}></span>
             </button>
             <button

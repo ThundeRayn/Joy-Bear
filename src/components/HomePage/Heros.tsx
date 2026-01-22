@@ -103,7 +103,7 @@ const Heros = () => {
   };
 
   return (
-    <div className="w-full pt-2 lg:pt-4 pb-4 aspect-[13/9] md:aspect-[13/7] lg:aspect-[17/7] overflow-hidden relative">
+    <div className="w-full pt-2 md:pt-4 pb-2 md:pb-4 aspect-[13/9] md:aspect-[13/7] lg:aspect-[17/7] overflow-hidden relative">
       <div className="w-full h-full flex items-center justify-center" style={{overflow: 'visible'}}>
         <div
           className="flex h-full gap-2 md:gap-4"
@@ -147,8 +147,8 @@ const Heros = () => {
                   transform: idx === current ? 'translateY(0)' : 'translateY(20px)'
                 }}
               >
-                <h2 className="text-2xl md:text-4xl font-bold font-serif mb-2">{slide.title}</h2>
-                <p className="text-lg">{slide.description}</p>
+                <h2 className="text-2xl md:text-3xl font-normal font-sans mb-2">{slide.title}</h2>
+                <p className="text-lg font-normal font-sans uppercase">{slide.description}</p>
               </div>
             </div>
           ))}

@@ -86,7 +86,7 @@ const Certification = () => {
                                     <img
                                         src={item.src}
                                         alt={item.label}
-                                        className="w-40 h-40 object-cover rounded-xl shadow-md cursor-pointer hover:scale-105 transition-transform"
+                                        className="w-40 h-40 object-cover rounded-xl cursor-pointer hover:scale-105 transition-transform"
                                         onClick={() => setModalImg(item)}
                                     />
                                     <p className="mt-2 text-center text-sm font-medium">{item.label}</p>

@@ -3,37 +3,37 @@ const Categories = () => {
     {
       id: 1,
       title: 'EVERYDAY',
-      image: 'https://images.unsplash.com/photo-1762352612385-231b079aa8d5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769041988/everyday_zieiam.png',
       link: '/categories/everyday'
     },
     {
       id: 2,
       title: 'GAMES',
-      image: 'https://images.unsplash.com/photo-1650775766475-2cc37492e2a1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769041988/games_zp7zb5.png',
       link: '/categories/games'
     },
     {
       id: 3,
       title: 'HALLOWEEN',
-      image: 'https://plus.unsplash.com/premium_photo-1714618933590-febf07fce40c?q=80&w=730&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769038844/halloween_rn4ktv.png',
       link: '/categories/halloween'
     },
     {
       id: 4,
       title: 'CHRISTMAS',
-      image: 'https://plus.unsplash.com/premium_photo-1661766896016-16e307246d5d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769041987/christams_mng2tn.png',
       link: '/categories/christmas'
     },
     {
       id: 5,
       title: "VALENTINE'S DAY",
-      image: 'https://images.unsplash.com/photo-1587052755556-89808205c097?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769041986/valentine_vxlnqx.png',
       link: '/categories/valentines-day'
     },
     {
       id: 6,
       title: 'EASTER',
-      image: 'https://images.unsplash.com/photo-1618418359809-0758e4cc4f3f?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769041987/easter_onhd1b.png',
       link: '/categories/easter'
     }
   ]
@@ -63,7 +63,7 @@ const Categories = () => {
                 <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
                   <span className="text-2xl font-thin text-white text-center px-4 py-2 relative">
                     <span className="inline-block sm:group-hover:opacity-0 sm:group-hover:-translate-y-4 transition-all duration-300">{category.title}</span>
-                    <span className="absolute inset-0 flex items-center justify-center opacity-0 translate-y-4 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 transition-all duration-300">View More</span>
+                    <span className="absolute inset-0 flex items-center justify-center opacity-0 translate-y-4 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 transition-all duration-300 uppercase">View More</span>
                   </span>
                 </div>
               </div>
