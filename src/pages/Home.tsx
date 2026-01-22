@@ -11,7 +11,7 @@ import ContactBadge from '../components/ContactBadge'
 const Home = () => {
   return (
     <div>
-        <Hero/>
+        <Hero objectPosition = 'center 70%'/>
         
 
         <TagToyPresentation />
