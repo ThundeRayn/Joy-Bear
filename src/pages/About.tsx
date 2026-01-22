@@ -25,6 +25,7 @@ const About: React.FC = () => {
     </div> */}
 
     <Hero 
+      objectPosition = 'center 51%'
       title="Joy, Comfort, and Imagination" 
       description="Inspiration across generations through every plush toy"
       img="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img1_att4en.png"/>
