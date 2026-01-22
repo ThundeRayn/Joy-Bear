@@ -17,7 +17,7 @@ const Customize = () => {
         <div className="flex flex-col gap-8">
           {/* Left: what we do / offers */}
           <section className="mb-6 md:mb-16">
-            <strong className="block text-2xl font-bold text-Joybrown mb-4">What We Offer</strong>
+            <strong className="block text-2xl font-semibold text-Joybrown mb-4">What We Offer</strong>
             <ul className="mt-2 ml-2 space-y-3">
               {[
                 {
@@ -87,7 +87,7 @@ const Customize = () => {
 
           {/* Flow Chart Section */}
           <section className="mb-4 md:mb-16">
-            <strong className="block text-2xl font-bold text-Joybrown mb-4">Our Design Flow</strong>
+            <strong className="block text-2xl font-semibold text-Joybrown mb-4">Our Design Flow</strong>
             <div className="w-full bg-white rounded-lg shadow-sm border border-gray-100 p-4 md:p-6">
               <img 
                 src="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769035283/joybear-flow-nowatermark_jrozua.png" 
@@ -100,7 +100,7 @@ const Customize = () => {
           
           {/* Design flow */}
           {/* <div className="lg:col-span-2">
-            <h2 className="text-2xl font-semibold text-gray-900">Our Design Flow</h2>
+            <h2 className="text-2xl font-semibold text-black">Our Design Flow</h2>
 
             <div className="mt-4 mb-8 p-4 bg-sky-50 border-l-4 border-Joyblue rounded-md">
               <p className="text-sm text-gray-800">B2B OEM/ODM: custom development, NDA support, and small-batch production with QC.</p>
@@ -130,7 +130,7 @@ const Customize = () => {
                             <div className="pt-2 md:pt-0">
                               <div className="flex items-baseline gap-3">
                                 <span className="text-sm font-semibold text-Joybrown">{item.time}</span>
-                                <h3 className="text-lg md:text-lg font-semibold text-gray-900">{item.title}</h3>
+                                <h3 className="text-lg md:text-lg font-semibold text-black">{item.title}</h3>
                               </div>
                               <p className="mt-2 text-gray-600 text-sm md:text-base">{item.text}</p>
                             </div>

@@ -57,8 +57,8 @@ const Product = () => {
       <div className=" flex flex-col items-center justify-center">
 
           <div className="p-10">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Our products</h2>
-              <p>You are viewing {products.length} products</p>
+              <h2 className="text-3xl uppercase text-center font-semibold text-black mb-4">Our products</h2>
+              <p className="text-center">You are viewing {products.length} products</p>
           </div>
 
 

@@ -47,7 +47,7 @@ const ActivityDetail = () => {
       {/* Right: Text Content */}
       <div className="flex-1 flex flex-col justify-center text-center md:text-left">
         {activity.title && (
-          <h2 className="text-3xl font-bold mb-4 text-gray-900">{activity.title}</h2>
+          <h2 className="text-3xl font-semibold mb-4 text-black">{activity.title}</h2>
         )}
         {activity.hint && (
           <div className="text-lg text-Joybrown mb-2 font-medium">{activity.hint}</div>

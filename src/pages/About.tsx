@@ -82,7 +82,7 @@ const About: React.FC = () => {
             
             {/* Right - Text */}
             <div className="w-full md:w-3/5">
-              <h2 className="text-4xl font-bold text-gray-800 mb-6">Our Mission</h2>
+              <h2 className="text-4xl font-semibold text-black mb-6">Our Mission</h2>
               <p className="text-gray-700 leading-relaxed text-lg">
                 We craft high-quality, safe, and love-filled plush toys that bring warmth to families, value to wholesalers, and creativity to global partners. Through thoughtful design, responsible production, and an obsession with detail, we deliver products that make the world a softer place.
               </p>
@@ -95,7 +95,7 @@ const About: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center gap-8">
             {/* Left - Text */}
             <div className="w-full md:w-3/5">
-              <h2 className="text-4xl font-bold text-gray-800 mb-6">Our Vision</h2>
+              <h2 className="text-4xl font-semibold text-black mb-6">Our Vision</h2>
               <p className="text-gray-700 leading-relaxed text-lg">
                 To be the world's most trusted and beloved plush toy brand—recognized for quality, integrity, and innovation. We envision a future where every JoyBear product sparks joy, builds connection, and becomes a cherished part of someone's story.
               </p>

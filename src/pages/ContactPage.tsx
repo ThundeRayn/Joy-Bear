@@ -74,7 +74,7 @@ const ContactPage = () => {
           {/* Form Section - Right Side on Desktop */}
           <div className="lg:w-1/2 px-8 py-12 lg:py-20 flex flex-col justify-center bg-white">
             <div className="max-w-xl mx-auto w-full">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center lg:text-left">Send Us a Message</h2>
+              <h2 className="text-3xl font-semibold text-black mb-8 text-center lg:text-left">Send Us a Message</h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
           <div>

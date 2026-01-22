@@ -4,7 +4,7 @@ import { timeline } from '../assets/data/timeline';
 const Story = () => {
   return (
   <div className="max-w-4xl mx-auto py-12 px-4 md:pr-22 md:pl-12">
-    <h1 className="text-3xl font-extrabold text-gray-900 mb-6">Our Brand Story</h1>
+    <h1 className="text-3xl font-semibold text-black mb-6">Our Brand Story</h1>
     <p className="text-gray-600 mb-8">Start with inspiration: below is a concise timeline that highlights key moments — how an idea turned into toys, and how customization and quality became core to Joybear.</p>
 
     <div className="relative">
@@ -30,7 +30,7 @@ const Story = () => {
               <div className="pt-2 md:pt-0">
                 <div className="flex items-baseline gap-3">
                   <span className="text-sm font-semibold text-[#86A788]">{item.time}</span>
-                  <h3 className="text-lg md:text-lg font-semibold text-gray-900">{item.title}</h3>
+                  <h3 className="text-lg md:text-lg font-semibold text-black">{item.title}</h3>
                 </div>
                 <p className="mt-2 text-gray-600 text-sm md:text-base">{item.text}</p>
               </div>

@@ -31,7 +31,7 @@ const Hero = ({ title, img, description }: HeroProps) => {
     <div>
       {/* Hero image with gentle overlay to give breathing room */}
       <div className="w-full overflow-hidden">
-        <div className="relative h-[300px] md:h-[75vh] bg-gray-200">
+        <div className="relative h-68 md:h-[75vh] bg-gray-200">
           <img
             src={imageSrc}
             alt={badgeTitle}
@@ -51,7 +51,7 @@ const Hero = ({ title, img, description }: HeroProps) => {
             </div>
             <div className="flex md:hidden items-end h-full w-full px-6 pb-8 text-white">
               <div className="w-full flex flex-col items-start justify-end">
-                <h2 className="text-2xl font-bold">{badgeTitle}</h2>
+                <h2 className="text-2xl font-semibold">{badgeTitle}</h2>
                 <p className="mt-4 text-sm">{badgeDesc}</p>
               </div>
             </div>

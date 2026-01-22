@@ -27,7 +27,7 @@ const Upbadge = ({ title, img, description }: UpbadgeProps) => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           <div className="absolute left-6 bottom-6 text-white">
-            <h2 className="text-2xl md:text-3xl font-bold">{badgeTitle}</h2>
+            <h2 className="text-2xl md:text-3xl font-semibold">{badgeTitle}</h2>
             <p className="mt-1 text-sm md:text-base">{badgeDesc}</p>
           </div>
         </div>
