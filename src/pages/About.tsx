@@ -68,15 +68,15 @@ const About: React.FC = () => {
       </div>
 
       {/* Mission */}
-      <div className="w-full py-8 px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-8">
+      <div className="w-full py-12 bg-white px-6 md:px-4 lg:px-46">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-12">
             {/* Left - Image */}
             <div className="w-full md:w-2/5">
               <img 
                 src="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img2_ebhcga.png" 
                 alt="Our Mission" 
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover max-h-[350px]"
               />
             </div>
             
@@ -91,8 +91,8 @@ const About: React.FC = () => {
         </div>
 
         {/* Vision */}
-        <div className="max-w-5xl mx-auto mt-16">
-          <div className="flex flex-col md:flex-row items-center gap-8">
+        <div className="max-w-6xl mx-auto mt-20">
+          <div className="flex flex-col md:flex-row items-center gap-12">
             {/* Left - Text */}
             <div className="w-full md:w-3/5">
               <h2 className="text-4xl font-semibold text-black mb-6">Our Vision</h2>
@@ -106,7 +106,7 @@ const About: React.FC = () => {
               <img 
                 src="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img4_w7ucja.png" 
                 alt="Our Vision" 
-                className="w-full h-auto object-cover max-h-[400px]"
+                className="w-full h-auto object-cover max-h-[350px]"
               />
             </div>
           </div>
