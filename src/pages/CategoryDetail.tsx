@@ -23,10 +23,32 @@ interface Product {
 const CategoryDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const [products, setProducts] = useState<Product[]>([]);
+  const [categoryData, setCategoryData] = useState<{title?: string; description?: string; image?: string} | null>(null);
 
   useEffect(() => {
     if (!slug) return;
 
+    // Fetch category details
+    client
+      .fetch(
+        `*[_type == "category" && slug.current == "${slug}"][0]{
+          title,
+          description,
+          "image": image.asset->url
+        }`
+      )
+      .then((data) => {
+        if (data) {
+          setCategoryData({
+            title: data.title,
+            description: data.description,
+            image: data.image
+          });
+        }
+      })
+      .catch((err) => console.error('Error fetching category:', err));
+
+    // Fetch products
     client
       .fetch(
         `*[_type == "product" && "${slug}" in category[]->slug.current]{
@@ -50,32 +72,44 @@ const CategoryDetail = () => {
 
   return (
     <>
-    <Upbadge 
-      title="View our products"
-      description="Explore our full collection — from playful plush to personalized keepsakes, crafted with heart and imagination."/>
+    {categoryData && (
+      <Upbadge 
+        title={categoryData.title}
+        description={categoryData.description}
+        img={categoryData.image}/>
+    )}
     
     <div className="px-5 lg:px-8 pb-6 md:pb-8 lg:pb-15">
       <Back2 text="Back to Menu" />
       <div className="flex flex-col items-center justify-center">
 
         <div className="p-10">
-          <h2 className="text-center text-3xl font-bold text-gray-900 mb-4">{slug}</h2>
-          <p>You are viewing {products.length} products</p>
+          <h2 className="text-center text-3xl font-bold text-gray-900 mb-4 uppercase">{categoryData?.title}</h2>
+          {products.length > 0 && <p>You are viewing {products.length} products</p>}
         </div>
 
-        <div
-          id="product-card"
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-7xl px-2"
-        >
-          {products.map((product) => (
-            <div key={product._id} className="rounded-lg bg-white shadow flex justify-center">
-              <ProductCard
-                key={product._id}
-                product={product}
-              />
+        {products.length === 0 ? (
+          <div className="w-full flex items-center justify-center py-12 md:py-20 px-4">
+            <div className="text-center">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-700 mb-2">Coming Soon</h3>
+              <p className="text-sm md:text-base text-gray-500">We're working on bringing you amazing products in this category.</p>
             </div>
-          ))}
-        </div>
+          </div>
+        ) : (
+          <div
+            id="product-card"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-7xl px-2"
+          >
+            {products.map((product) => (
+              <div key={product._id} className="rounded-lg bg-white shadow flex justify-center">
+                <ProductCard
+                  key={product._id}
+                  product={product}
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
     </>

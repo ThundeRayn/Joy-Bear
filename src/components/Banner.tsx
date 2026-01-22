@@ -25,20 +25,16 @@ const Banner: React.FC = () => {
       .catch(console.error)
   }, [])
   
-  if (!banner) return null;
-
-  const { hint, slug } = banner
-
   return (
     <a 
-      href={`/activity/${slug.current}`} 
-      className='bg-secondary p-2 flex justify-center group cursor-pointer'>
+      href={banner ? `/activity/${banner.slug.current}` : '#'} 
+      className={`bg-secondary p-2 flex justify-center group cursor-pointer min-h-[44px] ${!banner ? 'invisible' : ''}`}>
         <span className="
             font-normal text-black font-sm
             group-hover:text-txt-secondary
             transition-colors duration-300 ease-in-out
             opacity-0 animate-[fadeIn_1s_ease-in_forwards]">
-          {hint ? hint : "Discover our new activity →"}
+          {banner?.hint ? banner.hint : "Discover our new activity →"}
         </span>
     </a>
   )
