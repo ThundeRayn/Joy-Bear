@@ -10,6 +10,7 @@ import Cutomize from './pages/Cutomize';
 {/* Product Pages */}
 import Product from './pages/Product'
 import ProductDetail from './pages/ProductDetail';
+import SearchResults from './pages/SearchResults';
 {/* Category Pages */}
 import Category from './pages/Category';
 import CategoryDetail from './pages/CategoryDetail';
@@ -38,6 +39,7 @@ function App() {
           {/* Product Pages */}
           <Route path="products" element={<Product />} />
           <Route path="products/:slug" element={<ProductDetail />} />
+          <Route path="search" element={<SearchResults />} />
           
           {/* Categories */}
           <Route path="categories" element={<Category />} />
