@@ -61,7 +61,7 @@ const Categories = () => {
 
                 {/* Title centered (always visible, switches to "View More" on hover for desktop) */}
                 <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-                  <span className="text-2xl font-thin text-white text-center px-4 py-2 relative">
+                  <span className="text-2xl font-normal text-white text-center px-4 py-2 relative">
                     <span className="inline-block sm:group-hover:opacity-0 sm:group-hover:-translate-y-4 transition-all duration-300">{category.title}</span>
                     <span className="absolute inset-0 flex items-center justify-center opacity-0 translate-y-4 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 transition-all duration-300 uppercase">View More</span>
                   </span>
