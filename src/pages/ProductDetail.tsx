@@ -142,7 +142,7 @@ const ProductDetail = () => {
 
           {/* Info below image */}
           <div className="w-full">
-            <h1 className="text-3xl font-bold text-gray-800">{singleProduct.title}</h1>
+            <h1 className="text-3xl font-semibold text-black">{singleProduct.title}</h1>
             {singleProduct.minOrderQuantity && (
               <p className="text-lg text-blue-600 font-semibold mt-2">
                 Minimum Order Quantity: {singleProduct.minOrderQuantity}

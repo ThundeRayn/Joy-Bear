@@ -47,7 +47,7 @@ const [products, setProducts] = useState<Product[]>([]);
         <div className="flex flex-col items-center">
 
             {/* Right: Brand Intro Text */}
-            <h2 className="text-3xl font-medium text-gray-900 mb-8">
+            <h2 className="text-3xl font-semibold text-black mb-8">
                 New Arrivals
             </h2>
             {/* display all new arrivals */}

@@ -16,7 +16,7 @@ const Category = () => {
     img="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769038297/game-cover_zteoct.jpg"/>
 
     <div className="flex flex-col justify-center text-center py-8 lg:pt-12 px-5 lg:px-8 pb-6 md:pb-8 lg:pb-12">
-      <h2 className="text-3xl font-semibold text-gray-900 mb-4 uppercase">Categories</h2>
+      <h2 className="text-3xl font-semibold text-black mb-4 uppercase">Categories</h2>
       <p>Explore our diverse range of toy categories tailored for every child's joy.</p>
     </div> 
     <Categories />

@@ -82,7 +82,7 @@ const Testimonials = () => {
     <section className="w-full bg-secondary py-16 px-6 sm:px-8 lg:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-700">What Our Customers Say</h2>
+          <h2 className="text-3xl font-semibold text-black">What Our Customers Say</h2>
           <p className="mt-2 text-lg text-gray-600">
             Trusted by businesses worldwide for quality and service
           </p>

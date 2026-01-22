@@ -10,7 +10,7 @@ const TagToyPresentation = () => {
   const [selectedOption, setSelectedOption] = useState<'A' | 'B' | 'C'>('A');
 
   return (
-    <div className="bg-tertiary pt-1 md:pt-4">
+    <div className="bg-tertiary pt-1">
         <div className="max-w-7xl mx-auto">
           {/* Option Tabs */}
           <div className="flex flex-wrap gap-0 sm:gap-8 mb-2 justify-center">
@@ -65,7 +65,7 @@ const TagToyPresentation = () => {
  
           {/*options*/}
           {/* <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
-            <h3 className="text-3xl font-bold mb-4 text-gray-800">{currentOption.title}</h3>
+            <h3 className="text-3xl font-semibold mb-4 text-black">{currentOption.title}</h3>
             <p className="text-gray-600 mb-6 text-lg">
               {currentOption.description}
             </p>

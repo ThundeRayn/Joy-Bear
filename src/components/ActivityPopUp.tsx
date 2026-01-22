@@ -101,7 +101,7 @@ export default function ActivityPopUp() {
           {/* Right text content */}
           <div className="flex-1 flex flex-col justify-center text-center md:text-left">
             {activity.title && (
-              <h2 className="text-2xl md:text-3xl font-normal mb-3 text-gray-900">
+              <h2 className="text-2xl md:text-3xl font-semibold mb-3 text-black">
                 {activity.title}
               </h2>
             )}
