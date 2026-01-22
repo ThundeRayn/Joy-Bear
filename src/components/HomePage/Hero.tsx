@@ -8,6 +8,7 @@ interface HeroProps {
   title?: string;
   img?: string;
   description?: string;
+  objectPosition?: string;
 }
 
 const DEFAULT_IMG =
@@ -16,7 +17,7 @@ const DEFAULT_TITLE = 'Joybear Toys';
 const DEFAULT_DESC =
   'We create personalized toys that inspire joy and creativity.';
 
-const Hero = ({ title, img, description }: HeroProps) => {
+const Hero = ({ title, img, description, objectPosition = 'center 60%' }: HeroProps) => {
   {/* cloudinary image setup */}
   {/* const imgDis = cld
     .image('cld-sample-5')
@@ -36,7 +37,7 @@ const Hero = ({ title, img, description }: HeroProps) => {
             src={imageSrc}
             alt={badgeTitle}
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectPosition: 'center 70%' }}
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectPosition }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           {/* Left Joyblue gradient overlay */}
