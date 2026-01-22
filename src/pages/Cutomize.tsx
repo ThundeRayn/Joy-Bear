@@ -1,7 +1,6 @@
 import { useState } from 'react';
-//import { designFlow } from '../assets/data/designFlow';
-import Upbadge from '../components/Upbadge'
 import ContactBadge from '../components/ContactBadge';
+import Hero from '../components/HomePage/Hero';
 
 
 const Customize = () => {
@@ -9,7 +8,13 @@ const Customize = () => {
 
   return (
     <>
-    <Upbadge img='https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769054067/odm-banner_daa6jj.png'/>
+    <Hero 
+    objectPosition = 'center 50%'
+    title="Find Our Categories" 
+    description="Explore our diverse range of toy categories tailored for every child's joy."
+    img="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769054067/odm-banner_daa6jj.png"/>
+
+    
     <div className="max-w-4xl mx-auto py-12 px-4 md:pr-22 md:pl-12">
       
       <div className="max-w-6xl mx-auto">
