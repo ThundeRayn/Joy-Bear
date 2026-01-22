@@ -3,37 +3,37 @@ const Categories = () => {
     {
       id: 1,
       title: 'EVERYDAY',
-      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769036169/everyday-cover_chfb2i.png',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769041988/everyday_zieiam.png',
       link: '/categories/everyday'
     },
     {
       id: 2,
       title: 'GAMES',
-      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769038297/game-cover_zteoct.jpg',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769041988/games_zp7zb5.png',
       link: '/categories/games'
     },
     {
       id: 3,
       title: 'HALLOWEEN',
-      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769038298/halloween-cover_qjpo97.png',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769038844/halloween_rn4ktv.png',
       link: '/categories/halloween'
     },
     {
       id: 4,
       title: 'CHRISTMAS',
-      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769038298/christams-cover_fzhq6g.png',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769041987/christams_mng2tn.png',
       link: '/categories/christmas'
     },
     {
       id: 5,
       title: "VALENTINE'S DAY",
-      image: 'https://images.unsplash.com/photo-1487035242901-d419a42d17af?q=80&w=727&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769041986/valentine_vxlnqx.png',
       link: '/categories/valentines-day'
     },
     {
       id: 6,
       title: 'EASTER',
-      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769038299/easter-cover_wtbic0.png',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769041987/easter_onhd1b.png',
       link: '/categories/easter'
     }
   ]
