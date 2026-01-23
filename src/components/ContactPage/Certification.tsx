@@ -7,7 +7,11 @@ const Certification = () => {
         const items = [
             { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1765112061/cert3_lvewgm.jpg", label: "Recycled Materials", hidden: false },
             { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1765112061/cert1_imtkwd.png", label: "Sedex", hidden: false },
-            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1765112061/cert2_uhldfu.jpg", label: "FCCA", hidden: false },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769205579/cert6_iccjux.png", label: "FSC", hidden: false },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769205580/cert4_nx3rm9.png", label: "BSCI", hidden: false },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769205583/cert7_tayiok.png", label: "ISO", hidden: false },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769205581/cert8_y7mjg3.png", label: "Walmart", hidden: false },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769205579/cert5_jfyfzf.png", label: "Recycled Blended", hidden: false },
         ];
         const visibleItems = items.filter(item => !item.hidden);
 
