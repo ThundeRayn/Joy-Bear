@@ -49,7 +49,7 @@ const Service: React.FC<SlantedSectionProps> = (props) => {
         }}
       ></div>
       <div className="text-center bg-Joyblue bg-opacity-40 p-4 rounded relative z-10">
-        <h2 className="text-3xl font-semibold mb-2">Our Factory</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold mb-2">Our Factory</h2>
         <p className="text-white">Your Design, Our Expertised</p>
       </div>
     </div>
@@ -65,7 +65,7 @@ const Service: React.FC<SlantedSectionProps> = (props) => {
         }}
       ></div>
       <div className="text-center bg-Joybrown bg-opacity-40 p-4 rounded relative z-10">
-        <h2 className="text-3xl font-semibold mb-2">Our Provider</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold mb-2">Our Provider</h2>
         <p className="text-blue-100">High Quality, Reliable Provider</p>
       </div>
     </div>
