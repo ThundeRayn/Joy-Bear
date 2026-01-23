@@ -3,6 +3,19 @@ import { RiArrowLeftWideFill } from "react-icons/ri";
 import { RiArrowRightWideFill } from "react-icons/ri";
 
 const Certification = () => {
+    const animationStyle = `
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+    `;
         // Pagination data
         const itemsBase = [
             { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1765112061/cert3_lvewgm.jpg", label: "Recycled Materials" },
@@ -42,6 +55,7 @@ const Certification = () => {
 
     return (
         <div className="w-full py-16 px-5 lg:px-20 md:px-10">
+            <style>{animationStyle}</style>
             {/* Text Section */}
             <div className="px-5 text-center">
                 <h2 className="text-2xl md:text-3xl font-semibold text-black mb-4">Our Factory Certifications</h2>
@@ -53,7 +67,7 @@ const Certification = () => {
             <div className="w-full max-w-6xl relative mx-auto px-5">
                 {/* Certification Grid */}
                 <div className="py-8 flex justify-center">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-fit" style={{ gridAutoFlow: 'row', justifyItems: 'center' }}>
+                    <div key={currentPage} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-fit animate-fadeIn" style={{ gridAutoFlow: 'row', justifyItems: 'center' }}>
                         {currentItems.map((item, idx) => (
                             <div 
                                 key={idx} 
@@ -67,7 +81,7 @@ const Certification = () => {
                                         : item.label === 'ISO' ? "w-24 h-24 md:w-32 md:h-42 object-contain rounded-xl cursor-pointer hover:scale-105 transition-transform" : "w-32 h-32 md:w-40 md:h-40 object-cover rounded-xl cursor-pointer hover:scale-105 transition-transform"}
                                     onClick={() => setModalImg(item)}
                                 />
-                                <p className="mt-2 text-center text-sm font-medium">{item.label}</p>
+                                {/* <p className="mt-2 text-center text-sm font-medium">{item.label}</p> */}
                             </div>
                         ))}
                     </div>
@@ -77,9 +91,10 @@ const Certification = () => {
                 {totalPages > 1 && (
                     <div className="flex items-center justify-center gap-4 py-8">
                         <button
-                            className="p-2 text-[#2c362d] bg-white rounded-full cursor-pointer transition disabled:opacity-30"
+                            className="p-2 text-Joyblue bg-white rounded-full cursor-pointer transition hover:bg-gray-100 disabled:opacity-30"
                             onClick={handlePrev}
                             disabled={currentPage === 0}
+                            aria-label="Previous page"
                         >
                             <RiArrowLeftWideFill size={24} />
                         </button>
@@ -89,9 +104,10 @@ const Certification = () => {
                         </span>
 
                         <button
-                            className="p-2 text-[#2c362d] bg-white rounded-full cursor-pointer transition disabled:opacity-30"
+                            className="p-2 text-Joyblue bg-white rounded-full cursor-pointer transition hover:bg-gray-100 disabled:opacity-30"
                             onClick={handleNext}
                             disabled={currentPage === totalPages - 1}
+                            aria-label="Next page"
                         >
                             <RiArrowRightWideFill size={24} />
                         </button>
