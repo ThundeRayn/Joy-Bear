@@ -36,38 +36,43 @@ const Service: React.FC<SlantedSectionProps> = (props) => {
 
   //left content: bear toy product
   const leftContent = (
-    <div className="md:ml-5 relative flex items-center justify-center h-full text-white overflow-hidden group">
+    <div className="relative flex items-center justify-center h-full text-white overflow-hidden group">
       <div
-        className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-400 group-hover:scale-105"
+        className="absolute inset-0 w-full h-full transition-transform duration-400 group-hover:scale-105"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1556012018-50c5c0da73bf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" // Bear toy image
+          backgroundImage: "url('https://res.cloudinary.com/dqj2gwlpf/image/upload/v1768334363/factory_dk5y9b.png')", // Factory img
+          backgroundPosition: "left bottom",
+          backgroundSize: typeof window !== 'undefined' 
+            ? window.innerWidth < 768 ? "400%" : window.innerWidth < 1024 ? "300%" : "210%"
+            : "210%",
+          backgroundRepeat: "no-repeat"
         }}
       ></div>
       <div className="text-center bg-Joyblue bg-opacity-40 p-4 rounded relative z-10">
-        <h2 className="text-3xl font-semibold mb-2">Our Toys</h2>
-        <p className="text-white">Good Quality, Reliable Provider</p>
+        <h2 className="text-3xl font-semibold mb-2">Our Factory</h2>
+        <p className="text-white">Your Design, Our Expertised</p>
       </div>
     </div>
   );
 
   //right content: bear toy customization
   const rightContent = (
-    <div className="md:mr-5 relative flex items-center justify-center h-full text-white overflow-hidden group">
+    <div className="relative flex items-center justify-center h-full text-white overflow-hidden group">
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-400 group-hover:scale-105"
         style={{
-          backgroundImage: "url('https://plus.unsplash.com/premium_photo-1664373233010-7c4abae40f78?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=688')" // Bear toy image
+          backgroundImage: "url('https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769209285/building_ilmj1b.png')" // Building img
         }}
       ></div>
       <div className="text-center bg-Joybrown bg-opacity-40 p-4 rounded relative z-10">
-        <h2 className="text-3xl font-semibold mb-2">Customize</h2>
-        <p className="text-blue-100">Your Design, Our Expertised</p>
+        <h2 className="text-3xl font-semibold mb-2">Our Provider</h2>
+        <p className="text-blue-100">High Quality, Reliable Provider</p>
       </div>
     </div>
   );
 
   return (
-    <div className={`w-full p-4 h-100 mb-6 md:h-150 lg:h-150 relative overflow-visible ${className}`}>
+    <div className={`w-full h-100 md:h-150 lg:h-150 relative overflow-visible ${className}`}>
       {/* Left Section */}
       <a 
         className="absolute inset-0 w-1/2 z-10 cursor-pointer"

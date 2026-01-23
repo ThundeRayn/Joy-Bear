@@ -5,13 +5,17 @@ import Hero from '../components/HomePage/Hero'
 //import TagToys from '../components/HomePage/TagToys'
 import Img from '../components/Img'
 import ContactBadge from '../components/ContactBadge'
+import Certification from '../components/ContactPage/Certification'
+import Service from '../components/HomePage/Service'
 
 
 
 const Home = () => {
   return (
     <div>
-        <Hero objectPosition = 'center 70%'/>
+        <Hero 
+        img='https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769208847/home_l0xdey.png'
+        objectPosition = 'center 70%'/>
         
 
         <TagToyPresentation />
@@ -20,8 +24,9 @@ const Home = () => {
         {/* <TagToys title='Hottest' tagName='Hottest' viewMoreLink='/tags/hottest'/> */}
         {/* <Categories /> */}
 
-        <Img />
-        {/* <Service /> */}
+        <Certification />
+        {/* <Img /> */}
+        <Service />
          <ContactBadge />
     </div>
   )

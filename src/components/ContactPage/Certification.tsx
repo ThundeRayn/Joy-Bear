@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { RiArrowLeftWideFill } from "react-icons/ri";
 import { RiArrowRightWideFill } from "react-icons/ri";
 
@@ -44,7 +44,7 @@ const Certification = () => {
         <div className="w-full py-16 px-5 lg:px-20 md:px-10">
             {/* Text Section */}
             <div className="px-5 text-center">
-                <h2 className="text-3xl font-semibold text-black mb-4">Our Certifications</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-black mb-4">Our Factory Certifications</h2>
                 <p className="text-gray-600 mb-6">
                     At <span className="font-semibold">Joybear</span>, we take pride in our commitment to quality and safety. 
                 </p>
