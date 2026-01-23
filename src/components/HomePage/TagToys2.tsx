@@ -64,7 +64,9 @@ const TagToys2: React.FC<TagToysProps> = ({
   
   const getItemsPerPage = () => {
     if (typeof window !== "undefined") {
-      return window.innerWidth >= 768 ? 5 : 4; // 5 for desktop, 4 (2x2) for mobile
+      if (window.innerWidth >= 1024) return 5; // desktop: 5
+      if (window.innerWidth >= 768) return 4;  // iPad: 4
+      return 4; // mobile: 2x2 = 4
     }
     return 4; // Default to 4 for mobile
   };
@@ -77,11 +79,33 @@ const TagToys2: React.FC<TagToysProps> = ({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Create displayProducts with fill logic for desktop only
-  const isDesktop = typeof window !== "undefined" && window.innerWidth >= 768;
+  // Create displayProducts with fill logic for all breakpoints
+  const isDesktop = typeof window !== "undefined" && window.innerWidth >= 1024;
+  const isTablet = typeof window !== "undefined" && window.innerWidth >= 768 && window.innerWidth < 1024;
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
   const displayProducts = [...products];
   
-  // For desktop view only: if last page isn't full, add products from beginning to fill it
+  // For mobile view (4 per page): if last page isn't full, add products from beginning to fill it
+  if (isMobile && products.length > 4) {
+    const remainder = products.length % 4;
+    if (remainder !== 0) {
+      const itemsToAdd = 4 - remainder;
+      for (let i = 0; i < itemsToAdd; i++) {
+        displayProducts.push(products[i]);
+      }
+    }
+  }
+  // For iPad view (4 per page): if last page isn't full, add products from beginning to fill it
+  if (isTablet && products.length > 4) {
+    const remainder = products.length % 4;
+    if (remainder !== 0) {
+      const itemsToAdd = 4 - remainder;
+      for (let i = 0; i < itemsToAdd; i++) {
+        displayProducts.push(products[i]);
+      }
+    }
+  }
+  // For desktop view (5 per page): if last page isn't full, add products from beginning to fill it
   if (isDesktop && products.length > 5) {
     const remainder = products.length % 5;
     if (remainder !== 0) {
@@ -113,8 +137,8 @@ const TagToys2: React.FC<TagToysProps> = ({
     <section className="w-full py-4 px-4 md:py-8 md:px-10 lg:px-20">
       <div className="flex flex-col items-center gap-1">
         <div className="w-full max-w-6xl relative mx-auto">
-          <div className="px-2 md:px-22 pt-0 md:pt-3">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-8 min-h-[220px] md:min-h-[180px] lg:min-h-[230px]">
+          <div className="px-2 md:px-8 pt-0 md:pt-3">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 min-h-[220px] md:min-h-[180px] lg:min-h-[230px]">
               {currentProducts.map((product, idx) => (
                 <div key={`${product._id}-${startIndex + idx}`}>
                   <DisplayCard product={product} />

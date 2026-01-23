@@ -12,7 +12,7 @@ const ContactBadge = () => {
   return (
     <section
       aria-label="Contact information"
-      className="w-full py-10 px-6 sm:px-6 lg:px-8"
+      className="w-full py-32 md:py-22 px-6 sm:px-6 lg:px-8"
       style={{ background: 'var(--color-tertiary, #F8FAFC)' }}
     >
       <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
