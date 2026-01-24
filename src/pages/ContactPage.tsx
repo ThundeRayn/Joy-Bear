@@ -65,11 +65,11 @@ const ContactPage = () => {
               privacy. Your information will only be used to respond to your inquiry.
               </p>
               <br />
-              {/* Contact Infol */}
-              <div>
+              {/* Contact Info - Centered */}
+              <div className="text-center mt-6">
                 {/* Email */}
                 <h3 className="text-xl font-semibold mb-4">Email Us</h3>
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center justify-center gap-2 mb-12">
                   <a 
                     href="mailto:joybeartoys@gmail.com"
                     className="inline-block rounded-md px-4 py-2 text-base font-medium text-white bg-Joybrown shadow hover:bg-Joybrown/90 transition"
@@ -90,10 +90,10 @@ const ContactPage = () => {
                   <span className="text-sm text-green-600 font-medium mt-2 block">Copied to clipboard!</span>
                 )}
               </div>
-              <div>
+              <div className="text-center">
                 {/* Social Media Links */}
                 <h3 className="text-xl font-semibold mb-4">Our Social Media</h3>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center gap-4">
                   {/* Instagram Icon Link */}
                   <a 
                     href="https://www.instagram.com/joybear_toys" 
