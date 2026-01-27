@@ -252,7 +252,7 @@ const Navbar = () => {
                 )}
 
                 {/* Menu items */}
-                <ul className='w-full flex flex-col px-4 gap-3'>
+                <ul className='w-full flex flex-col px-4 gap-2'>
                     <li>
                       <a href='/products' className="block py-2 text-[#2c362d] hover:text-txt-secondary transition-colors">EXPLORE ALL</a>
                     </li>
