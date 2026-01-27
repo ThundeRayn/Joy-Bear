@@ -35,8 +35,8 @@ const Footer = () => {
             {/* Line Above Section: Logo + About */}
             <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-12">
                 {/* Logo & Brand Story */}
-                <div className="mb-8 lg:mb-0 lg:w-1/4">
-                    <img src='/joybear-icononly.svg' alt="JoyBear Logo" className="w-full h-8 m-2" />
+                <div className="mb-8 lg:mb-0 lg:w-1/4 flex flex-col items-center">
+                    <img src='/joybear-newicon.svg' alt="JoyBear Logo" className="h-9 m-2" />
                     <p className="text-black text-sm w-full lg:pl-6">
                         JoyBear sells licensed IP toys worldwide, 
                         offering OEM and ODM services that bring 
