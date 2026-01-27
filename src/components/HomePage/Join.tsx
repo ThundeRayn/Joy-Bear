@@ -24,8 +24,8 @@ const Join: React.FC = () => {
       style={{ background: 'var(--color-tertiary, #F8FAFC)' }}
     >
       <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
-        <div className="mb-6 w-full">
-          <img src='/joybear-icononly.svg' alt="JoyBear Logo" className="w-full h-17" />
+        <div className="mb-6 w-full flex flex-col items-center">
+          <img src='/joybear-newicon.svg' alt="JoyBear Logo" className="h-17" />
           <h3 className="mt-3 text-2xl font-semibold text-Joybrown-med">Get Business Updates in your mailbox</h3>
 
           <p className="mt-3 text-lg text-gray-700">

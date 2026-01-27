@@ -49,8 +49,8 @@ const Service: React.FC<SlantedSectionProps> = (props) => {
         }}
       ></div>
       <div className="text-center bg-Joyblue bg-opacity-40 p-4 rounded relative z-10">
-        <h2 className="text-2xl md:text-3xl font-semibold mb-2">Our Factory</h2>
-        <p className="text-white">Your Design, Our Expertised</p>
+        <h2 className="text-2xl md:text-3xl font-semibold mb-2">Our Provider</h2>
+        <p className="text-white">High Quality, Reliable Provider</p>
       </div>
     </div>
   );
@@ -61,12 +61,12 @@ const Service: React.FC<SlantedSectionProps> = (props) => {
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-400 group-hover:scale-105"
         style={{
-          backgroundImage: "url('https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769209285/building_ilmj1b.png')" // Building img
+          backgroundImage: "url('https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769473346/Company_Photo_adkcrg.png')" // Building img
         }}
       ></div>
       <div className="text-center bg-Joybrown bg-opacity-40 p-4 rounded relative z-10">
-        <h2 className="text-2xl md:text-3xl font-semibold mb-2">Our Provider</h2>
-        <p className="text-blue-100">High Quality, Reliable Provider</p>
+        <h2 className="text-2xl md:text-3xl font-semibold mb-2">Our Factory</h2>
+        <p className="text-blue-100">Your Design, Our Expertised</p>
       </div>
     </div>
   );
@@ -76,7 +76,7 @@ const Service: React.FC<SlantedSectionProps> = (props) => {
       {/* Left Section */}
       <a 
         className="absolute inset-0 w-1/2 z-10 cursor-pointer"
-        href="/products"
+        href="/about"
       >
         <div
           className="w-full h-full"
@@ -90,7 +90,7 @@ const Service: React.FC<SlantedSectionProps> = (props) => {
       {/* Right Section */}
       <a 
         className="absolute inset-0 left-1/2 w-1/2 z-20 cursor-pointer"
-        href="/customize"
+        href="/factory"
       >
         <div
           className="w-full h-full"

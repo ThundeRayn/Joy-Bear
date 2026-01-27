@@ -17,9 +17,9 @@ const ContactFloat = () => {
       const scrollTop = window.scrollY;
       const distanceFromBottom = documentHeight - (scrollTop + windowHeight);
 
-      // If within 64px (bottom-24 - bottom-8 = 64px) of the bottom, use bottom-24, otherwise bottom-8
+      // If within 120px of the bottom, use bottom-32, otherwise bottom-8
       if (distanceFromBottom <= 64) {
-        setBottomPosition(32);
+        setBottomPosition(42);
       } else {
         setBottomPosition(8);
       }
@@ -47,7 +47,7 @@ const ContactFloat = () => {
         >
             <div>
                 <span className="flex flex-col items-center justify-center">
-                    <img src={isHovered ? "/joybear-colorVert2.svg" : "/joybear-icononly.svg"} alt="Contact" width={28} height={28} />
+                    <img src={isHovered ? "/joybear-newicon.svg" : "/joybear-newicon.svg"} alt="Contact" width={28} height={28} />
                     <span className="text-xs mt-1">Contact</span>
                 </span>
             </div>

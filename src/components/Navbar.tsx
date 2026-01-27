@@ -111,7 +111,7 @@ const Navbar = () => {
               <div className="flex-1 flex justify-center">
                 <a href='/'>
                   <div id='nav-logo' className='flex justify-center items-center gap-2'>
-                      <img src="/joybear-icononly.svg" alt="Joy Bear Logo" className="w-16 h-16 inline" />
+                      <img src="/joybear-newicon.svg" alt="Joy Bear Logo" className="h-16 inline p-1" />
                       <img src="/textonly-cropped.svg" alt="Joy Bear Text Logo" className="h-6 inline" />
                   </div>
                 </a>
@@ -178,6 +178,12 @@ const Navbar = () => {
               <li className="relative">
                 <a href='/about' className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1">
                   ABOUT
+                  <span className={spanClassName}></span>
+                </a>
+              </li>
+              <li className="relative">
+                <a href='/factory' className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1">
+                  OUR FACTORY
                   <span className={spanClassName}></span>
                 </a>
               </li>
@@ -258,6 +264,9 @@ const Navbar = () => {
                     </li>
                     <li>
                       <a href='/about' className="block py-2 text-[#2c362d] hover:text-txt-secondary transition-colors">ABOUT</a>
+                    </li>
+                    <li>
+                      <a href='/factory' className="block py-2 text-[#2c362d] hover:text-txt-secondary transition-colors">OUR FACTORY</a>
                     </li>
                 </ul>
               </div>
