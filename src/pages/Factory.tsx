@@ -25,23 +25,21 @@ const Factory = () => {
 
 
                     <p className="text-gray-600 leading-relaxed">
-                        Henan Pro Toys Company, founded in 2022 and based in Yongcheng, Henan, China, is a professional manufacturer specializing in plush toy design and production.
+                        Henan Pro Toys Company is a professional plush toy manufacturer specializing in design, development, and production for global brands. We focus on delivering high-quality plush toys that combine craftsmanship, creativity, and reliable manufacturing standards.
 
                     </p>
                     <br />
                     <p className="text-gray-600 leading-relaxed">
-                        With nearly 200 skilled workers and integrated in-house departments—including cutting, sewing, hand-stitching, and packaging—we efficiently handle both large-scale orders and diverse customization needs.
+                        With fully integrated in-house production capabilities—including cutting, sewing, hand-stitching, and packaging—we efficiently support both large-volume orders and flexible customization requirements. This vertical integration allows us to maintain strict quality control, stable lead times, and consistent product standards across every stage of production.
 
                     </p>
                     <br />
                     <p className="text-gray-600 leading-relaxed">
-                        We meet international quality and social responsibility standards, having passed Walmart factory audits and the SEDEX human rights audit.</p>
+                        Pro Toys meets international quality and social responsibility requirements and has successfully passed major global compliance audits, including Walmart factory audits and the SEDEX human rights audit. Our products are exported worldwide, serving customers across North America and Europe, and earning long-term trust through dependable quality and professional execution.</p>
                     <br />
                     <p className="text-gray-600 leading-relaxed">
-                        Our annual output exceeds 1 million plush toys, exported to the U.S., Canada, the U.K., and Europe, earning global customer trust.</p>
+                        Driven by a commitment to quality, innovation, and win–win partnerships, Pro Toys provides comprehensive OEM and ODM services. We work closely with our partners to transform ideas into market-ready plush products, and we welcome opportunities for long-term collaboration.</p>
                     <br />
-                    <p className="text-gray-600 leading-relaxed">
-                        Committed to quality, innovation, and win–win cooperation, Pro Toys provides OEM and ODM services and welcomes opportunities for collaboration.</p>
                 </div>
             </div>
 
