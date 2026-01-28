@@ -39,8 +39,6 @@ const Certification = () => {
             { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769205581/cert8_y7mjg3.png", label: "Walmart" }
         ] : itemsBase;
 
-        // Modal state
-        const [modalImg, setModalImg] = useState<null | { src: string; label: string }>(null);
         const [currentPage, setCurrentPage] = useState(0);
 
         // Responsive items per page: 4 for mobile and iPad, all items for desktop
@@ -77,11 +75,9 @@ const Certification = () => {
                                 <img
                                     src={item.src}
                                     alt={item.label}
-                                    className={item.label === 'Walmart' ? "w-56 h-24 md:w-72 md:h-40 object-contain rounded-xl cursor-pointer hover:scale-105 transition-transform" 
-                                        : item.label === 'ISO' ? "w-24 h-24 md:w-32 md:h-42 object-contain rounded-xl cursor-pointer hover:scale-105 transition-transform" : "w-32 h-32 md:w-40 md:h-40 object-cover rounded-xl cursor-pointer hover:scale-105 transition-transform"}
-                                    onClick={() => setModalImg(item)}
+                                    className={item.label === 'Walmart' ? "w-56 h-24 md:w-72 md:h-40 object-contain rounded-xl hover:scale-105 transition-transform" 
+                                        : item.label === 'ISO' ? "w-24 h-24 md:w-32 md:h-42 object-contain rounded-xl hover:scale-105 transition-transform" : "w-32 h-32 md:w-40 md:h-40 object-cover rounded-xl hover:scale-105 transition-transform"}
                                 />
-                                {/* <p className="mt-2 text-center text-sm font-medium">{item.label}</p> */}
                             </div>
                         ))}
                     </div>
@@ -111,32 +107,6 @@ const Certification = () => {
                         >
                             <RiArrowRightWideFill size={24} />
                         </button>
-                    </div>
-                )}
-
-                {/* Modal for full image view */}
-                {modalImg && (
-                    <div
-                        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
-                        onClick={() => setModalImg(null)}
-                    >
-                        <div
-                            className="relative max-w-full max-h-full flex items-center justify-center"
-                            onClick={e => e.stopPropagation()}
-                        >
-                            <button
-                                className="absolute top-2 right-2 text-white text-2xl bg-black bg-opacity-50 rounded-full px-2 pb-1 hover:bg-opacity-80 z-10 cursor-pointer"
-                                onClick={() => setModalImg(null)}
-                                aria-label="Close"
-                            >
-                                ×
-                            </button>
-                            <img
-                                src={modalImg.src}
-                                alt={modalImg.label}
-                                className="max-h-[80vh] max-w-[90vw] rounded-xl shadow-lg"
-                            />
-                        </div>
                     </div>
                 )}
             </div>
