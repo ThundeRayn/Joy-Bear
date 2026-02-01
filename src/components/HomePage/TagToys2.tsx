@@ -36,6 +36,7 @@ const TagToys2: React.FC<TagToysProps> = ({
   viewMoreLabel = 'VIEW MORE'
 }) => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     // build a safe groq query using the provided tagName
@@ -55,8 +56,12 @@ const TagToys2: React.FC<TagToysProps> = ({
       .fetch(q)
       .then((data) => {
         setProducts(data || []);
+        setError(null);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        setError("Failed to load products");
+      });
   }, [tagName]);
 
   // Pagination state
@@ -135,6 +140,11 @@ const TagToys2: React.FC<TagToysProps> = ({
 
   return (
     <section className="w-full py-4 px-4 md:py-8 md:px-10 lg:px-20">
+      {error && (
+        <div className="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+          <p className="font-semibold">⚠️ {error}</p>
+        </div>
+      )}
       <div className="flex flex-col items-center gap-1">
         <div className="w-full max-w-6xl relative mx-auto">
           <div className="px-2 md:px-8 pt-0 md:pt-3">
