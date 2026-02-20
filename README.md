@@ -31,7 +31,12 @@ It allows a non-technical client to easily manage **Products** and **Activities*
 - add cannonical to header link in `index.html`
 - set up sitemap and robots.txt, submit to [google search seo](https://search.google.com/search-console/welcome) waiting updated
 
+---
 
+## ⚠️ Disclaimer
 
-## Disclaimer
-
+> All work, code, and content in this project are the property of **JoyBear Toys**. All rights reserved.
+>
+> All code has been reviewed and tested to ensure it meets project requirements. However, no warranty is provided regarding the completeness, reliability, or fitness for a particular purpose. The client assumes responsibility for reviewing and approving the final deliverables before deployment.
+>
+> For any questions or concerns, please contact the development team.
