@@ -11,6 +11,7 @@ type BannerData = {
 
 const Banner: React.FC = () => {
   const [banner, setBanner] = useState<BannerData | null>(null)
+  const [error, setError] = useState<string | null>(null)
   
   useEffect(() => {
     client
@@ -22,21 +23,32 @@ const Banner: React.FC = () => {
         }`
       )
       .then(setBanner)
-      .catch(console.error)
+      .catch((err) => {
+        console.error(err)
+        setError("Failed to load banner")
+      })
   }, [])
   
   return (
-    <a 
-      href={banner ? `/activity/${banner.slug.current}` : '#'} 
-      className={`bg-secondary p-2 flex justify-center group cursor-pointer min-h-[44px] ${!banner ? 'invisible' : ''}`}>
-        <span className="
-            font-normal text-black font-sm
-            group-hover:text-txt-secondary
-            transition-colors duration-300 ease-in-out
-            opacity-0 animate-[fadeIn_1s_ease-in_forwards]">
-          {banner?.hint ? banner.hint : "Discover our new activity →"}
-        </span>
-    </a>
+    <div className="min-h-[44px]">
+      {error ? (
+        <div className="bg-secondary p-2 flex justify-center items-center min-h-[44px] rounded">
+          <p className="font-semibold text-black">⚠️ {error}</p>
+        </div>
+      ) : (
+        <a 
+          href={banner ? `/activity/${banner.slug.current}` : '#'} 
+          className={`bg-secondary p-2 flex justify-center group cursor-pointer min-h-[44px] ${!banner ? 'invisible' : ''}`}>
+            <span className="
+                font-normal text-black font-sm
+                group-hover:text-txt-secondary
+                transition-colors duration-300 ease-in-out
+                opacity-0 animate-[fadeIn_1s_ease-in_forwards]">
+              {banner?.hint ? banner.hint : "Discover our new activity →"}
+            </span>
+        </a>
+      )}
+    </div>
   )
 }
 

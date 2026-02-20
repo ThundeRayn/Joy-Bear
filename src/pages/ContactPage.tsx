@@ -26,22 +26,30 @@ const ContactPage = () => {
     e.preventDefault();
     setStatus("sending");
 
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`Contact Form: Message from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-    const mailtoLink = `mailto:tangshirong477@gmail.com?subject=${subject}&body=${body}`;
-
-    // Open default email client
-    window.location.href = mailtoLink;
-
-    // Reset form and show success
-    setTimeout(() => {
-      setFormData({ name: "", email: "", message: "" });
-      setStatus("success");
-      setTimeout(() => setStatus("idle"), 3000);
-    }, 500);
+    // Send to backend
+    fetch('http://localhost:5000/api/email/send-contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setFormData({ name: "", email: "", message: "" });
+          setStatus("success");
+          setTimeout(() => setStatus("idle"), 3000);
+        } else {
+          setStatus("error");
+          setTimeout(() => setStatus("idle"), 3000);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 3000);
+      });
   };
 
   return (
@@ -212,7 +220,16 @@ const ContactPage = () => {
                 {status === "success" && (
                   <div className="mt-4 p-4 bg-green-500/90 backdrop-blur-sm border border-green-300/50 rounded-lg shadow-lg">
                     <p className="text-white text-sm text-center font-medium drop-shadow-md">
-                      ✓ Your email client should open. Please send the email to complete your message.
+                      ✓ Message sent successfully! We'll get back to you soon.
+                    </p>
+                  </div>
+                )}
+
+                {/* Error Message */}
+                {status === "error" && (
+                  <div className="mt-4 p-4 bg-red-500/90 backdrop-blur-sm border border-red-300/50 rounded-lg shadow-lg">
+                    <p className="text-white text-sm text-center font-medium drop-shadow-md">
+                      ✗ Failed to send message. Please try again.
                     </p>
                   </div>
                 )}
