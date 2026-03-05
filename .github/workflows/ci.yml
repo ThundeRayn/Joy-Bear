@@ -1,52 +1,94 @@
+# The name of this workflow - shown in the GitHub Actions
 name: CI - Lint, Build & Merge to Main
 
+# TRIGGER - runs every time you push to master branch
 on:
   push:
     branches:
       - master
 
+# PERMISSIONS: Give the workflow write access to the repo
 permissions:
   contents: write
 
+# JOBS: The tasks to run (in order)
 jobs:
+
+  # ──────────────────────────────────────────────
+  # JOB 1: Lint and Build
+  # This job checks your code quality and builds it
+  # ──────────────────────────────────────────────
+  # job id: lint-and-build, will show as a job in gitub action
   lint-and-build:
+    # Run on a fresh Ubuntu (Linux) virtual machine
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Download your repo code onto the virtual machine (like git clone)
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Step 2: Install Node.js v20 and cache npm packages for faster runs
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: "npm"
 
+      # Step 3: Install all dependencies from package-lock.json
+      # "npm ci" is stricter than "npm install"
       - name: Install dependencies
         run: npm ci
 
+      # Step 4: Run ESLint to check code quality
+      # If this fails, the whole pipeline stops (no merge to main)
       - name: Run lint
         run: npm run lint
 
+      # Step 5: Run TypeScript check + Vite build
+      # If this fails, the whole pipeline stops (no merge to main)
       - name: Run build
         run: npm run build
 
+      # hint: any run fails will fail the whole process
+
+  # ──────────────────────────────────────────────
+  # JOB 2: Merge to Main
+  # This job only runs if JOB 1 (lint-and-build) passes
+  # It merges master into main, then Vercel auto-deploys
+  # ──────────────────────────────────────────────
   merge-to-main:
     runs-on: ubuntu-latest
+
+    # wait for lint-and-build to succeed before running, If job1 fails, this job is skipped entirely
     needs: lint-and-build
 
     steps:
+      # Step 1: Download the full repo with all branch history
       - name: Checkout code
         uses: actions/checkout@v4
         with:
+          # fetch-depth: 0 downloads ALL git history (not just latest commit)
+          # This is needed so we can access both master and main branches
           fetch-depth: 0
+          # Use the auto-generated GitHub token for authentication
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      # Step 2: Merge master into main and push
       - name: Merge master into main
         run: |
+          # Set the bot's git identity for the merge commit
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Set remote URL with token so git push is authenticated
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+          # Switch to the main branch
           git checkout main
+
+          # Merge master into main (--no-ff creates a merge commit)
           git merge origin/master --no-ff -m "ci: auto-merge master into main"
+
+          # Push updated main to GitHub → Vercel detects this and deploys
           git push origin main

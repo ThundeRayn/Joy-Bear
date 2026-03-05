@@ -26,29 +26,29 @@ const ContactPage = () => {
     e.preventDefault();
     setStatus("sending");
 
-    // Send to backend
-    fetch('http://localhost:5000/api/email/send-contact', {
-      method: 'POST',
+    // Send a POST request to the backend email endpoint
+    fetch('http://localhost:5001/api/email/send-contact', {
+      method: 'POST', 
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json', // Tell the server we're sending JSON data
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(formData), // Convert { name, email, message } object into a JSON string to send
     })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          setFormData({ name: "", email: "", message: "" });
-          setStatus("success");
-          setTimeout(() => setStatus("idle"), 3000);
+      .then((res) => res.json()) // When the server responds, parse the response body as JSON
+      .then((data) => { // Now "data" is the parsed response, e.g. { success: true, message: "..." }
+        if (data.success) { // If backend returned success
+          setFormData({ name: "", email: "", message: "" }); // Clear the form fields
+          setStatus("success"); // Show success message on screen
+          setTimeout(() => setStatus("idle"), 3000); // After 3 seconds, hide the success message
         } else {
-          setStatus("error");
-          setTimeout(() => setStatus("idle"), 3000);
+          setStatus("error"); // Backend responded but something went wrong
+          setTimeout(() => setStatus("idle"), 3000); // Hide error message after 3 seconds
         }
       })
-      .catch((error) => {
-        console.error(error);
-        setStatus("error");
-        setTimeout(() => setStatus("idle"), 3000);
+      .catch((error) => { // If the request itself failed (network error, server unreachable, etc.)
+        console.error(error); // Log the error to browser console (F12 -> Console tab)
+        setStatus("error"); // Show error message on screen
+        setTimeout(() => setStatus("idle"), 3000); // Hide error message after 3 seconds
       });
   };
 
