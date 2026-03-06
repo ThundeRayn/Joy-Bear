@@ -27,7 +27,7 @@ const ContactPage = () => {
     setStatus("sending");
 
     // Send a POST request to the backend email endpoint
-    fetch('http://localhost:5001/api/email/send-contact', {
+    fetch(`${import.meta.env.VITE_API_URL}/api/email/send-contact`, {
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json', // Tell the server we're sending JSON data
