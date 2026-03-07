@@ -1,9 +1,15 @@
+import { Helmet } from 'react-helmet-async';
 import Certification from "../components/ContactPage/Certification";
 import Hero from "../components/HomePage/Hero";
 
 const Factory = () => {
   return (
     <>
+        <Helmet>
+          <title>Our Factory | JoyBear Toys</title>
+          <meta name="description" content="Tour JoyBear's plush toy manufacturing facility — fully integrated in-house production with international quality standards and compliance certifications." />
+          <link rel="canonical" href="https://www.joybeartoys.com/factory" />
+        </Helmet>
         <Hero
             objectPosition='center 51%'
             title="Your Trusted Plush Toy Manufacturer"

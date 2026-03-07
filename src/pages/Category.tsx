@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import Categories from "../components/Categories"
 import Hero from "../components/HomePage/Hero"
 //import Upbadge from "../components/Upbadge"
@@ -6,6 +7,11 @@ import Hero from "../components/HomePage/Hero"
 const Category = () => {
   return (
     <div>
+      <Helmet>
+        <title>Categories | JoyBear Toys</title>
+        <meta name="description" content="Browse JoyBear's curated toy categories — from licensed IP favorites to whimsical playground fun and custom creations." />
+        <link rel="canonical" href="https://www.joybeartoys.com/categories" />
+      </Helmet>
       {/* <Upbadge 
       title="Find Your Kind of Joy"
       description="Browse our curated toy families — from licensed IP favorites to whimsical playground fun and custom creations."/> */}

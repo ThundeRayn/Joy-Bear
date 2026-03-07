@@ -1,9 +1,14 @@
-
+import { Helmet } from 'react-helmet-async'
 import { timeline } from '../assets/data/timeline';
 
 const Story = () => {
   return (
   <div className="max-w-4xl mx-auto py-12 px-4 md:pr-22 md:pl-12">
+    <Helmet>
+      <title>Our Story | JoyBear Toys</title>
+      <meta name="description" content="Discover the JoyBear story — how an idea turned into toys, and how customization and quality became core to our brand." />
+      <link rel="canonical" href="https://www.joybeartoys.com/story" />
+    </Helmet>
     <h1 className="text-3xl font-semibold text-black mb-6">Our Brand Story</h1>
     <p className="text-gray-600 mb-8">Start with inspiration: below is a concise timeline that highlights key moments — how an idea turned into toys, and how customization and quality became core to Joybear.</p>
 

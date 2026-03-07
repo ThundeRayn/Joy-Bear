@@ -17,19 +17,97 @@
       name="description"
       content="Joy Bear creates custom plush toys, stuffed animals, and eco-friendly gifts loved by families and businesses."
     />
+    <!-- Structured Data: Organization -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "JoyBear Toys",
         "alternateName": "Joy Bear Toys",
-        "url": "https://www.joybeartoys.com/"
+        "url": "https://www.joybeartoys.com/",
+        "logo": "https://www.joybeartoys.com/joybear-newicon.png"
       }
-      </script>
-    <meta name="keywords" content="plush toys, stuffed animals, custom plush, eco-friendly toys, Joybear, Joy Bear, Joy Bear Toys" />
+    </script>
+
+    <!-- Structured Data: WebSite with SearchAction -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "JoyBear Toys",
+        "url": "https://www.joybeartoys.com/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.joybeartoys.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+    <!-- Structured Data: SiteNavigationElement -->
+    <script type="application/ld+json">
+      [{
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Products",
+        "url": "https://www.joybeartoys.com/products"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "About Us",
+        "url": "https://www.joybeartoys.com/about"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Contact",
+        "url": "https://www.joybeartoys.com/contact"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Custom & OEM",
+        "url": "https://www.joybeartoys.com/customize"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Our Story",
+        "url": "https://www.joybeartoys.com/story"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Factory",
+        "url": "https://www.joybeartoys.com/factory"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "Categories",
+        "url": "https://www.joybeartoys.com/categories"
+      }]
+    </script>
+
+    <meta name="keywords" content="plush toys, stuffed animals, custom plush, eco-friendly toys, Joybear, Joy Bear, Joy Bear Toys, OEM plush, ODM toys" />
     <link rel="canonical" href="https://www.joybeartoys.com/" />
-  
-  
+
+    <!-- OpenGraph Meta Tags -->
+    <meta property="og:site_name" content="JoyBear Toys" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="JoyBear Toys | Custom Stuffed Animals, Plush Toys & OEM Factory" />
+    <meta property="og:description" content="JoyBear creates custom plush toys, stuffed animals, and eco-friendly gifts loved by families and businesses." />
+    <meta property="og:url" content="https://www.joybeartoys.com/" />
+    <meta property="og:image" content="https://www.joybeartoys.com/joybear-newicon.png" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="JoyBear Toys | Custom Stuffed Animals, Plush Toys & OEM Factory" />
+    <meta name="twitter:description" content="JoyBear creates custom plush toys, stuffed animals, and eco-friendly gifts loved by families and businesses." />
+    <meta name="twitter:image" content="https://www.joybeartoys.com/joybear-newicon.png" />
+
+
   </head>
   <body>
     <div id="root"></div>

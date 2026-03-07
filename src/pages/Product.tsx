@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react"
+import { Helmet } from 'react-helmet-async'
 import client from '../Client'
 import ProductCard from "../components/ProductCard";
 import Back2 from "../components/Back2";
@@ -47,7 +48,12 @@ const Product = () => {
 
   return (
     <>
-    <Hero 
+    <Helmet>
+      <title>Products | JoyBear Toys</title>
+      <meta name="description" content="Browse JoyBear's full collection of custom plush toys, stuffed animals, and personalized keepsakes crafted with heart and imagination." />
+      <link rel="canonical" href="https://www.joybeartoys.com/products" />
+    </Helmet>
+    <Hero
     title="View Our Products" 
     description="Explore our full collection — from playful plush to personalized keepsakes, crafted with heart and imagination."
     img="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769036590/banner-image_qnmml8.png"/>
