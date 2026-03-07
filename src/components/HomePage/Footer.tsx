@@ -38,9 +38,7 @@ const Footer = () => {
                 <div className="mb-8 lg:mb-0 lg:w-1/4 flex flex-col items-center">
                     <img src='/joybear-newicon.svg' alt="JoyBear Logo" className="h-9 m-2" />
                     <p className="text-black text-sm w-full lg:pl-6">
-                        JoyBear sells licensed IP toys worldwide, 
-                        offering OEM and ODM services that bring 
-                        joy and learning to every product.
+                        JoyBear sells licensed IP toys across Canada, offering OEM and ODM services that bring joy and learning to every product.
                     </p>
                     
                 </div>
@@ -89,7 +87,7 @@ const Footer = () => {
             {/* Bottom Section: Copyright & Social */}
             <div className="border-t border-black pt-6 flex flex-col md:flex-row justify-between items-center">
                 <div className="text-black text-sm">
-                    <p>&copy; 2025 JoyBear. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} JoyBear. All rights reserved.</p>
                     <a href="/disclaimer" className="invisible md:visible inline-block pl-4 font-semibold hover:underline hover:translate-x-2 transition-transform duration-300 ease-in-out">View Disclaimer &rarr;</a>
                 </div>
                 <div className="flex flex-col items-center md:items-end">

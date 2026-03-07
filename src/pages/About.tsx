@@ -46,7 +46,7 @@ const About: React.FC = () => {
         <p className="text-gray-600 leading-relaxed">
           JoyBear is a Canadian plush toy company dedicated to creating comfort,
           connection, and pure happiness through high-quality, beautifully
-          crafted plush companions. From our roots in USA & Canada to
+          crafted plush companions. From our roots in Toronto, Canada to
           our global manufacturing partners, we combine thoughtful
           design, exceptional craftsmanship, and strict quality
           standards to bring safe, lovable, and memorable products

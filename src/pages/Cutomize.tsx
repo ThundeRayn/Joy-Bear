@@ -96,7 +96,8 @@ const Customize = () => {
             <div className="w-full bg-white rounded-lg shadow-sm border border-gray-100 p-4 md:p-6">
               <img 
                 src="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769035283/joybear-flow-nowatermark_jrozua.png" 
-                alt="Design Flow Chart" 
+                alt="OEM / ODM Design Flow Chart"
+                aria-description="the chat flow includes requirements communication, design proposal, and then mass production, delivery and shipping, quality inspection and order confirmation." 
                 className="w-full h-auto"
               />
             </div>
