@@ -17,7 +17,7 @@ const Home = () => {
           <link rel="canonical" href="https://www.joybeartoys.com/" />
         </Helmet>
         <Hero
-        img='https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769208847/home_l0xdey.png'
+        img='https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_1200/v1769208847/home_l0xdey.png'
         objectPosition = 'center 70%'/>
         
 

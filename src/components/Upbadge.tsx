@@ -5,7 +5,7 @@ interface UpbadgeProps {
 }
 
 const DEFAULT_IMG =
-  'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769036590/banner-image_qnmml8.png';
+  'https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_1200/v1769036590/banner-image_qnmml8.png';
 const DEFAULT_TITLE = 'Make it yours — from fabric to finishing touches';
 const DEFAULT_DESC =
   'Personalized designs, careful prototyping, and small-batch quality.';
@@ -22,6 +22,8 @@ const Upbadge = ({ title, img, description }: UpbadgeProps) => {
           <img
             src={imageSrc}
             alt={badgeTitle}
+            width={1920}
+            height={400}
             className="absolute inset-0 w-full h-full object-cover"
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
           />

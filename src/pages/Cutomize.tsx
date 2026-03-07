@@ -14,11 +14,12 @@ const Customize = () => {
       <meta name="description" content="JoyBear offers custom plush toy design, OEM & ODM manufacturing, low MOQ options, and full-service production for brands and businesses." />
       <link rel="canonical" href="https://www.joybeartoys.com/customize" />
     </Helmet>
+    
     <Hero
     objectPosition = 'center 50%'
     title="Find Our Categories" 
     description="Explore our diverse range of toy categories tailored for every child's joy."
-    img="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769054067/odm-banner_daa6jj.png"/>
+    img="https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_1200/v1769054067/odm-banner_daa6jj.png"/>
 
     
     <div className="max-w-4xl mx-auto py-12 px-4 md:pr-22 md:pl-12">
@@ -101,9 +102,11 @@ const Customize = () => {
             <strong className="block text-2xl font-semibold text-Joybrown mb-4">Our Design Flow</strong>
             <div className="w-full bg-white rounded-lg shadow-sm border border-gray-100 p-4 md:p-6">
               <img 
-                src="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769035283/joybear-flow-nowatermark_jrozua.png" 
+                src="https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_800/v1769035283/joybear-flow-nowatermark_jrozua.png"
                 alt="OEM / ODM Design Flow Chart"
-                aria-description="the chat flow includes requirements communication, design proposal, and then mass production, delivery and shipping, quality inspection and order confirmation." 
+                aria-description="the chat flow includes requirements communication, design proposal, and then mass production, delivery and shipping, quality inspection and order confirmation."
+                width={800}
+                height={400}
                 className="w-full h-auto"
               />
             </div>

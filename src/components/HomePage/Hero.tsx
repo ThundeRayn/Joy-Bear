@@ -12,7 +12,7 @@ interface HeroProps {
 }
 
 const DEFAULT_IMG =
-  'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img2_ebhcga.png';
+  'https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_1200/v1764552511/img2_ebhcga.png';
 const DEFAULT_TITLE = 'Joybear Toys';
 const DEFAULT_DESC =
   'We create personalized toys that inspire joy and creativity.';
@@ -36,6 +36,8 @@ const Hero = ({ title, img, description, objectPosition = 'center 60%' }: HeroPr
           <img
             src={imageSrc}
             alt={badgeTitle}
+            width={1920}
+            height={800}
             className="absolute inset-0 w-full h-full object-cover"
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectPosition }}
           />
@@ -46,13 +48,13 @@ const Hero = ({ title, img, description, objectPosition = 'center 60%' }: HeroPr
           <div className="absolute left-0 top-0 h-full w-full">
             <div className="hidden md:flex items-center h-full w-1/3 px-8 md:px-12 text-white">
               <div className="w-full flex flex-col items-start justify-center">
-                <h2 className="text-2xl md:text-3xl lg:text-3xl font-semibold">{badgeTitle}</h2>
+                <h1 className="text-2xl md:text-3xl lg:text-3xl font-semibold">{badgeTitle}</h1>
                 <p className="mt-4 font-normal text-sm md:text-base lg:text-lg">{badgeDesc}</p>
               </div>
             </div>
             <div className="flex md:hidden items-end h-full w-full px-6 pb-8 text-white">
               <div className="w-full flex flex-col items-start justify-end">
-                <h2 className="text-2xl font-semibold">{badgeTitle}</h2>
+                <h1 className="text-2xl font-semibold">{badgeTitle}</h1>
                 <p className="mt-4 text-sm">{badgeDesc}</p>
               </div>
             </div>

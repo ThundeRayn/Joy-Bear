@@ -56,7 +56,7 @@ const Product = () => {
     <Hero
     title="View Our Products" 
     description="Explore our full collection — from playful plush to personalized keepsakes, crafted with heart and imagination."
-    img="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769036590/banner-image_qnmml8.png"/>
+    img="https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_1200/v1769036590/banner-image_qnmml8.png"/>
 
     <div className=" px-5 lg:px-8 pb-6 md:pb-8 lg:pb-15">
       <Back2 text="Back to Menu"/>

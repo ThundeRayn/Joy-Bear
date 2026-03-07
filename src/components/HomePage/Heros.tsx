@@ -6,10 +6,10 @@ import { useState, useEffect } from 'react'
 // const Bear2 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img6_mtqm9x.png";
 // const Bear3 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img3_crddrj.png";
 
-const Bear1 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1768334143/slides1_mylrf5.png";
-const Bear2 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1768334149/slides4_yfw9tl.png";
-const Bear3 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1768334156/slides3_d8uokh.png";
-const Bear4 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1768334138/slides2_irmjes.png";
+const Bear1 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_1200/v1768334143/slides1_mylrf5.png";
+const Bear2 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_1200/v1768334149/slides4_yfw9tl.png";
+const Bear3 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_1200/v1768334156/slides3_d8uokh.png";
+const Bear4 = "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_1200/v1768334138/slides2_irmjes.png";
 
 const Activities = [
   { id: 1, image: Bear1, title: 'Full Customization', description: '' },

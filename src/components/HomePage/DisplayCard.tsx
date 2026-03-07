@@ -88,6 +88,8 @@ const DisplayCard: React.FC<ProductCardProps> = ({ product }) => {
                   // Use Sanity image builder for optimized image delivery (resized to 400px, auto format, quality 75)
                   src={imageUrl}
                   alt={product.title}
+                  width={400}
+                  height={400}
                   // Lazy loading: defer image loading until near viewport for better performance
                   loading="lazy"
                   // Decode async for smoother rendering

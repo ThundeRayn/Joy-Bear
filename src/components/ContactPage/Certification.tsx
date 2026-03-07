@@ -18,25 +18,25 @@ const Certification = () => {
     `;
         // Pagination data
         const itemsBase = [
-            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1765112061/cert3_lvewgm.jpg", label: "Recycled Materials" },
-            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1765112061/cert1_imtkwd.png", label: "Sedex" },
-            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769205579/cert6_iccjux.png", label: "FSC" },
-            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769205580/cert4_nx3rm9.png", label: "BSCI" },
-            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769205583/cert7_tayiok.png", label: "ISO" },
-            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769205581/cert8_y7mjg3.png", label: "Walmart" },
-            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769205579/cert5_jfyfzf.png", label: "Recycled Blended" }
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_200/v1765112061/cert3_lvewgm.jpg", label: "Recycled Materials" },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_200/v1765112061/cert1_imtkwd.png", label: "Sedex" },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_200/v1769205579/cert6_iccjux.png", label: "FSC" },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_200/v1769205580/cert4_nx3rm9.png", label: "BSCI" },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_200/v1769205583/cert7_tayiok.png", label: "ISO" },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_300/v1769205581/cert8_y7mjg3.png", label: "Walmart" },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_200/v1769205579/cert5_jfyfzf.png", label: "Recycled Blended" }
         ];
 
         // Mobile only (< 768px): move Walmart to last; iPad and Desktop: keep original order
         const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
         const items = isMobile ? [
-            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1765112061/cert3_lvewgm.jpg", label: "Recycled Materials" },
-            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1765112061/cert1_imtkwd.png", label: "Sedex" },
-            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769205579/cert6_iccjux.png", label: "FSC" },
-            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769205580/cert4_nx3rm9.png", label: "BSCI" },
-            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769205583/cert7_tayiok.png", label: "ISO" },
-            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769205579/cert5_jfyfzf.png", label: "Recycled Blended" },
-            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769205581/cert8_y7mjg3.png", label: "Walmart" }
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_200/v1765112061/cert3_lvewgm.jpg", label: "Recycled Materials" },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_200/v1765112061/cert1_imtkwd.png", label: "Sedex" },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_200/v1769205579/cert6_iccjux.png", label: "FSC" },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_200/v1769205580/cert4_nx3rm9.png", label: "BSCI" },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_200/v1769205583/cert7_tayiok.png", label: "ISO" },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_200/v1769205579/cert5_jfyfzf.png", label: "Recycled Blended" },
+            { src: "https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_300/v1769205581/cert8_y7mjg3.png", label: "Walmart" }
         ] : itemsBase;
 
         const [currentPage, setCurrentPage] = useState(0);
@@ -75,6 +75,8 @@ const Certification = () => {
                                 <img
                                     src={item.src}
                                     alt={item.label}
+                                    width={160}
+                                    height={160}
                                     className={item.label === 'Walmart' ? "w-56 h-24 md:w-72 md:h-40 object-contain rounded-xl hover:scale-105 transition-transform" 
                                         : item.label === 'ISO' ? "w-24 h-24 md:w-32 md:h-42 object-contain rounded-xl hover:scale-105 transition-transform" : "w-32 h-32 md:w-40 md:h-40 object-cover rounded-xl hover:scale-105 transition-transform"}
                                 />

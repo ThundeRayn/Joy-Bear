@@ -39,7 +39,7 @@ const ActivityDetail = () => {
       {/* Left: Cover Image */}
       <div className="flex-1 flex justify-center">
         {activity.coverImage?.asset?.url ? (
-          <img src={activity.coverImage.asset.url} alt="Activity Cover" className="w-40 h-40 md:w-64 md:h-64 object-contain rounded-xl shadow" />
+          <img src={activity.coverImage.asset.url} alt="Activity Cover" width={256} height={256} className="w-40 h-40 md:w-64 md:h-64 object-contain rounded-xl shadow" />
         ) : (
           <div className="w-40 h-40 md:w-64 md:h-64 bg-gray-100 flex items-center justify-center rounded-xl">No Image</div>
         )}
@@ -59,7 +59,7 @@ const ActivityDetail = () => {
           <div className="flex flex-wrap gap-4 justify-center md:justify-start mb-4">
             {activity.contentImages.map((img, idx) => (
               img.asset?.url ? (
-                <img key={idx} src={img.asset.url} alt={`Activity content ${idx+1}`} className="w-24 h-24 object-cover rounded-lg border" />
+                <img key={idx} src={img.asset.url} alt={`Activity content ${idx+1}`} width={96} height={96} className="w-24 h-24 object-cover rounded-lg border" />
               ) : null
             ))}
           </div>

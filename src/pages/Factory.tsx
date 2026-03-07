@@ -14,7 +14,7 @@ const Factory = () => {
             objectPosition='center 51%'
             title="Your Trusted Plush Toy Manufacturer"
             description="Crafting Comfort and Joy with Every Stitch"
-            img="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769473346/Company_Photo_adkcrg.png" />
+            img="https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_1200/v1769473346/Company_Photo_adkcrg.png" />
 
         <div className="min-h-screen bg-gradient-to-b bg-white flex flex-col items-center">
 

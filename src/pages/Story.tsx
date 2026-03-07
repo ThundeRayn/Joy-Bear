@@ -28,7 +28,7 @@ const Story = () => {
             <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
               {/* Image - larger on mobile and full width above content */}
               <div className="w-full md:w-56 h-48 md:h-28 rounded-lg overflow-hidden flex-shrink-0">
-                <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
+                <img src={item.img} alt={item.title} width={224} height={112} className="w-full h-full object-cover" />
               </div>
 
               {/* Content - stacked under image on mobile */}
