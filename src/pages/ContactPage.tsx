@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from 'react-helmet-async';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -54,6 +55,11 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Helmet>
+        <title>Contact Us | JoyBear Toys</title>
+        <meta name="description" content="Get in touch with JoyBear Toys. Send us a message for product inquiries, pricing, customization options, or general questions." />
+        <link rel="canonical" href="https://www.joybeartoys.com/contact" />
+      </Helmet>
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row min-h-screen">
           {/* Word Section - Left Side on Desktop */}

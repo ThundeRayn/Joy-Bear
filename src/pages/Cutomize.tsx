@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import ContactBadge from '../components/ContactBadge';
 import Hero from '../components/HomePage/Hero';
 
@@ -8,7 +9,12 @@ const Customize = () => {
 
   return (
     <>
-    <Hero 
+    <Helmet>
+      <title>Custom & OEM Services | JoyBear Toys</title>
+      <meta name="description" content="JoyBear offers custom plush toy design, OEM & ODM manufacturing, low MOQ options, and full-service production for brands and businesses." />
+      <link rel="canonical" href="https://www.joybeartoys.com/customize" />
+    </Helmet>
+    <Hero
     objectPosition = 'center 50%'
     title="Find Our Categories" 
     description="Explore our diverse range of toy categories tailored for every child's joy."

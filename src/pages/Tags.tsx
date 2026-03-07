@@ -1,9 +1,15 @@
+import { Helmet } from 'react-helmet-async'
 import Upbadge from "../components/Upbadge"
 
 
 const Tags = () => {
   return (
     <div>
+    <Helmet>
+      <title>Tags | JoyBear Toys</title>
+      <meta name="description" content="Browse JoyBear products by tags — discover your target IP and explore our full plush toy collection." />
+      <link rel="canonical" href="https://www.joybeartoys.com/tags" />
+    </Helmet>
     <Upbadge 
         title="View our storage - discover your target IP"
         description="Explore our full collection — from playful plush to personalized keepsakes, crafted with heart and imagination."

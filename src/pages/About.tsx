@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet-async'
 import Certification from '../components/ContactPage/Certification';
 import Testimonials from '../components/ContactPage/Testimonials';
 import Hero from '../components/HomePage/Hero';
@@ -7,6 +8,11 @@ import Join from '../components/HomePage/Join';
 const About: React.FC = () => {
   return (
     <>
+    <Helmet>
+      <title>About Us | JoyBear Toys</title>
+      <meta name="description" content="Learn about JoyBear Toys — a Canadian plush toy company dedicated to creating comfort, connection, and happiness through high-quality plush companions." />
+      <link rel="canonical" href="https://www.joybeartoys.com/about" />
+    </Helmet>
     {/* <div className="text-center w-full relative py-32 px-8 overflow-hidden"
       style={{
         backgroundImage: 'url(https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img1_att4en.png)',

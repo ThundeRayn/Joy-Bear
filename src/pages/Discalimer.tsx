@@ -1,8 +1,13 @@
-
+import { Helmet } from 'react-helmet-async';
 
 const Discalimer = () => {
   return (
     <div className="min-h-screen bg-gray-50">
+      <Helmet>
+        <title>Disclaimer | JoyBear Toys</title>
+        <meta name="description" content="Read the JoyBear Toys website disclaimer regarding information accuracy, liability, and third-party links." />
+        <link rel="canonical" href="https://www.joybeartoys.com/disclaimer" />
+      </Helmet>
       
       {/* Brown hero section */}
       <div className="bg-Joybrown w-full mb-18 h-28">

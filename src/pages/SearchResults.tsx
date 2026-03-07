@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Helmet } from 'react-helmet-async'
 import { useSearchParams } from "react-router-dom"
 import client from '../Client'
 import ProductCard from "../components/ProductCard";
@@ -63,7 +64,11 @@ const SearchResults = () => {
 
   return (
     <>
-      <Hero 
+      <Helmet>
+        <title>{`Search: ${searchQuery} | JoyBear Toys`}</title>
+        <meta name="description" content={`Search results for "${searchQuery}" on JoyBear Toys.`} />
+      </Helmet>
+      <Hero
         title="Search Results" 
         description={`Results for "${searchQuery}"`}
         img="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769036590/banner-image_qnmml8.png"
