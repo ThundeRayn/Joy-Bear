@@ -40,7 +40,7 @@ const Service: React.FC<SlantedSectionProps> = (props) => {
       <div
         className="absolute inset-0 w-full h-full transition-transform duration-400 group-hover:scale-105"
         style={{
-          backgroundImage: "url('https://res.cloudinary.com/dqj2gwlpf/image/upload/v1768334363/factory_dk5y9b.png')", // Factory img
+          backgroundImage: "url('https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_800/v1768334363/factory_dk5y9b.png')", // Factory img
           backgroundPosition: "left bottom",
           backgroundSize: typeof window !== 'undefined' 
             ? window.innerWidth < 768 ? "400%" : window.innerWidth < 1024 ? "300%" : "210%"
@@ -61,7 +61,7 @@ const Service: React.FC<SlantedSectionProps> = (props) => {
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-400 group-hover:scale-105"
         style={{
-          backgroundImage: "url('https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769473346/Company_Photo_adkcrg.png')" // Building img
+          backgroundImage: "url('https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_800/v1769473346/Company_Photo_adkcrg.png')" // Building img
         }}
       ></div>
       <div className="text-center bg-Joybrown bg-opacity-40 p-4 rounded relative z-10">

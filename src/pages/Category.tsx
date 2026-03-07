@@ -20,7 +20,7 @@ const Category = () => {
     objectPosition = 'center 50%'
     title="Find Our Categories" 
     description="Explore our diverse range of toy categories tailored for every child's joy."
-    img="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769056876/category-banner_g61ypq.png"/>
+    img="https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_1200/v1769056876/category-banner_g61ypq.png"/>
 
     <div className="flex flex-col justify-center text-center py-8 lg:pt-12 px-5 lg:px-8 pb-6 md:pb-8 lg:pb-12">
       <h2 className="text-3xl font-semibold text-black mb-4 uppercase">Categories</h2>

@@ -57,6 +57,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                             ref={imgRef}
                             src={imageUrl}
                             alt={product.title}
+                            width={400}
+                            height={400}
                             // Lazy loading: defer image loading until near viewport for better performance
                             loading="lazy"
                             // Decode async for smoother rendering

@@ -3,37 +3,37 @@ const Categories = () => {
     {
       id: 1,
       title: 'EVERYDAY',
-      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769041988/everyday_zieiam.png',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_500/v1769041988/everyday_zieiam.png',
       link: '/categories/everyday'
     },
     {
       id: 2,
       title: 'GAMES',
-      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769041988/games_zp7zb5.png',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_500/v1769041988/games_zp7zb5.png',
       link: '/categories/games'
     },
     {
       id: 3,
       title: 'HALLOWEEN',
-      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769038844/halloween_rn4ktv.png',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_500/v1769038844/halloween_rn4ktv.png',
       link: '/categories/halloween'
     },
     {
       id: 4,
       title: 'CHRISTMAS',
-      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769041987/christams_mng2tn.png',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_500/v1769041987/christams_mng2tn.png',
       link: '/categories/christmas'
     },
     {
       id: 5,
       title: "VALENTINE'S DAY",
-      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769041986/valentine_vxlnqx.png',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_500/v1769041986/valentine_vxlnqx.png',
       link: '/categories/valentines-day'
     },
     {
       id: 6,
       title: 'EASTER',
-      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769041987/easter_onhd1b.png',
+      image: 'https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_500/v1769041987/easter_onhd1b.png',
       link: '/categories/easter'
     }
   ]
@@ -53,6 +53,8 @@ const Categories = () => {
                 <img
                   src={category.image}
                   alt={category.title}
+                  width={500}
+                  height={256}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
 

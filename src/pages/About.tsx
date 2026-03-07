@@ -34,7 +34,7 @@ const About: React.FC = () => {
       objectPosition = 'center 51%'
       title="Joy, Comfort, and Imagination" 
       description="Inspiration across generations through every plush toy"
-      img="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img1_att4en.png"/>
+      img="https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_1200/v1764552511/img1_att4en.png"/>
 
     <div className="min-h-screen bg-gradient-to-b bg-white flex flex-col items-center">
 
@@ -81,8 +81,10 @@ const About: React.FC = () => {
             {/* Left - Image */}
             <div className="w-full md:w-2/5">
               <img 
-                src="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img2_ebhcga.png" 
-                alt="Our Mission" 
+                src="https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_600/v1764552511/img2_ebhcga.png"
+                alt="Our Mission"
+                width={600}
+                height={400}
                 className="w-full h-auto object-cover max-h-[350px]"
               />
             </div>
@@ -111,8 +113,10 @@ const About: React.FC = () => {
             {/* Right - Image */}
             <div className="w-full md:w-2/5">
               <img 
-                src="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1764552511/img4_w7ucja.png" 
-                alt="Our Vision" 
+                src="https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_600/v1764552511/img4_w7ucja.png"
+                alt="Our Vision"
+                width={600}
+                height={400}
                 className="w-full h-auto object-cover max-h-[350px]"
               />
             </div>

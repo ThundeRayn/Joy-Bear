@@ -15,6 +15,8 @@ const LargeImageDisplay: React.FC<LargeImageDisplayProps> = ({ images, title }) 
         <img
           src={images[selectedIdx]}
           alt={title}
+          width={800}
+          height={800}
           className="max-h-full max-w-full object-contain"
         />
       </div>
@@ -30,6 +32,8 @@ const LargeImageDisplay: React.FC<LargeImageDisplayProps> = ({ images, title }) 
               <img
                 src={imgUrl}
                 alt={title}
+                width={80}
+                height={80}
                 className="max-h-full max-w-full object-contain"
               />
             </div>

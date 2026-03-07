@@ -71,7 +71,7 @@ const SearchResults = () => {
       <Hero
         title="Search Results" 
         description={`Results for "${searchQuery}"`}
-        img="https://res.cloudinary.com/dqj2gwlpf/image/upload/v1769036590/banner-image_qnmml8.png"
+        img="https://res.cloudinary.com/dqj2gwlpf/image/upload/q_auto,f_auto,w_1200/v1769036590/banner-image_qnmml8.png"
       />
 
       <div className="px-5 lg:px-8 pb-6 md:pb-8 lg:pb-15">
