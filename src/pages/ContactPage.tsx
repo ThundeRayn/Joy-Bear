@@ -18,7 +18,7 @@ const ContactPage = () => {
   };
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("joybeartoys@gmail.com");
+    navigator.clipboard.writeText("info@joybeartoys.com");
     setEmailCopied(true);
     setTimeout(() => setEmailCopied(false), 2000);
   };
@@ -88,7 +88,7 @@ const ContactPage = () => {
                     href="mailto:joybeartoys@gmail.com"
                     className="inline-block rounded-md px-4 py-2 text-base font-medium text-white bg-Joybrown shadow hover:bg-Joybrown/90 transition"
                   >
-                    joybeartoys@gmail.com
+                    info@joybeartoys.com
                   </a>
                   <button
                     onClick={handleCopyEmail}
