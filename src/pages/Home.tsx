@@ -3,8 +3,10 @@ import Heros from '../components/HomePage/Heros'
 import TagToyPresentation from '../components/HomePage/TagToyPresentation'
 import Hero from '../components/HomePage/Hero'
 import ContactBadge from '../components/ContactBadge'
-import Certification from '../components/ContactPage/Certification'
-import Service from '../components/HomePage/Service'
+// TEMP-HIDDEN:home-certification (see log/TEMP_DISABLED.md)
+// import Certification from '../components/ContactPage/Certification'
+// TEMP-HIDDEN:home-service (see log/TEMP_DISABLED.md)
+// import Service from '../components/HomePage/Service'
 
 
 
@@ -27,9 +29,13 @@ const Home = () => {
         {/* <TagToys title='Hottest' tagName='Hottest' viewMoreLink='/tags/hottest'/> */}
         {/* <Categories /> */}
 
-        <Certification />
+        {/* TEMP-HIDDEN:home-certification start (see log/TEMP_DISABLED.md) */}
+        {/* <Certification /> */}
+        {/* TEMP-HIDDEN:home-certification end */}
         {/* <Img /> */}
-        <Service />
+        {/* TEMP-HIDDEN:home-service start (see log/TEMP_DISABLED.md) */}
+        {/* <Service /> */}
+        {/* TEMP-HIDDEN:home-service end */}
          <ContactBadge />
     </div>
   )

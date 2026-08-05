@@ -181,12 +181,14 @@ const Navbar = () => {
                   <span className={spanClassName}></span>
                 </a>
               </li>
-              <li className="relative">
+              {/* TEMP-HIDDEN:navbar-factory-desktop start (see log/TEMP_DISABLED.md) */}
+              {/* <li className="relative">
                 <a href='/factory' className="group relative text-[#2c362d] hover:text-txt-secondary transition-colors duration-300 ease-in-out pb-1">
                   OUR FACTORY
                   <span className={spanClassName}></span>
                 </a>
-              </li>
+              </li> */}
+              {/* TEMP-HIDDEN:navbar-factory-desktop end */}
             </ul>
 
             {/* Contact us on right */}
@@ -265,9 +267,11 @@ const Navbar = () => {
                     <li>
                       <a href='/about' className="block py-2 text-[#2c362d] hover:text-txt-secondary transition-colors">ABOUT</a>
                     </li>
-                    <li>
+                    {/* TEMP-HIDDEN:navbar-factory-mobile start (see log/TEMP_DISABLED.md) */}
+                    {/* <li>
                       <a href='/factory' className="block py-2 text-[#2c362d] hover:text-txt-secondary transition-colors">OUR FACTORY</a>
-                    </li>
+                    </li> */}
+                    {/* TEMP-HIDDEN:navbar-factory-mobile end */}
                 </ul>
               </div>
 
