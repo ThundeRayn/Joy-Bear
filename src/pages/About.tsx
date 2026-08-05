@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import Certification from '../components/ContactPage/Certification';
+// TEMP-HIDDEN:about-certification (see log/TEMP_DISABLED.md)
+// import Certification from '../components/ContactPage/Certification';
 import Testimonials from '../components/ContactPage/Testimonials';
 import Hero from '../components/HomePage/Hero';
 import Join from '../components/HomePage/Join';
@@ -129,7 +130,9 @@ const About: React.FC = () => {
 
 
       <Testimonials />
-      <Certification />
+      {/* TEMP-HIDDEN:about-certification start (see log/TEMP_DISABLED.md) */}
+      {/* <Certification /> */}
+      {/* TEMP-HIDDEN:about-certification end */}
     </div>
 
     {/* Email Subscription Section */}

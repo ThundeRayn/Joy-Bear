@@ -40,7 +40,7 @@ const Footer = () => {
                     <p className="text-black text-sm w-full lg:pl-6">
                         JoyBear sells licensed IP toys across Canada, offering OEM and ODM services that bring joy and learning to every product.
                     </p>
-                    
+
                 </div>
 
                 {/* Navigation Links */}
@@ -51,7 +51,9 @@ const Footer = () => {
                         <ul className={listClass}>
                             <li><a href="/products" className={linkClass}>Explore All</a></li>
                             <li><a href="/categories" className={linkClass}>IP Collection</a></li>
-                            <li><a href="/customize" className={linkClass}>OEM Custom Made</a></li>
+                            {/* TEMP-HIDDEN:footer-oem-custom-made start (see log/TEMP_DISABLED.md) */}
+                            {/* <li><a href="/customize" className={linkClass}>OEM Custom Made</a></li> */}
+                            {/* TEMP-HIDDEN:footer-oem-custom-made end */}
                             {/* <li><a href="/quality" className={linkClass}>Quality Standards</a></li> */}
                             {/* <li><a href="/story" className={linkClass}>Brand Story</a></li> */}
                             {/* <li><a href="#" className={linkClass}>Certifications</a></li> */}

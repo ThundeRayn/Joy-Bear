@@ -139,7 +139,8 @@ const Heros = () => {
                   background: 'linear-gradient(to top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0) 100%)'
                 }}
               ></div>
-              <div 
+              {/* TEMP-HIDDEN:heros-slide-captions start (see TEMP_DISABLED.md) */}
+              {/* <div
                 className="absolute bottom-8 left-8 right-8 text-white z-10"
                 style={{
                   animation: idx === current ? 'slideUpFade 0.8s ease-out' : 'none',
@@ -149,7 +150,8 @@ const Heros = () => {
               >
                 <h2 className="text-2xl md:text-3xl font-normal font-sans mb-2">{slide.title}</h2>
                 <p className="text-lg font-normal font-sans uppercase">{slide.description}</p>
-              </div>
+              </div> */}
+              {/* TEMP-HIDDEN:heros-slide-captions end */}
             </div>
           ))}
         </div>
